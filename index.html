@@ -32,7 +32,6 @@
             --color-alliance-glow: #0088ff;
             --color-discord: #5865F2;
             --color-telegram: #0088cc;
-
             /* Backgrounds */
             --color-bg-base: #010308;           
             --color-bg-surface: rgba(10, 20, 40, 0.5); 
@@ -59,7 +58,6 @@
             --transition-normal: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         /* ==========================================================================
            2. RESET & SCROLLBAR
            ========================================================================== */
@@ -69,7 +67,6 @@
         ::-webkit-scrollbar { width: 10px; background: var(--color-bg-base); }
         ::-webkit-scrollbar-thumb { background: var(--color-secondary-light); border: 1px solid var(--color-primary-dark); border-radius: 5px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
-
         body {
             font-family: var(--font-body);
             background-color: var(--color-bg-base);
@@ -78,7 +75,6 @@
             overflow-x: hidden;
             position: relative;
         }
-
         /* ==========================================================================
            3. ELEGANT ARCANE FLAME INTRO ANIMATION
            ========================================================================== */
@@ -98,7 +94,6 @@
             opacity: 0;
             visibility: hidden;
         }
-
         .intro-flames {
             position: absolute;
             top: 50%; left: 50%;
@@ -110,7 +105,6 @@
             animation: arcaneBurn 3.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
             mix-blend-mode: screen;
         }
-
         .intro-logo {
             position: relative;
             font-family: var(--font-heading);
@@ -121,22 +115,18 @@
             animation: logoFade 3s ease forwards;
             z-index: 2;
         }
-
         .intro-logo span { color: var(--color-primary); text-shadow: 0 0 30px var(--color-primary); }
-
         @keyframes arcaneBurn {
             0% { transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
             40% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
             100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
         }
-
         @keyframes logoFade {
             0% { opacity: 0; filter: blur(20px); transform: scale(0.8); }
             30% { opacity: 1; filter: blur(0px); transform: scale(1); }
             80% { opacity: 1; filter: blur(0px); transform: scale(1); }
             100% { opacity: 0; filter: blur(30px); transform: scale(1.2); }
         }
-
         /* ==========================================================================
            4. BACKGROUND & HIGH-PERFORMANCE PARTICLES
            ========================================================================== */
@@ -151,20 +141,17 @@
             pointer-events: none; z-index: -1;
             mix-blend-mode: screen;
         }
-
         /* ==========================================================================
            5. GLOBAL LAYOUT & TYPOGRAPHY
            ========================================================================== */
         .container { max-width: 1440px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 10; }
         section { padding: 140px 0; position: relative; }
         .section-header { text-align: center; margin-bottom: 90px; position: relative; z-index: 2; }
-        
         h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--color-text-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
         h1 { font-size: clamp(3rem, 7vw, 7.5rem); font-weight: 900; line-height: 1.1; background: linear-gradient(to bottom, #FFFFFF 20%, var(--color-primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 30px rgba(0, 209, 255, 0.4)); margin-bottom: 30px;}
         h2 { font-size: clamp(2.5rem, 4vw, 4.5rem); text-shadow: 0 5px 20px rgba(0,0,0,0.9); letter-spacing: 4px; }
         h2::after { content: ''; display: block; width: 180px; height: 4px; background: linear-gradient(90deg, transparent, var(--color-primary), transparent); margin: 30px auto 0; box-shadow: var(--shadow-glow); border-radius: 50%; }
         p { font-size: 1.15rem; margin-bottom: 15px; }
-
         /* ==========================================================================
            6. COMPONENTS: PREMIUM BUTTONS
            ========================================================================== */
@@ -189,7 +176,6 @@
             box-shadow: var(--shadow-glow-intense), var(--shadow-drop); transform: translateY(-4px);
         }
         .btn span { position: relative; z-index: 2; }
-
         /* ==========================================================================
            7. HEADER & PERFECT NAVIGATION
            ========================================================================== */
@@ -209,7 +195,6 @@
             align-items: center; white-space: nowrap;
         }
         .logo span { color: var(--color-primary); text-shadow: var(--shadow-glow); margin-left: 8px; }
-
         .nav-links { 
             display: flex; gap: clamp(10px, 1.5vw, 30px); align-items: center; 
             flex-wrap: wrap; justify-content: center; flex: 1;
@@ -226,9 +211,7 @@
         }
         .nav-links a:hover { color: var(--color-primary-glow); }
         .nav-links a:hover::after { width: 100%; }
-
         .header-controls { display: flex; gap: 15px; align-items: center; white-space: nowrap; }
-        
         .custom-select-wrapper { position: relative; }
         .custom-select {
             appearance: none; -webkit-appearance: none; background: var(--color-secondary-light); 
@@ -241,9 +224,8 @@
             content: '▼'; font-size: 0.7rem; color: var(--color-primary); position: absolute; 
             right: 12px; top: 50%; transform: translateY(-50%); pointer-events: none;
         }
-
         /* ==========================================================================
-           8. HERO SECTION & WOW TOKEN WIDGET
+           8. HERO SECTION
            ========================================================================== */
         .hero {
             height: 100vh; min-height: 900px; display: flex; align-items: center; justify-content: center;
@@ -265,54 +247,6 @@
             transition: opacity 1.5s ease;
         }
         .hero-subtitle { font-size: 1.6rem; color: var(--color-text-main); margin: 0 auto 50px; font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,1); max-width: 900px; line-height: 1.8;}
-
-        /* WOW TOKEN WIDGET STYLES */
-        .token-widget {
-            margin: 40px auto 0;
-            display: inline-block;
-            background: rgba(10, 20, 40, 0.6);
-            border: 1px solid var(--color-primary-dark);
-            border-radius: 8px;
-            padding: 15px 40px;
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-glow);
-            animation: pulseGlow 4s infinite alternate;
-        }
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 15px rgba(0, 209, 255, 0.2); }
-            100% { box-shadow: 0 0 30px rgba(0, 209, 255, 0.6); }
-        }
-        .token-header {
-            font-family: var(--font-heading);
-            color: var(--color-primary-glow);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        .token-prices {
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-        }
-        .token-region {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .region-name {
-            color: var(--color-text-muted);
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        .region-price {
-            color: #FFB100; /* Gold color */
-            font-weight: 900;
-            font-size: 1.4rem;
-            font-family: var(--font-heading);
-            text-shadow: 0 0 15px rgba(255, 177, 0, 0.6);
-        }
-
         /* ==========================================================================
            9. CALCULATOR SECTION
            ========================================================================== */
@@ -328,7 +262,6 @@
         }
         .calc-wrapper::before { top: -1px; left: -1px; border-right: none; border-bottom: none; border-top-left-radius: 12px;}
         .calc-wrapper::after { bottom: -1px; right: -1px; border-left: none; border-top: none; border-bottom-right-radius: 12px;}
-        
         .calc-form-group { margin-bottom: 40px; }
         .calc-form-group label.group-title {
             display: block; font-family: var(--font-heading); font-size: 1.3rem;
@@ -342,7 +275,6 @@
         .calc-select:hover, .calc-select:focus { border-color: var(--color-primary); box-shadow: 0 0 20px rgba(0, 209, 255, 0.2), inset 0 0 20px rgba(0,0,0,0.8); outline: none; }
         .calc-select-wrapper { position: relative; }
         .calc-select-wrapper::after { content: '▼'; position: absolute; right: 25px; top: 50%; transform: translateY(-50%); color: var(--color-primary); pointer-events: none; }
-        
         .range-container { background: rgba(1, 3, 8, 0.7); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color-default); }
         .range-header { display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--color-text-heading); font-weight: 600; font-size: 1.1rem;}
         .range-header span.val { color: var(--color-primary); font-size: 1.6rem; font-family: var(--font-heading); }
@@ -352,7 +284,43 @@
         input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 10px; cursor: pointer; background: var(--color-secondary-light); border-radius: 5px; border: 1px solid var(--border-color-default); }
         input[type=range]::-webkit-slider-thumb { height: 32px; width: 32px; border-radius: 50%; background: var(--color-primary); cursor: pointer; -webkit-appearance: none; margin-top: -12px; box-shadow: var(--shadow-glow); border: 4px solid #fff; transition: transform 0.1s; }
         input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
-        
+        .order-addons {
+            margin-top: 24px;
+            padding: 24px;
+            background: rgba(1, 3, 8, 0.7);
+            border: 1px solid var(--border-color-default);
+            border-radius: 8px;
+        }
+        .order-addons-title {
+            display: block;
+            font-family: var(--font-heading);
+            color: var(--color-primary-glow);
+            font-size: 1.15rem;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .order-addon {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 16px;
+            align-items: center;
+            padding: 18px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            background: rgba(10, 20, 40, 0.45);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        .order-addon:last-child { margin-bottom: 0; }
+        .order-addon:hover { border-color: var(--color-primary-dark); background: rgba(10, 20, 40, 0.75); }
+        .order-addon input { width: 22px; height: 22px; accent-color: var(--color-primary); cursor: pointer; }
+        .order-addon strong { display: block; color: var(--color-text-heading); font-size: 1.05rem; margin-bottom: 4px; }
+        .order-addon span { display: block; color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.45; }
+        .order-addon-price { color: var(--color-accent); font-weight: 900; white-space: nowrap; }
+        .order-addon input:checked ~ .order-addon-copy strong { color: var(--color-primary-glow); }
+        .order-addon:has(input:checked) { border-color: var(--color-primary); box-shadow: 0 0 24px rgba(0, 209, 255, 0.18); }
         .price-panel {
             background: linear-gradient(180deg, var(--color-secondary-light), var(--color-secondary));
             border: 1px solid var(--border-color-hover); border-radius: 12px; padding: 50px 40px;
@@ -364,7 +332,6 @@
         .price-amount .currency { font-size: 3.5rem; color: var(--color-primary-dark); }
         .price-panel p.guarantee { font-size: 1rem; color: var(--color-primary-dark); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; font-weight: 700;}
         .price-panel .btn { width: 100%; }
-
         /* ==========================================================================
            10. ROADMAP (THE STORY BEHIND AZEROTH'S GUIDES) - ANIMATED RIVER
            ========================================================================== */
@@ -373,7 +340,6 @@
             background-attachment: fixed; position: relative; padding: 180px 0; overflow: hidden;
         }
         #roadmap::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(1, 3, 8, 0.92); backdrop-filter: blur(8px); }
-        
         .roadmap-intro {
             max-width: 900px;
             margin: -30px auto 60px;
@@ -387,14 +353,12 @@
             border: 1px solid var(--border-color-default);
             box-shadow: var(--shadow-drop);
         }
-        
         .roadmap-wrapper {
             position: relative;
             max-width: 1100px;
             margin: 0 auto;
             padding: 50px 0;
         }
-        
         /* SVG Curved River */
         .roadmap-svg {
             position: absolute;
@@ -405,12 +369,15 @@
             z-index: 1;
             pointer-events: none;
         }
+        
         .roadmap-path {
             fill: none;
             stroke: var(--color-secondary-light);
             stroke-width: 10;
             stroke-linecap: round;
         }
+        
+        /* The glowing, flowing energy river */
         .roadmap-path-glow {
             fill: none;
             stroke: var(--color-primary);
@@ -420,6 +387,7 @@
             filter: drop-shadow(0 0 20px var(--color-primary));
             animation: flowingRiver 2s linear infinite;
         }
+        /* Mask to reveal on scroll */
         .roadmap-path-mask {
             fill: none;
             stroke: #fff;
@@ -431,7 +399,6 @@
         @keyframes flowingRiver {
             to { stroke-dashoffset: -80; }
         }
-        
         .roadmap-nodes {
             position: relative;
             z-index: 2;
@@ -450,7 +417,6 @@
         }
         .rm-node.in-view { opacity: 1; transform: translateY(0); }
         .rm-node:nth-child(even) { flex-direction: row-reverse; }
-        
         .rm-content {
             width: 42%;
             background: rgba(10, 20, 40, 0.85);
@@ -462,7 +428,6 @@
         }
         .rm-node.in-view .rm-content { border-color: var(--color-primary-dark); }
         .rm-content:hover { transform: scale(1.05); border-color: var(--color-primary); box-shadow: var(--shadow-glow-intense); }
-        
         .rm-point {
             width: 70px; height: 70px;
             background: var(--color-bg-base);
@@ -477,10 +442,8 @@
             border-color: #fff; background: var(--color-primary);
             box-shadow: 0 0 40px #fff, inset 0 0 15px #fff; color: #000;
         }
-        
         .rm-content h3 { font-size: 2.2rem; margin-bottom: 20px; color: var(--color-primary-glow); line-height: 1.2; }
         .rm-content p { color: var(--color-text-main); font-size: 1.15rem; line-height: 1.7; }
-        
         .rm-step {
             display: inline-block; padding: 10px 25px; background: var(--color-secondary-light);
             color: #fff; border-radius: 25px; font-weight: bold; font-size: 1rem; margin-bottom: 25px;
@@ -488,9 +451,8 @@
             text-transform: uppercase; letter-spacing: 1px;
         }
         .rm-spacer { width: 42%; }
-
         /* ==========================================================================
-           11. FEATURES / WHY US
+           11. FEATURES / WHY US (5 Cards - Beautiful Layout)
            ========================================================================== */
         #features { background-color: #010308; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
         
@@ -498,13 +460,14 @@
             max-width: 800px; margin: -40px auto 60px; text-align: center;
             font-size: 1.25rem; color: var(--color-text-main);
         }
-        
+        /* Top row 3 cards, bottom row 2 cards centered */
         .features-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
         }
+        
         .feature-card {
             flex: 1 1 350px;
             max-width: 450px;
@@ -521,7 +484,6 @@
         .feature-icon { font-size: 4.5rem; margin-bottom: 25px; display: inline-block; filter: drop-shadow(0 0 20px rgba(0, 209, 255, 0.6)); color: var(--color-primary); }
         .feature-card h3 { font-size: 1.6rem; color: #fff; margin-bottom: 20px; line-height: 1.3;}
         .feature-card p { font-size: 1.1rem; line-height: 1.6;}
-
         /* ==========================================================================
            12. INFINITE SCROLLING REVIEWS (MARQUEE)
            ========================================================================== */
@@ -534,32 +496,33 @@
             overflow: hidden;
             padding: 20px 0;
         }
+        
+        /* Fade edges */
         .reviews-marquee-wrapper::before, .reviews-marquee-wrapper::after {
             content: ''; position: absolute; top: 0; width: 15vw; height: 100%; z-index: 2; pointer-events: none;
         }
         .reviews-marquee-wrapper::before { left: 0; background: linear-gradient(to right, var(--color-bg-base), transparent); }
         .reviews-marquee-wrapper::after { right: 0; background: linear-gradient(to left, var(--color-bg-base), transparent); }
-        
         .reviews-track {
             display: flex;
             width: max-content;
             animation: scrollMarquee 40s linear infinite;
         }
+        
         .reviews-track:hover {
-            animation-play-state: paused; 
+            animation-play-state: paused; /* Pause on hover */
         }
         @keyframes scrollMarquee {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } 
+            100% { transform: translateX(-50%); } /* Scrolls exactly half, because we duplicate content */
         }
-        
         .review-card {
             width: 450px;
             margin: 0 20px;
             background: linear-gradient(145deg, rgba(10,20,40,0.5), rgba(1,3,8,0.9));
             border: 1px solid var(--border-color-default); border-top: 4px solid var(--color-primary);
             padding: 40px; border-radius: 12px; position: relative; transition: var(--transition-normal); box-shadow: var(--shadow-drop);
-            white-space: normal; 
+            white-space: normal; /* Override nowrap from flex container */
         }
         .review-card:hover { border-color: var(--color-primary-dark); box-shadow: var(--shadow-glow), var(--shadow-drop); transform: translateY(-5px);}
         .review-card::before { content: '"'; position: absolute; top: 15px; right: 25px; font-family: var(--font-heading); font-size: 6rem; color: rgba(0, 209, 255, 0.08); line-height: 1; }
@@ -569,9 +532,8 @@
         .reviewer-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--color-secondary-light); display: flex; justify-content: center; align-items: center; font-weight: 900; color: #fff; margin-right: 15px; border: 2px solid var(--color-primary); font-size: 1.2rem; }
         .reviewer-info h4 { margin-bottom: 5px; font-size: 1.1rem; color: #fff; letter-spacing: 0; text-transform: none; font-family: var(--font-body); font-weight: 700;}
         .reviewer-info span { color: var(--color-primary-dark); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
-
         /* ==========================================================================
-           13. FAQ SECTION
+           13. FAQ SECTION (FIXED ANIMATION)
            ========================================================================== */
         #faq { background-color: var(--color-bg-base); }
         .faq-container { max-width: 1000px; margin: 0 auto; }
@@ -582,6 +544,7 @@
         .faq-icon { font-size: 2rem; color: var(--color-primary); transition: transform 0.4s ease; }
         .faq-item.active .faq-icon { transform: rotate(45deg); color: var(--color-primary-glow); }
         
+        /* The trick for smooth height transition: max-height trick */
         .faq-answer-wrapper {
             display: grid;
             grid-template-rows: 0fr;
@@ -592,7 +555,6 @@
         }
         .faq-answer { overflow: hidden; }
         .faq-answer-inner { padding: 30px 40px; font-size: 1.15rem; line-height: 1.8; color: var(--color-text-main); background: rgba(1, 3, 8, 0.6); }
-
         /* ==========================================================================
            14. FOOTER & SOCIAL ICONS
            ========================================================================== */
@@ -610,12 +572,10 @@
         .social-links a:hover { transform: translateY(-8px); }
         .social-links a.discord:hover { background: var(--color-discord); border-color: #fff; box-shadow: 0 0 20px var(--color-discord);}
         .social-links a.telegram:hover { background: var(--color-telegram); border-color: #fff; box-shadow: 0 0 20px var(--color-telegram);}
-        
         .footer-links { margin-bottom: 40px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;}
         .footer-links a { color: var(--color-text-muted); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: var(--transition-fast); cursor: pointer; font-size: 1rem;}
         .footer-links a:hover { color: var(--color-primary); }
         .footer-disclaimer { font-size: 0.85rem; color: rgba(255,255,255,0.25); max-width: 900px; margin: 0 auto; line-height: 1.8; }
-
         /* ==========================================================================
            15. UNIVERSAL MODALS
            ========================================================================== */
@@ -642,16 +602,18 @@
             transition: var(--transition-fast); z-index: 20;
         }
         .modal-close:hover { color: var(--color-primary-glow); transform: scale(1.1); }
-        
         .modal-body h2 { font-size: 2.8rem; margin-bottom: 30px; border-bottom: 1px solid var(--border-color-default); padding-bottom: 20px; text-align: center;}
         .modal-body h3 { font-size: 1.6rem; color: #fff; margin: 40px 0 20px; color: var(--color-primary-glow);}
         .modal-body p { margin-bottom: 20px; color: var(--color-text-main); font-size: 1.15rem; line-height: 1.8;}
         .modal-body ul { margin-left: 25px; margin-bottom: 20px; color: var(--color-text-main); font-size: 1.15rem; line-height: 1.8;}
         .modal-body li { margin-bottom: 10px; }
-
-        /* Custom Social Contact Toggle */
-        .contact-toggle { display: flex; gap: 15px; margin-bottom: 15px; }
-        .contact-toggle label { flex: 1; position: relative; cursor: pointer; margin: 0 !important; }
+        /* Custom Social Contact Toggle inside Forms */
+        .contact-toggle {
+            display: flex; gap: 15px; margin-bottom: 15px;
+        }
+        .contact-toggle label {
+            flex: 1; position: relative; cursor: pointer; margin: 0 !important;
+        }
         .contact-toggle input { position: absolute; opacity: 0; cursor: pointer; }
         .contact-btn {
             display: flex; align-items: center; justify-content: center; gap: 10px;
@@ -660,9 +622,12 @@
         }
         .contact-btn svg { width: 20px; height: 20px; fill: currentColor; }
         
-        .contact-toggle input[value="Discord"]:checked ~ .contact-btn { border-color: var(--color-discord); color: #fff; background: rgba(88, 101, 242, 0.2); box-shadow: 0 0 15px rgba(88, 101, 242, 0.4); }
-        .contact-toggle input[value="Telegram"]:checked ~ .contact-btn { border-color: var(--color-telegram); color: #fff; background: rgba(0, 136, 204, 0.2); box-shadow: 0 0 15px rgba(0, 136, 204, 0.4); }
-
+        .contact-toggle input[value="Discord"]:checked ~ .contact-btn {
+            border-color: var(--color-discord); color: #fff; background: rgba(88, 101, 242, 0.2); box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+        }
+        .contact-toggle input[value="Telegram"]:checked ~ .contact-btn {
+            border-color: var(--color-telegram); color: #fff; background: rgba(0, 136, 204, 0.2); box-shadow: 0 0 15px rgba(0, 136, 204, 0.4);
+        }
         /* Forms */
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px; }
         .form-group { display: flex; flex-direction: column; }
@@ -671,7 +636,7 @@
         .form-control { padding: 18px 25px; background: rgba(1, 3, 8, 0.9); border: 1px solid var(--border-color-default); color: #fff; border-radius: 6px; font-family: var(--font-body); font-size: 1.1rem; transition: var(--transition-fast); }
         .form-control:focus { outline: none; border-color: var(--color-primary); box-shadow: var(--shadow-glow); }
         
-        /* Faction & Region Selector */
+        /* Faction & Region Selector Cards */
         .faction-selector { display: flex; gap: 25px; }
         .faction-option { flex: 1; position: relative; cursor: pointer; }
         .faction-option input { position: absolute; opacity: 0; cursor: pointer; }
@@ -692,7 +657,6 @@
         .spinner { width: 60px; height: 60px; margin: 0 auto 30px; border: 5px solid rgba(0, 209, 255, 0.2); border-top: 5px solid var(--color-primary); border-radius: 50%; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .spinner-container p { font-size: 1.3rem; color: var(--color-primary-glow); font-weight: bold; letter-spacing: 2px; text-transform: uppercase;}
-
         /* ==========================================================================
            16. SERVICES INFO MODAL
            ========================================================================== */
@@ -711,9 +675,8 @@
         .service-info-card p { font-size: 1.15rem; color: var(--color-text-main); margin-bottom: 25px; line-height: 1.8;}
         .service-info-card ul { margin-bottom: 30px; }
         .btn-go-calc { display: inline-block; }
-
         /* ==========================================================================
-           17. NEWS & GUIDES MODALS
+           17. NEWS & GUIDES MODALS (FULL ARTICLES)
            ========================================================================== */
         .modal-tabs { display: flex; gap: 20px; margin-bottom: 40px; border-bottom: 1px solid var(--border-color-default); padding-bottom: 20px; justify-content: center; flex-wrap: wrap;}
         .modal-tab { background: none; border: none; color: var(--color-text-main); font-size: 1.2rem; font-family: var(--font-heading); font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: var(--transition-fast); padding: 10px 20px; border-radius: 4px;}
@@ -734,7 +697,7 @@
         .article-card h3 { margin-bottom: 15px; font-size: 1.6rem; color: #fff; text-transform: none; font-family: var(--font-body);}
         .article-card p { font-size: 1.1rem; margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;}
         
-        /* Full Article View */
+        /* Full Article View inside Modal */
         #full-article-view, #full-guide-view { display: none; }
         .btn-back { background: transparent; border: 1px solid var(--color-primary); color: var(--color-primary); font-size: 1.1rem; cursor: pointer; margin-bottom: 30px; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; padding: 10px 25px; border-radius: 4px; transition: var(--transition-fast); text-transform: uppercase; letter-spacing: 1px;}
         .btn-back:hover { background: var(--color-primary); color: var(--color-bg-base); box-shadow: var(--shadow-glow); }
@@ -749,12 +712,12 @@
         
         .guide-icon { font-size: 4rem; margin-bottom: 25px; text-align: center; filter: drop-shadow(0 0 15px rgba(0,209,255,0.4));}
         .guide-author { font-size: 1rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase; text-align: center; margin-top: 15px; letter-spacing: 1px;}
-
         /* ==========================================================================
            18. RESPONSIVE MEDIA QUERIES
            ========================================================================== */
         @media (max-width: 1300px) {
             .roadmap-svg { display: none; }
+            .winding-timeline::before { left: 40px; }
             .rm-node { width: 100%; padding-left: 90px; padding-right: 20px; flex-direction: row !important; margin-bottom: 50px; transform: translateX(-50px); gap: 0;}
             .rm-node.in-view { transform: translateX(0); }
             .rm-content { width: 100%; }
@@ -776,6 +739,9 @@
             .modal-content { padding: 30px 20px; }
             .modal-tabs { flex-wrap: wrap; }
             .features-grid { grid-template-columns: 1fr; }
+            .order-addons { padding: 18px; }
+            .order-addon { grid-template-columns: auto 1fr; }
+            .order-addon-price { grid-column: 2; }
         }
     </style>
 </head>
@@ -831,31 +797,13 @@
 
     <main>
         <!-- ==========================================================================
-             HERO SECTION & WOW TOKEN WIDGET
+             HERO SECTION
              ========================================================================== -->
         <section class="hero">
             <div class="hero-content container" id="hero-content" style="opacity:0; transition: opacity 1s;">
                 <h1 data-lang-key="hero_title">CONQUER AZEROTH</h1>
                 <p class="hero-subtitle" data-lang-key="hero_subtitle">Premium boosting service and professional strategies. Learn from the best, achieve your goals fast, safe, and at a fair price.</p>
                 <a href="#calculator" class="btn"><span data-lang-key="hero_cta">Calculate Price</span></a>
-                
-                <!-- WOW TOKEN WIDGET -->
-                <div style="width: 100%;">
-                    <div class="token-widget" id="token-widget">
-                        <div class="token-header">🪙 WoW Token Price</div>
-                        <div class="token-prices">
-                            <div class="token-region">
-                                <span class="region-name">EU:</span>
-                                <span class="region-price" id="token-price-eu">Loading...</span>
-                            </div>
-                            <div class="token-region">
-                                <span class="region-name">US:</span>
-                                <span class="region-price" id="token-price-us">Loading...</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
@@ -869,20 +817,23 @@
                 </div>
                 
                 <div class="calc-wrapper">
+                    <!-- Configuration Options -->
                     <div class="calc-form">
                         <div class="calc-form-group">
                             <label class="group-title" data-lang-key="calc_label_type">Service Type</label>
                             <div class="calc-select-wrapper">
                                 <select id="boost-type" class="calc-select">
-                                    <option value="leveling" data-lang-key="calc_opt_leveling">Powerleveling (1-90)</option>
-                                    <option value="mythic" data-lang-key="calc_opt_mythic">Mythic+ Dungeons</option>
-                                    <option value="raids" data-lang-key="calc_opt_raids">Raid Carries</option>
+                                    <option value="leveling" data-lang-key="calc_opt_leveling">Leveling & Campaigns</option>
+                                    <option value="packages" data-lang-key="calc_opt_packages">Bundles</option>
+                                    <option value="pvp" data-lang-key="calc_opt_pvp">PvP Farm</option>
                                 </select>
                             </div>
                         </div>
+
                         <div id="dynamic-options-container"></div>
                     </div>
-                    
+
+                    <!-- Price Display -->
                     <div class="price-panel">
                         <h4 data-lang-key="price_panel_title">Total Price</h4>
                         <div class="price-amount">
@@ -897,7 +848,7 @@
         </section>
 
         <!-- ==========================================================================
-             ROADMAP SECTION 
+             ROADMAP SECTION (THE STORY) - ANIMATED RIVER
              ========================================================================== -->
         <section id="roadmap">
             <div class="container">
@@ -908,18 +859,22 @@
                 <div class="roadmap-intro" data-lang-key="rm_intro">
                     Azeroth's Guides wasn't born in a corporate office. It was created by a small group of friends who spent over a decade raiding, fighting in arenas, and exploring every corner of Azeroth. We grew tired of seeing massive boosting platforms treat players like numbers and boosters like machines.
                 </div>
-                
+
                 <div class="roadmap-wrapper">
+                    <!-- SVG S-Curve for Desktop -->
                     <svg class="roadmap-svg" viewBox="0 0 800 800" preserveAspectRatio="none">
+                        <!-- Mask to reveal on scroll -->
                         <clipPath id="reveal-mask">
                             <path class="roadmap-path-mask" id="rm-path-mask" d="M400,0 C400,100 700,150 700,250 C700,350 100,400 100,500 C100,600 400,650 400,800" />
                         </clipPath>
+                        <!-- Background Static Line -->
                         <path class="roadmap-path" d="M400,0 C400,100 700,150 700,250 C700,350 100,400 100,500 C100,600 400,650 400,800" />
+                        <!-- Flowing Energy Line inside the mask -->
                         <path class="roadmap-path-glow" d="M400,0 C400,100 700,150 700,250 C700,350 100,400 100,500 C100,600 400,650 400,800" clip-path="url(#reveal-mask)" />
                     </svg>
 
                     <div class="roadmap-nodes">
-                        <!-- Nodes -->
+                        <!-- Node 1 -->
                         <div class="rm-node">
                             <div class="rm-content">
                                 <span class="rm-step" data-lang-key="rm_1_date">Phase 1</span>
@@ -929,7 +884,7 @@
                             <div class="rm-point">💡</div>
                             <div class="rm-spacer"></div>
                         </div>
-
+                        <!-- Node 2 -->
                         <div class="rm-node">
                             <div class="rm-content">
                                 <span class="rm-step" data-lang-key="rm_2_date">Phase 2</span>
@@ -939,7 +894,7 @@
                             <div class="rm-point">⚒️</div>
                             <div class="rm-spacer"></div>
                         </div>
-
+                        <!-- Node 3 -->
                         <div class="rm-node">
                             <div class="rm-content">
                                 <span class="rm-step" data-lang-key="rm_3_date">Phase 3</span>
@@ -949,7 +904,7 @@
                             <div class="rm-point">🌐</div>
                             <div class="rm-spacer"></div>
                         </div>
-
+                        <!-- Node 4 -->
                         <div class="rm-node">
                             <div class="rm-content">
                                 <span class="rm-step" data-lang-key="rm_4_date">Phase 4</span>
@@ -965,7 +920,7 @@
         </section>
 
         <!-- ==========================================================================
-             FEATURES / WHY US SECTION
+             FEATURES / WHY US SECTION (PERFECT 1 ROW GRID, NO EMPTY SPACES)
              ========================================================================== -->
         <section id="features">
             <div class="container">
@@ -977,6 +932,7 @@
                     In a market full of bots and greedy corporations, we stand for quality and transparency. Here is what makes us different:
                 </div>
                 
+                <!-- Explicit 5 items flex layout to wrap perfectly without empty spaces -->
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon">🖐️</div>
@@ -987,7 +943,7 @@
                     <div class="feature-card">
                         <div class="feature-icon">🛡️</div>
                         <h3 data-lang-key="feat_2_title">Security First</h3>
-                        <p data-lang-key="feat_2_desc">We use high-end private VPNs to match your location, ensuring your account stays safe from detection.</p>
+                        <p data-lang-key="feat_2_desc">Choose Piloted, Self-play, or Selfplay Remote. We explain the safest format for your order before the start.</p>
                     </div>
                     
                     <div class="feature-card">
@@ -1012,7 +968,7 @@
         </section>
 
         <!-- ==========================================================================
-             REVIEWS SECTION 
+             REVIEWS SECTION (INFINITE SCROLLING MARQUEE)
              ========================================================================== -->
         <section id="reviews">
             <div class="container">
@@ -1023,13 +979,13 @@
             
             <div class="reviews-marquee-wrapper">
                 <div class="reviews-track" id="reviews-track">
-                    <!-- Reviews injected via JS -->
+                    <!-- Reviews will be injected by JavaScript to enable infinite looping -->
                 </div>
             </div>
         </section>
 
         <!-- ==========================================================================
-             FAQ SECTION
+             FAQ SECTION (FIXED ANIMATION)
              ========================================================================== -->
         <section id="faq">
             <div class="container">
@@ -1046,7 +1002,7 @@
                         <div class="faq-answer-wrapper">
                             <div class="faq-answer">
                                 <div class="faq-answer-inner" data-lang-key="faq_1_a">
-                                    We use city-matched VPNs and invisible mode. However, account sharing carries inherent risks described in our Terms of Service. For 100% safety, choose Self-play.
+                                    You can choose Piloted, Self-play, or Selfplay Remote. Account sharing still carries risks described in our Terms of Service, so choose Self-play or Remote if you want to stay involved during the run.
                                 </div>
                             </div>
                         </div>
@@ -1099,7 +1055,7 @@
     </main>
 
     <!-- ==========================================================================
-         FOOTER
+         FOOTER & SOCIALS
          ========================================================================== -->
     <footer>
         <div class="container">
@@ -1113,6 +1069,7 @@
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.21-1.12-.33-1.08-.7.02-.19.27-.39.75-.6 2.95-1.29 4.93-2.14 5.92-2.55 2.82-1.15 3.4-1.36 3.79-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .31z"/></svg>
                 </a>
             </div>
+
             <div class="footer-links">
                 <a id="btn-open-tos" data-lang-key="footer_link_tos">Terms of Service (Public Offer)</a>
             </div>
@@ -1124,53 +1081,56 @@
     </footer>
 
     <!-- ==========================================================================
-         ALL MODALS
+         ALL MODALS (WINDOWS)
          ========================================================================== -->
+
     <!-- 0. SERVICES INFO Modal -->
     <div id="modal-services" class="modal-overlay">
         <div class="modal-content" style="max-width: 1200px;">
             <span class="modal-close" data-target="modal-services">&times;</span>
             <div class="modal-body">
                 <h2 style="text-align:center; border:none; margin-bottom: 40px;" data-lang-key="srv_modal_title">Our Services</h2>
+                
                 <div class="services-grid">
                     <div class="service-info-card">
                         <div class="guide-icon">📈</div>
-                        <h3 data-lang-key="srv_lvl_title">Powerleveling</h3>
+                        <h3 data-lang-key="srv_lvl_title">Leveling & Campaigns</h3>
                         <div class="article-content" data-lang-key="srv_lvl_desc">
-                            <p>Skip the grind. We will level your character blazingly fast using optimal questing and dungeon routes. 100% done by hand.</p>
+                            <p>Fast manual leveling and current campaign completion with clear timing.</p>
                             <ul>
-                                <li>Levels 1-60: Standard scaling content.</li>
-                                <li>Levels 60-70: Older expansion content.</li>
-                                <li>Levels 70-80: The latest expansion leveling.</li>
-                                <li>Levels 80-90: Max level endgame push. Guaranteed safety.</li>
+                                <li>1-80 in 6 hours.</li>
+                                <li>80-90 in 6 hours.</li>
+                                <li>1-90 in 12 hours.</li>
+                                <li>Midnight and War of Light and Shadow campaigns.</li>
                             </ul>
                         </div>
                         <button class="btn btn-go-calc"><span data-lang-key="hero_cta">Calculate Price</span></button>
                     </div>
                     
                     <div class="service-info-card">
-                        <div class="guide-icon">⚔️</div>
-                        <h3 data-lang-key="srv_mythic_title">Mythic+ Dungeons</h3>
+                        <div class="guide-icon">🎁</div>
+                        <h3 data-lang-key="srv_mythic_title">Bundles</h3>
                         <div class="article-content" data-lang-key="srv_mythic_desc">
-                            <p>Secure your weekly Great Vault loot, high-ilvl gear, and Mythic+ Rating. Our elite groups will time any key up to +20 effortlessly.</p>
+                            <p>Ready-made leveling and campaign bundles for a better total price.</p>
                             <ul>
-                                <li>+10 Keys: Perfect for farming crests.</li>
-                                <li>+15 Keys: The sweet spot for Hero track gear.</li>
-                                <li>+20 Keys: Mythic track gear and teleports.</li>
+                                <li>Midnight + War of Light and Shadow.</li>
+                                <li>80-90 + Midnight.</li>
+                                <li>1-90 + both campaigns.</li>
                             </ul>
                         </div>
                         <button class="btn btn-go-calc"><span data-lang-key="hero_cta">Calculate Price</span></button>
                     </div>
 
                     <div class="service-info-card">
-                        <div class="guide-icon">🐉</div>
-                        <h3 data-lang-key="srv_raid_title">Raid Carries</h3>
+                        <div class="guide-icon">🏆</div>
+                        <h3 data-lang-key="srv_raid_title">PvP Farm</h3>
                         <div class="article-content" data-lang-key="srv_raid_desc">
-                            <p>Full clears of the latest raids on Normal, Heroic, or Mythic difficulties. Get your Ahead of the Curve achievements, mounts, and Best-in-Slot gear.</p>
+                            <p>Honor and Conquest farm for gear or currency targets.</p>
                             <ul>
-                                <li>Normal Clear: Experience the story.</li>
-                                <li>Heroic Clear: Earn AOTC and powerful upgrades.</li>
-                                <li>Mythic Clear: The ultimate challenge. Exclusive titles.</li>
+                                <li>Full Honor gear set.</li>
+                                <li>Full Conquest gear set.</li>
+                                <li>Honor currency per 1000.</li>
+                                <li>Conquest currency per 500.</li>
                             </ul>
                         </div>
                         <button class="btn btn-go-calc"><span data-lang-key="hero_cta">Calculate Price</span></button>
@@ -1184,9 +1144,11 @@
     <div id="modal-order" class="modal-overlay">
         <div class="modal-content" style="max-width: 800px;">
             <span class="modal-close" data-target="modal-order">&times;</span>
+            
             <div class="modal-body" id="order-content-area">
                 <h2 style="text-align:center; border:none;" data-lang-key="form_title_order">Order Service</h2>
                 <p style="text-align:center; color: var(--color-text-muted); margin-bottom: 40px; font-size: 1.2rem;" data-lang-key="form_subtitle">Fill out the details below to request your boost.</p>
+                
                 <form id="order-form">
                     <div class="form-grid">
                         <div class="form-group full-width">
@@ -1194,6 +1156,7 @@
                             <input type="text" id="order-char-name" class="form-control" required>
                         </div>
                         
+                        <!-- Toggle Contact Method -->
                         <div class="form-group full-width">
                             <label class="field-title" data-lang-key="form_lbl_contact">Contact Method</label>
                             <div class="contact-toggle">
@@ -1214,7 +1177,8 @@
                             </div>
                             <input type="text" id="order-contact-value" class="form-control" placeholder="Discord Tag (e.g. player#1234)" required>
                         </div>
-                        
+
+                        <!-- REGION -->
                         <div class="form-group full-width">
                             <label class="field-title" data-lang-key="form_lbl_region">Region</label>
                             <div class="faction-selector">
@@ -1229,6 +1193,7 @@
                             </div>
                         </div>
 
+                        <!-- FACTION -->
                         <div class="form-group full-width">
                             <label class="field-title" data-lang-key="form_lbl_faction">Faction</label>
                             <div class="faction-selector">
@@ -1242,11 +1207,14 @@
                                 </label>
                             </div>
                         </div>
+
                         <div class="form-group full-width">
                             <label class="field-title" data-lang-key="form_lbl_notes">Additional Details / Target Service</label>
+                            <!-- Smart populated textarea -->
                             <textarea id="order-notes" class="form-control" rows="3" readonly></textarea>
                         </div>
                     </div>
+                    
                     <button type="submit" class="btn submit-btn"><span data-lang-key="form_btn_submit">Submit Request</span></button>
                 </form>
             </div>
@@ -1255,6 +1223,7 @@
                 <div class="spinner"></div>
                 <p data-lang-key="form_loading">Sending request...</p>
             </div>
+
             <div class="form-success" id="order-success">
                 <div class="success-icon">✓</div>
                 <h3 data-lang-key="form_success_title">Request Sent Successfully!</h3>
@@ -1267,9 +1236,11 @@
     <div id="modal-apply" class="modal-overlay">
         <div class="modal-content" style="max-width: 800px;">
             <span class="modal-close" data-target="modal-apply">&times;</span>
+            
             <div class="modal-body" id="apply-content-area">
                 <h2 style="text-align:center; border:none;" data-lang-key="form_title_apply">Join Our Team</h2>
                 <p style="text-align:center; color: var(--color-text-muted); margin-bottom: 30px; font-size: 1.2rem;" data-lang-key="form_apply_sub">Leave your details to become a booster.</p>
+                
                 <div class="guides-intro" style="margin-bottom: 40px;">
                     <ul style="margin: 0;">
                         <li data-lang-key="booster_li_1">Fixed and transparent payout: exactly 50% of the order value.</li>
@@ -1277,6 +1248,7 @@
                         <li data-lang-key="booster_li_4">Payouts by mutual agreement.</li>
                     </ul>
                 </div>
+
                 <form id="apply-form">
                     <div class="form-grid">
                         <div class="form-group full-width">
@@ -1308,6 +1280,7 @@
                             <textarea id="apply-exp" class="form-control" rows="5" required placeholder="I have been boosting M+ for 3 years..."></textarea>
                         </div>
                     </div>
+                    
                     <button type="submit" class="btn submit-btn"><span data-lang-key="form_btn_submit">Submit Request</span></button>
                 </form>
             </div>
@@ -1316,6 +1289,7 @@
                 <div class="spinner"></div>
                 <p data-lang-key="form_loading">Sending request...</p>
             </div>
+
             <div class="form-success" id="apply-success">
                 <div class="success-icon">✓</div>
                 <h3 data-lang-key="form_success_title">Request Sent Successfully!</h3>
@@ -1386,7 +1360,7 @@
                 <p data-lang-key="tos_p1_2">1.2. The User agrees that punitive measures may be applied to their account for violating these rules, up to and including permanent account suspension (ban).</p>
                 
                 <h3 data-lang-key="tos_h2">2. Limitation of Liability</h3>
-                <p data-lang-key="tos_p2_1">2.1. The Service undertakes to apply maximum technical precautions (premium VPN routing, hiding online status), however, the Service \*\*does not provide any absolute guarantees\*\* of protection against detection.</p>
+                <p data-lang-key="tos_p2_1">2.1. The Service undertakes to apply maximum technical precautions (premium VPN routing, hiding online status), however, the Service **does not provide any absolute guarantees** of protection against detection.</p>
                 <p data-lang-key="tos_p2_2">2.2. In the event of account suspension, rollback of achievements, or confiscation of in-game valuables, the Service bears no financial, moral, or legal responsibility.</p>
                 
                 <h3 data-lang-key="tos_h5">3. Payment Terms</h3>
@@ -1428,22 +1402,56 @@
                 hero_subtitle: "Premium boosting service and professional strategies. Learn from the best, achieve your goals fast, safe, and at a fair price.",
                 hero_cta: "Calculate Price",
                 btn_back: "Back",
+
                 calc_section_title: "Service Calculator",
                 calc_label_type: "Service Type",
-                calc_opt_leveling: "Powerleveling (1-90)",
-                calc_opt_mythic: "Mythic+ Dungeons",
-                calc_opt_raids: "Raid Carries",
+                calc_opt_leveling: "Leveling & Campaigns",
+                calc_opt_packages: "Bundles",
+                calc_opt_pvp: "PvP Farm",
+                calc_opt_mythic: "Bundles",
+                calc_opt_raids: "PvP Farm",
                 price_panel_title: "Total Price",
                 price_panel_guarantee: "Service fee included",
                 price_panel_btn: "Place Order",
-                lvl_current: "Current Level:",
-                lvl_desired: "Desired Level:",
-                opt_key_10: "+10 Key (In Time)",
-                opt_key_15: "+15 Key (In Time)",
-                opt_key_20: "+20 Key (In Time)",
-                opt_raid_norm: "Normal Raid (Full Loot)",
-                opt_raid_hc: "Heroic Raid (Full Loot)",
-                opt_raid_mythic: "Mythic Raid (First 3 Bosses)",
+                addon_execution_title: "Execution format",
+                addon_piloted_title: "Piloted",
+                addon_piloted_desc: "A booster plays on the customer's account.",
+                addon_piloted_price: "Free",
+                addon_selfplay_title: "Self-play",
+                addon_selfplay_desc: "You join the party and play your own character with our booster or team.",
+                addon_selfplay_price: "Free",
+                addon_remote_title: "Selfplay Remote",
+                addon_remote_desc: "The booster connects to your desktop and performs the order through your session.",
+                addon_remote_price: "+20%",
+                addon_speed_title: "Start speed",
+                addon_standard_title: "Standard queue",
+                addon_standard_desc: "Normal start according to the current queue.",
+                addon_standard_price: "Free",
+                addon_express_title: "Express",
+                addon_express_desc: "Faster start with higher priority.",
+                addon_express_price: "+10%",
+                addon_super_express_title: "Super Express",
+                addon_super_express_desc: "Top priority: we take the order first and move it ahead of the queue.",
+                addon_super_express_price: "+30%",
+                addon_notes_title: "Selected options",
+                addon_none: "No extra options",
+
+                opt_level_1_80: "Leveling 1→80 (6 hours)",
+                opt_level_80_90: "Leveling 80→90 (6 hours)",
+                opt_level_1_90: "Leveling 1→90 (12 hours)",
+                opt_campaign_midnight: "Midnight campaign completion",
+                opt_campaign_light_shadow: "War of Light and Shadow campaign completion",
+
+                opt_pack_midnight_shadow: "Midnight + War of Light and Shadow campaigns",
+                opt_pack_80_90_midnight: "Leveling 80→90 + Midnight campaign",
+                opt_pack_80_90_both: "Leveling 80→90 + Midnight + War of Light and Shadow",
+                opt_pack_1_90_midnight: "Leveling 1→90 + Midnight campaign",
+                opt_pack_1_90_both: "Leveling 1→90 + Midnight + War of Light and Shadow",
+
+                opt_honor_gear: "Full Honor gear set (276 ilvl)",
+                opt_conquest_gear: "Full Conquest gear set (289 ilvl)",
+                opt_honor_currency: "Honor currency farm (per 1000)",
+                opt_conquest_currency: "Conquest currency farm (per 500)",
                 
                 rm_title: "The Story Behind Azeroth's Guides",
                 rm_intro: "Azeroth's Guides wasn't born in a corporate office. It was created by a small group of friends who spent over a decade raiding, fighting in arenas, and exploring every corner of Azeroth. We grew tired of seeing massive boosting platforms treat players like numbers and boosters like machines. We decided to build a place where honesty, skill, and safety come first.",
@@ -1465,7 +1473,7 @@
                 feat_1_title: "100% Manual Work",
                 feat_1_desc: "We never use bots, scripts, or rotation software. Every level and achievement is earned by the hands of our professionals.",
                 feat_2_title: "Security First",
-                feat_2_desc: "We use high-end private VPNs to match your location, ensuring your account stays safe from detection.",
+                feat_2_desc: "Choose Piloted, Self-play, or Selfplay Remote. We explain the safest format for your order before the start.",
                 feat_3_title: "Video Proof",
                 feat_3_desc: "Transparency is our core value. Our boosters provide video recordings of the starting and ending points (inventory/gold check).",
                 feat_4_title: "Fair Pricing",
@@ -1486,7 +1494,7 @@
                 
                 faq_title: "Frequently Asked Questions",
                 faq_1_q: "Is it safe for my account?",
-                faq_1_a: "We use city-matched VPNs and invisible mode. However, account sharing carries inherent risks described in our Terms of Service. For 100% safety, choose Self-play.",
+                faq_1_a: "You can choose Piloted, Self-play, or Selfplay Remote. Account sharing still carries risks described in our Terms of Service, so choose Self-play or Remote if you want to stay involved during the run.",
                 faq_2_q: "What payment methods do you accept?",
                 faq_2_a: "Currently, we accept Cryptocurrencies (USDT, BTC, ETH) and DonationAlerts. PayPal support is coming soon. We work on a 50% upfront payment basis.",
                 faq_3_q: "How fast will my order start?",
@@ -1540,12 +1548,12 @@
                 guides_intro: "Our performers are not just mercenaries, they are professionals from the top 100 guilds in the world. They are the ones who, based on their colossal experience, compile these guides. Learn from the absolute best.",
                 
                 srv_modal_title: "Our Services",
-                srv_lvl_title: "Powerleveling",
-                srv_lvl_desc: "<p>Skip the grind. We will level your character blazingly fast using optimal questing and dungeon routes. 100% done by hand.</p><ul><li>Levels 1-60: Standard scaling content.</li><li>Levels 60-70: Older expansion content.</li><li>Levels 70-80: The latest expansion leveling.</li><li>Levels 80-90: Max level endgame push. Guaranteed safety.</li></ul>",
-                srv_mythic_title: "Mythic+ Dungeons",
-                srv_mythic_desc: "<p>Secure your weekly Great Vault loot, high-ilvl gear, and Mythic+ Rating. Our elite groups will time any key effortlessly.</p><ul><li>+10 Keys: Perfect for farming crests.</li><li>+15 Keys: The sweet spot for Hero track gear.</li><li>+20 Keys: Mythic track gear and teleports.</li></ul>",
-                srv_raid_title: "Raid Carries",
-                srv_raid_desc: "<p>Full clears of the latest raids. Get your Ahead of the Curve achievements, mounts, and Best-in-Slot gear.</p><ul><li>Normal Clear: Experience the story.</li><li>Heroic Clear: Earn AOTC and powerful upgrades.</li><li>Mythic Clear: The ultimate challenge. Exclusive titles.</li></ul>"
+                srv_lvl_title: "Leveling & Campaigns",
+                srv_lvl_desc: "<p>Fast manual leveling and current campaign completion with clear timing.</p><ul><li>Leveling 1→80 in 6 hours.</li><li>Leveling 80→90 in 6 hours.</li><li>Leveling 1→90 in 12 hours.</li><li>Midnight and War of Light and Shadow campaign completion.</li></ul>",
+                srv_mythic_title: "Bundles",
+                srv_mythic_desc: "<p>Ready-made leveling and campaign bundles for a better total price.</p><ul><li>Midnight + War of Light and Shadow.</li><li>80→90 + Midnight.</li><li>80→90 + both campaigns.</li><li>1→90 + Midnight or both campaigns.</li></ul>",
+                srv_raid_title: "PvP Farm",
+                srv_raid_desc: "<p>Honor and Conquest farm for gear or currency targets.</p><ul><li>Full Honor gear set (276 ilvl).</li><li>Full Conquest gear set (289 ilvl).</li><li>Honor currency farm per 1000.</li><li>Conquest currency farm per 500.</li></ul>"
             },
             ru: {
                 page_title: "Azeroth's Guides | Премиальный Бустинг",
@@ -1562,22 +1570,56 @@
                 hero_subtitle: "Премиальный сервис бустинга и профессиональные стратегии. Учитесь у лучших, достигайте целей быстро, безопасно и по честной цене.",
                 hero_cta: "Рассчитать стоимость",
                 btn_back: "Назад",
+
                 calc_section_title: "Калькулятор Услуг",
                 calc_label_type: "Тип услуги",
-                calc_opt_leveling: "Прокачка уровня (1-90)",
-                calc_opt_mythic: "Эпохальные+ Ключи",
-                calc_opt_raids: "Прохождение Рейдов",
+                calc_opt_leveling: "Левелинг и кампании",
+                calc_opt_packages: "Пакеты",
+                calc_opt_pvp: "PvP фарм",
+                calc_opt_mythic: "Пакеты",
+                calc_opt_raids: "PvP фарм",
                 price_panel_title: "Итоговая стоимость",
                 price_panel_guarantee: "Комиссия включена",
                 price_panel_btn: "Оформить Заказ",
-                lvl_current: "Текущий уровень:",
-                lvl_desired: "Желаемый уровень:",
-                opt_key_10: "+10 Ключ (В таймер)",
-                opt_key_15: "+15 Ключ (В таймер)",
-                opt_key_20: "+20 Ключ (В таймер)",
-                opt_raid_norm: "Рейд: Нормал (Фулл лут)",
-                opt_raid_hc: "Рейд: Героик (Фулл лут)",
-                opt_raid_mythic: "Рейд: Эпохальный (Первые 3 босса)",
+                addon_execution_title: "Формат выполнения",
+                addon_piloted_title: "Piloted",
+                addon_piloted_desc: "Бустер играет на аккаунте заказчика.",
+                addon_piloted_price: "Бесплатно",
+                addon_selfplay_title: "Self-play",
+                addon_selfplay_desc: "Заказчик заходит в пати к бустеру или команде и играет своим персонажем.",
+                addon_selfplay_price: "Бесплатно",
+                addon_remote_title: "Selfplay Remote",
+                addon_remote_desc: "Бустер подключается к рабочему столу заказчика и выполняет заказ через вашу сессию.",
+                addon_remote_price: "+20%",
+                addon_speed_title: "Скорость старта",
+                addon_standard_title: "Обычная очередь",
+                addon_standard_desc: "Стандартный старт по текущей очереди.",
+                addon_standard_price: "Бесплатно",
+                addon_express_title: "Express",
+                addon_express_desc: "Более быстрый старт с повышенным приоритетом.",
+                addon_express_price: "+10%",
+                addon_super_express_title: "Super Express",
+                addon_super_express_desc: "Максимальный приоритет: берем заказ первым и запускаем вне очереди.",
+                addon_super_express_price: "+30%",
+                addon_notes_title: "Выбранные опции",
+                addon_none: "Без дополнительных опций",
+
+                opt_level_1_80: "Прокачка 1→80 (за 6 часов)",
+                opt_level_80_90: "Прокачка 80→90 (за 6 часов)",
+                opt_level_1_90: "Прокачка 1→90 (за 12 часов)",
+                opt_campaign_midnight: "Прохождение сюжетной кампании Midnight",
+                opt_campaign_light_shadow: "Прохождение кампании War of Light and Shadow",
+
+                opt_pack_midnight_shadow: "Кампания Midnight + War of Light and Shadow",
+                opt_pack_80_90_midnight: "Прокачка 80→90 + кампания Midnight",
+                opt_pack_80_90_both: "Прокачка 80→90 + Midnight + War of Light and Shadow",
+                opt_pack_1_90_midnight: "Прокачка 1→90 + кампания Midnight",
+                opt_pack_1_90_both: "Прокачка 1→90 + Midnight + War of Light and Shadow",
+
+                opt_honor_gear: "Фарм полного комплекта Honor gear (276 ilvl)",
+                opt_conquest_gear: "Фарм полного комплекта Conquest gear (289 ilvl)",
+                opt_honor_currency: "Фарм Honor валюты (за 1000)",
+                opt_conquest_currency: "Фарм Conquest валюты (за 500)",
                 
                 rm_title: "История создания Azeroth's Guides",
                 rm_intro: "Azeroth's Guides не был создан в корпоративном офисе. Он был создан небольшой группой друзей, которые потратили больше десятилетия на рейды, арены и исследование каждого уголка Азерота. Мы устали смотреть, как крупные платформы относятся к игрокам как к числам. Мы решили создать место, где честность и безопасность стоят на первом месте.",
@@ -1599,7 +1641,7 @@
                 feat_1_title: "100% Ручная работа",
                 feat_1_desc: "Мы не используем скрипты или ботов. Каждое достижение зарабатывается руками профессионалов.",
                 feat_2_title: "Безопасность",
-                feat_2_desc: "Мы используем приватные VPN под ваш город, защищая аккаунт от детекта Blizzard.",
+                feat_2_desc: "Можно выбрать Piloted, Self-play или Selfplay Remote. Перед стартом мы подскажем самый безопасный формат под ваш заказ.",
                 feat_3_title: "Видео-доказательства",
                 feat_3_desc: "Полная прозрачность. Наши бустеры предоставляют видео старта и конца сессии (проверка сумок и золота).",
                 feat_4_title: "Честные цены",
@@ -1620,7 +1662,7 @@
                 
                 faq_title: "Частые Вопросы",
                 faq_1_q: "Это безопасно для моего аккаунта?",
-                faq_1_a: "Мы применяем приватные VPN. Но передача аккаунта несет риски (см. оферту). Для 100% безопасности выбирайте режим Self-play.",
+                faq_1_a: "Вы можете выбрать Piloted, Self-play или Selfplay Remote. Передача аккаунта все равно несет риски (см. оферту), поэтому выбирайте Self-play или Remote, если хотите оставаться вовлеченным во время выполнения.",
                 faq_2_q: "Какие способы оплаты вы принимаете?",
                 faq_2_a: "На данный момент мы принимаем Криптовалюту и DonationAlerts. Поддержка PayPal скоро появится. Мы работаем по 50% предоплате.",
                 faq_3_q: "Как быстро начнется выполнение?",
@@ -1674,12 +1716,12 @@
                 guides_intro: "Наши исполнители — не просто наемники, это профессионалы из топ-100 гильдий мира. Именно они, опираясь на свой колоссальный опыт, составляют эти гайды. Учитесь у лучших.",
                 
                 srv_modal_title: "Об Услугах",
-                srv_lvl_title: "Прокачка Уровня",
-                srv_lvl_desc: "<p>Забудьте о рутине. Мы быстро прокачаем вашего персонажа по оптимальным маршрутам. 100% руками.</p><ul><li>Уровни 1-60: Стандартный контент.</li><li>Уровни 60-70: Контент старых дополнений.</li><li>Уровни 70-80: Актуальный контент прокачки.</li><li>Уровни 80-90: Эндгейм пуш. Максимальная безопасность.</li></ul>",
-                srv_mythic_title: "Эпохальные+ Ключи",
-                srv_mythic_desc: "<p>Гарантированный лут в хранилище и топ шмот. Наши элитные группы закроют любой ключ до +20 без проблем.</p><ul><li>+10 Ключи: Фарм гребней.</li><li>+15 Ключи: Идеально для Героик-экипировки.</li><li>+20 Ключи: Мифический шмот и порталы.</li></ul>",
-                srv_raid_title: "Рейды",
-                srv_raid_desc: "<p>Полное прохождение актуальных рейдов. Получите достижения и BiS экипировку.</p><ul><li>Нормал: Узнайте сюжет и оденьте твинка.</li><li>Героик: Достижение AOTC и мощные апгрейды.</li><li>Мифик: Ультимативный вызов. Эксклюзивные звания.</li></ul>"
+                srv_lvl_title: "Левелинг и кампании",
+                srv_lvl_desc: "<p>Быстрая ручная прокачка и прохождение актуальных кампаний с понятными сроками.</p><ul><li>Прокачка 1→80 за 6 часов.</li><li>Прокачка 80→90 за 6 часов.</li><li>Прокачка 1→90 за 12 часов.</li><li>Кампании Midnight и War of Light and Shadow.</li></ul>",
+                srv_mythic_title: "Пакеты",
+                srv_mythic_desc: "<p>Готовые наборы прокачки и кампаний по более выгодной итоговой цене.</p><ul><li>Midnight + War of Light and Shadow.</li><li>80→90 + Midnight.</li><li>80→90 + обе кампании.</li><li>1→90 + Midnight или обе кампании.</li></ul>",
+                srv_raid_title: "PvP фарм",
+                srv_raid_desc: "<p>Фарм Honor и Conquest под комплект экипировки или нужное количество валюты.</p><ul><li>Полный комплект Honor gear (276 ilvl).</li><li>Полный комплект Conquest gear (289 ilvl).</li><li>Honor валюта за каждые 1000.</li><li>Conquest валюта за каждые 500.</li></ul>"
             },
             fr: {
                 page_title: "Azeroth's Guides | Premium",
@@ -1698,20 +1740,50 @@
                 btn_back: "Retour",
                 calc_section_title: "Calculateur",
                 calc_label_type: "Type",
-                calc_opt_leveling: "Niveaux (1-90)",
-                calc_opt_mythic: "Mythique+",
-                calc_opt_raids: "Raids",
+                calc_opt_leveling: "Niveaux et campagnes",
+                calc_opt_packages: "Packs",
+                calc_opt_pvp: "Farm PvP",
+                calc_opt_mythic: "Packs",
+                calc_opt_raids: "Farm PvP",
                 price_panel_title: "Total",
                 price_panel_guarantee: "Frais inclus",
                 price_panel_btn: "Commander",
-                lvl_current: "Niveau Actuel:",
-                lvl_desired: "Niveau Désiré:",
-                opt_key_10: "Clé +10",
-                opt_key_15: "Clé +15",
-                opt_key_20: "Clé +20",
-                opt_raid_norm: "Raid Normal",
-                opt_raid_hc: "Raid Héroïque",
-                opt_raid_mythic: "Raid Mythique",
+                addon_execution_title: "Format d'exécution",
+                addon_piloted_title: "Piloted",
+                addon_piloted_desc: "Le booster joue sur le compte du client.",
+                addon_piloted_price: "Gratuit",
+                addon_selfplay_title: "Self-play",
+                addon_selfplay_desc: "Vous rejoignez le groupe et jouez votre personnage avec notre booster.",
+                addon_selfplay_price: "Gratuit",
+                addon_remote_title: "Selfplay Remote",
+                addon_remote_desc: "Le booster se connecte a votre bureau et réalise la commande via votre session.",
+                addon_remote_price: "+20%",
+                addon_speed_title: "Vitesse de départ",
+                addon_standard_title: "File standard",
+                addon_standard_desc: "Départ normal selon la file actuelle.",
+                addon_standard_price: "Gratuit",
+                addon_express_title: "Express",
+                addon_express_desc: "Départ plus rapide avec priorité.",
+                addon_express_price: "+10%",
+                addon_super_express_title: "Super Express",
+                addon_super_express_desc: "Priorité maximale: la commande passe avant la file.",
+                addon_super_express_price: "+30%",
+                addon_notes_title: "Options choisies",
+                addon_none: "Aucune option",
+                opt_level_1_80: "Leveling 1→80 (6 heures)",
+                opt_level_80_90: "Leveling 80→90 (6 heures)",
+                opt_level_1_90: "Leveling 1→90 (12 heures)",
+                opt_campaign_midnight: "Campagne Midnight",
+                opt_campaign_light_shadow: "Campagne War of Light and Shadow",
+                opt_pack_midnight_shadow: "Campagnes Midnight + War of Light and Shadow",
+                opt_pack_80_90_midnight: "Leveling 80→90 + campagne Midnight",
+                opt_pack_80_90_both: "Leveling 80→90 + Midnight + War of Light and Shadow",
+                opt_pack_1_90_midnight: "Leveling 1→90 + campagne Midnight",
+                opt_pack_1_90_both: "Leveling 1→90 + Midnight + War of Light and Shadow",
+                opt_honor_gear: "Set complet Honor gear (276 ilvl)",
+                opt_conquest_gear: "Set complet Conquest gear (289 ilvl)",
+                opt_honor_currency: "Farm de monnaie Honor (par 1000)",
+                opt_conquest_currency: "Farm de monnaie Conquest (par 500)",
                 rm_title: "Notre Histoire",
                 rm_intro: "Créé par des joueurs passionnés, nous offrons une alternative honnête aux grandes corporations.",
                 rm_1_date: "Phase 1",
@@ -1731,7 +1803,7 @@
                 feat_1_title: "100% Manuel",
                 feat_1_desc: "Aucun bot, jamais.",
                 feat_2_title: "Sécurité",
-                feat_2_desc: "VPN dédiés et confidentialité.",
+                feat_2_desc: "Choisissez Piloted, Self-play ou Selfplay Remote selon votre commande.",
                 feat_3_title: "Preuve Vidéo",
                 feat_3_desc: "Transparence totale de l'inventaire.",
                 feat_4_title: "Prix Équitables",
@@ -1749,7 +1821,7 @@
                 booster_circle_desc: "Part équitable",
                 faq_title: "FAQ",
                 faq_1_q: "Est-ce sûr?",
-                faq_1_a: "Nous utilisons un VPN.",
+                faq_1_a: "Vous pouvez choisir Piloted, Self-play ou Selfplay Remote. Le partage de compte comporte toujours des risques.",
                 faq_2_q: "Paiement?",
                 faq_2_a: "Crypto et DonationAlerts. 50% avance.",
                 faq_3_q: "Délai?",
@@ -1798,12 +1870,12 @@
                 guides_modal_title: "Guides Pro",
                 guides_intro: "Rédigés par l'élite.",
                 srv_modal_title: "Nos Services",
-                srv_lvl_title: "Montée de niveau",
-                srv_lvl_desc: "<p>Rapide et 100% fait à la main.</p>",
-                srv_mythic_title: "Mythique+",
-                srv_mythic_desc: "<p>Loot de la grande chambre forte garanti.</p>",
-                srv_raid_title: "Raids",
-                srv_raid_desc: "<p>Nettoyage complet pour le meilleur équipement.</p>"
+                srv_lvl_title: "Niveaux et campagnes",
+                srv_lvl_desc: "<p>Leveling manuel rapide et campagnes actuelles avec délais clairs.</p><ul><li>1→80 en 6 heures.</li><li>80→90 en 6 heures.</li><li>1→90 en 12 heures.</li><li>Campagnes Midnight et War of Light and Shadow.</li></ul>",
+                srv_mythic_title: "Packs",
+                srv_mythic_desc: "<p>Packs de leveling et campagnes avec un meilleur prix total.</p><ul><li>Midnight + War of Light and Shadow.</li><li>80→90 + Midnight.</li><li>80→90 + les deux campagnes.</li><li>1→90 + Midnight ou les deux campagnes.</li></ul>",
+                srv_raid_title: "Farm PvP",
+                srv_raid_desc: "<p>Farm Honor et Conquest pour équipement ou monnaie.</p><ul><li>Set complet Honor gear (276 ilvl).</li><li>Set complet Conquest gear (289 ilvl).</li><li>Monnaie Honor par 1000.</li><li>Monnaie Conquest par 500.</li></ul>"
             },
             es: {
                 page_title: "Azeroth's Guides | Premium",
@@ -1822,20 +1894,50 @@
                 btn_back: "Atrás",
                 calc_section_title: "Calculadora",
                 calc_label_type: "Servicio",
-                calc_opt_leveling: "Subida (1-90)",
-                calc_opt_mythic: "Míticas+",
-                calc_opt_raids: "Raids",
+                calc_opt_leveling: "Leveling y campañas",
+                calc_opt_packages: "Paquetes",
+                calc_opt_pvp: "Farm PvP",
+                calc_opt_mythic: "Paquetes",
+                calc_opt_raids: "Farm PvP",
                 price_panel_title: "Total",
                 price_panel_guarantee: "Tarifa incluida",
                 price_panel_btn: "Pedir",
-                lvl_current: "Nivel Actual:",
-                lvl_desired: "Nivel Deseado:",
-                opt_key_10: "Llave +10",
-                opt_key_15: "Llave +15",
-                opt_key_20: "Llave +20",
-                opt_raid_norm: "Raid Normal",
-                opt_raid_hc: "Raid Heroica",
-                opt_raid_mythic: "Raid Mítica",
+                addon_execution_title: "Formato de ejecución",
+                addon_piloted_title: "Piloted",
+                addon_piloted_desc: "El booster juega en la cuenta del cliente.",
+                addon_piloted_price: "Gratis",
+                addon_selfplay_title: "Self-play",
+                addon_selfplay_desc: "Entras al grupo y juegas tu personaje con nuestro booster.",
+                addon_selfplay_price: "Gratis",
+                addon_remote_title: "Selfplay Remote",
+                addon_remote_desc: "El booster se conecta a tu escritorio y completa el pedido desde tu sesión.",
+                addon_remote_price: "+20%",
+                addon_speed_title: "Velocidad de inicio",
+                addon_standard_title: "Cola estándar",
+                addon_standard_desc: "Inicio normal según la cola actual.",
+                addon_standard_price: "Gratis",
+                addon_express_title: "Express",
+                addon_express_desc: "Inicio más rápido con prioridad.",
+                addon_express_price: "+10%",
+                addon_super_express_title: "Super Express",
+                addon_super_express_desc: "Prioridad máxima: el pedido entra antes de la cola.",
+                addon_super_express_price: "+30%",
+                addon_notes_title: "Opciones elegidas",
+                addon_none: "Sin opciones",
+                opt_level_1_80: "Leveling 1→80 (6 horas)",
+                opt_level_80_90: "Leveling 80→90 (6 horas)",
+                opt_level_1_90: "Leveling 1→90 (12 horas)",
+                opt_campaign_midnight: "Campaña Midnight",
+                opt_campaign_light_shadow: "Campaña War of Light and Shadow",
+                opt_pack_midnight_shadow: "Campañas Midnight + War of Light and Shadow",
+                opt_pack_80_90_midnight: "Leveling 80→90 + campaña Midnight",
+                opt_pack_80_90_both: "Leveling 80→90 + Midnight + War of Light and Shadow",
+                opt_pack_1_90_midnight: "Leveling 1→90 + campaña Midnight",
+                opt_pack_1_90_both: "Leveling 1→90 + Midnight + War of Light and Shadow",
+                opt_honor_gear: "Set completo Honor gear (276 ilvl)",
+                opt_conquest_gear: "Set completo Conquest gear (289 ilvl)",
+                opt_honor_currency: "Farm de moneda Honor (por 1000)",
+                opt_conquest_currency: "Farm de moneda Conquest (por 500)",
                 rm_title: "La Historia",
                 rm_intro: "Creado por veteranos, una taberna honesta para todos.",
                 rm_1_date: "Fase 1",
@@ -1855,7 +1957,7 @@
                 feat_1_title: "100% Manual",
                 feat_1_desc: "Sin bots.",
                 feat_2_title: "Seguridad",
-                feat_2_desc: "VPN dedicada.",
+                feat_2_desc: "Elige Piloted, Self-play o Selfplay Remote según tu pedido.",
                 feat_3_title: "Video Prueba",
                 feat_3_desc: "Transparencia total.",
                 feat_4_title: "Precios Justos",
@@ -1873,7 +1975,7 @@
                 booster_circle_desc: "Parte justa",
                 faq_title: "FAQ",
                 faq_1_q: "¿Es seguro?",
-                faq_1_a: "Usamos VPN.",
+                faq_1_a: "Puedes elegir Piloted, Self-play o Selfplay Remote. Compartir cuenta siempre tiene riesgos.",
                 faq_2_q: "¿Pago?",
                 faq_2_a: "Crypto y DonationAlerts. 50% inicial.",
                 faq_3_q: "¿Tiempo de inicio?",
@@ -1922,12 +2024,12 @@
                 guides_modal_title: "Guías Pro",
                 guides_intro: "Aprende de la élite.",
                 srv_modal_title: "Nuestros Servicios",
-                srv_lvl_title: "Subida de Nivel",
-                srv_lvl_desc: "<p>Rápido y 100% a mano.</p>",
-                srv_mythic_title: "Míticas+",
-                srv_mythic_desc: "<p>Loot garantizado.</p>",
-                srv_raid_title: "Raids",
-                srv_raid_desc: "<p>Limpieza completa para el mejor equipo.</p>"
+                srv_lvl_title: "Leveling y campañas",
+                srv_lvl_desc: "<p>Leveling manual rápido y campañas actuales con tiempos claros.</p><ul><li>1→80 en 6 horas.</li><li>80→90 en 6 horas.</li><li>1→90 en 12 horas.</li><li>Campañas Midnight y War of Light and Shadow.</li></ul>",
+                srv_mythic_title: "Paquetes",
+                srv_mythic_desc: "<p>Paquetes de leveling y campañas con mejor precio total.</p><ul><li>Midnight + War of Light and Shadow.</li><li>80→90 + Midnight.</li><li>80→90 + ambas campañas.</li><li>1→90 + Midnight o ambas campañas.</li></ul>",
+                srv_raid_title: "Farm PvP",
+                srv_raid_desc: "<p>Farm de Honor y Conquest para equipo o moneda.</p><ul><li>Set completo Honor gear (276 ilvl).</li><li>Set completo Conquest gear (289 ilvl).</li><li>Moneda Honor por 1000.</li><li>Moneda Conquest por 500.</li></ul>"
             }
         };
 
@@ -1980,32 +2082,32 @@
                 id: 1, icon: "🔥", author: "R1 Gladiator / Limit", img: 'https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/bltf4d2d4c0629ecbf2/6154e1fb80f2791e2b58efec/df-bg.jpg',
                 title: { en: "Fire Mage: Mythic+ Positioning", ru: "Фаер Маг: Позиционирование в ключах" },
                 fullContent: {
-                    en: "<p>Welcome to the ultimate Fire Mage guide for pushing high keys. Written by our Top-100 world raider.</p><h3>Combustion Windows</h3><p>The key to Fire is knowing exactly when your tank will pull big. Never hold Combustion for more than 15 seconds if a large pack is coming.</p><h3>Positioning</h3><p>Always stay at max range to bait mechanics away from melee.</p>",
-                    ru: "<p>Добро пожаловать в ультимативный гайд на Фаер Мага для высоких ключей от игрока топ-100 мира.</p><h3>Бурст-окна</h3><p>Секрет фаера — знать, когда танк собирает большой пак. Никогда не держите Комбуст дольше 15 секунд.</p><h3>Позиция</h3><p>Держитесь на макс рендже, чтобы байтить механики.</p>"
+                    en: "<p>Welcome to the Fire Mage Mythic+ guide from a Top-100 world raider. The spec is not only about pressing Combustion on cooldown: the real difference comes from planning your burst around the tank route, enemy count, and dangerous interrupts.</p><h3>Combustion Windows</h3><p>Before the key starts, ask the tank where the first two big pulls happen. If a large pack is coming within 10-15 seconds, save Combustion and enter the pull with Fire Blast charges ready. If the route slows down, use a smaller burn to keep damage flowing and avoid sitting on cooldowns for too long.</p><h3>Positioning</h3><p>Stay at max range when the dungeon allows it, but do not drift away from healer range. Your job is to bait swirlies and frontal mechanics away from melee while keeping a clean line of sight for interrupts and defensives.</p><h3>Survival Checklist</h3><ul><li>Pre-shield before predictable AoE instead of reacting late.</li><li>Use Shimmer to dodge, not to greed one more cast.</li><li>Call when Cauterize is unavailable so the healer knows you are vulnerable.</li></ul><p>The best Fire Mages make the dungeon feel calm: big damage when the route needs it, clean movement, and zero panic during overlap mechanics.</p>",
+                    ru: "<p>Добро пожаловать в подробный гайд по Фаер Магу для Mythic+ от игрока топ-100 мира. Спек не сводится к нажатию Комбуста по кулдауну: настоящая разница появляется, когда вы заранее понимаете маршрут танка, размер паков и моменты опасных кастов.</p><h3>Бурст-окна</h3><p>До старта ключа спросите танка, где будут первые два больших пула. Если крупный пак начнется через 10-15 секунд, Комбуст лучше сохранить и зайти в пул с готовыми зарядами Огненного взрыва. Если маршрут замедлился, прожимайте малое бурст-окно, чтобы не терять темп и не сидеть на кулдаунах слишком долго.</p><h3>Позиция</h3><p>Держитесь на максимальной дистанции, когда это позволяет подземелье, но не выходите из радиуса хила. Ваша задача — уводить войд-зоны и фронталки от мили-группы, сохраняя линию видимости для контроля и сейвов.</p><h3>Чеклист выживания</h3><ul><li>Жмите щит заранее перед предсказуемым АоЕ, а не после просадки.</li><li>Используйте Мерцание для доджа механик, а не ради одного лишнего каста.</li><li>Сообщайте, когда Прижигание недоступно: хил должен понимать, что вы уязвимы.</li></ul><p>Лучший Фаер Маг делает ключ спокойнее: дает бурст там, где он нужен маршруту, чисто двигается и не паникует на сложных пересечениях механик.</p>"
                 }
             },
             {
                 id: 2, icon: "🛡️", author: "MDI Champion", img: 'https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/blt088895029b4334cf/623253518e955d49673a88f6/classic-bg.jpg',
                 title: { en: "Prot Warrior: Threat Management", ru: "Прото Вар: Управление агро" },
                 fullContent: {
-                    en: "<p>A quick guide from our MDI champion booster.</p><h3>Opener</h3><p>Charge -> Avatar -> Thunder Clap -> Shield Block. This simple sequence ensures nothing hits your healer.</p><h3>Kiting</h3><p>When Leap is on CD, use Piercing Howl to slow mobs.</p>",
-                    ru: "<p>Быстрый гайд от нашего бустера - чемпиона MDI.</p><h3>Опенер</h3><p>Рывок -> Аватара -> Удар Грома -> Блок Щитом. Гарантирует жизнь хилу.</p><h3>Кайтинг</h3><p>Используйте Пронзительный Вой, чтобы замедлить мобов и отойти.</p>"
+                    en: "<p>This Protection Warrior guide focuses on the part most tanks underestimate: making the first five seconds of every pull clean. If the opener is stable, your DPS can commit cooldowns early and your healer does not waste emergency buttons.</p><h3>Opener</h3><p>Charge -> Avatar -> Thunder Clap -> Shield Block is the basic opener, but the timing matters. Face mobs away from the group before the first frontal, then layer Demoralizing Shout or Spell Reflection if the pull contains dangerous magic damage.</p><h3>Threat Control</h3><p>Mark the priority caster before the pull and build initial rage on the densest part of the pack. If your Fire Mage, Hunter, or Warlock is opening with full burst, do not move the pack too far during the first global window.</p><h3>Kiting</h3><p>Kiting is not running away in panic. Call it early, use Piercing Howl, Heroic Leap to a pre-planned spot, and keep your camera on the pack so you can re-engage before mobs start eating your ranged players.</p><h3>Common Mistakes</h3><ul><li>Pulling without Shield Block ready.</li><li>Dragging mobs out of ground effects from your DPS.</li><li>Using every defensive at once instead of rotating them.</li></ul>",
+                    ru: "<p>Этот гайд по Прото Варру про то, что чаще всего недооценивают танки: первые пять секунд каждого пула. Если старт чистый, ДД могут сразу отдавать кулдауны, а хил не тратит аварийные кнопки.</p><h3>Опенер</h3><p>Рывок -> Аватара -> Удар грома -> Блок щитом — базовая схема, но важен тайминг. Разверните мобов от группы до первой фронталки, а затем добавляйте Деморализующий крик или Отражение заклинания, если в паке много магического урона.</p><h3>Контроль агро</h3><p>До пула отмечайте приоритетного кастера и набирайте ярость по самой плотной части пака. Если Фаер Маг, Хант или Лок открываются в полный бурст, не двигайте пак слишком далеко в первые секунды.</p><h3>Кайтинг</h3><p>Кайтинг — это не панический побег. Зовите его заранее, используйте Пронзительный вой, Героический прыжок в заранее выбранную точку и держите камеру на паке, чтобы вернуться до того, как мобы начнут бить ренжей.</p><h3>Частые ошибки</h3><ul><li>Пул без готового Блока щитом.</li><li>Вывод мобов из зон урона ваших ДД.</li><li>Прожатие всех сейвов сразу вместо нормальной ротации.</li></ul>"
                 }
             },
             {
                 id: 3, icon: "🌿", author: "Echo Healer", img: 'https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/blt7ef9b1a0e980dddf/62b4859a0fbf61113b2ce213/DF_Features_Tile_bg_2.jpg',
                 title: { en: "Resto Druid: Raid Healing Secrets", ru: "Ресто Друид: Секреты Рейд-Хила" },
                 fullContent: {
-                    en: "<p>Learn to pre-hot like a World First raider.</p><h3>Ramp Setup</h3><p>Start applying Rejuvenation 10 seconds before the boss does an AoE mechanic. Wild Growth right before impact.</p>",
-                    ru: "<p>Учитесь пре-хотать как игрок World First.</p><h3>Подготовка к урону</h3><p>Начинайте раскидывать Омоложение за 10 секунд до АоЕ механики. Дикий рост жмется прямо перед ударом.</p>"
+                    en: "<p>Resto Druid rewards players who heal before damage happens. In raid, you are not trying to win every second on the meters; you are preparing the raid so the dangerous mechanic lands into a wall of HoTs.</p><h3>Ramp Setup</h3><p>Start applying Rejuvenation about 10 seconds before a predictable AoE hit. Use Wild Growth right before impact, then spend Swiftmend and Flourish when the raid is actually taking damage. The goal is to make your healing peak match the boss timer.</p><h3>Mana Discipline</h3><p>Do not blanket the raid for harmless damage. Track the next two mechanics and decide which one deserves cooldowns. If another healer is covering the first hit, save your major tools for the second overlap.</p><h3>Positioning</h3><p>Stand where you can reach both ranged and melee groups. A good Resto Druid loses less healing to movement because they plan their path during instant casts instead of stopping in bad ground effects.</p><h3>Mini Checklist</h3><ul><li>Know the next raid-wide hit before it happens.</li><li>Keep Lifebloom active for mana and clearcasting value.</li><li>Use Ironbark proactively on players with assigned danger moments.</li></ul>",
+                    ru: "<p>Ресто Друид награждает тех, кто лечит до входящего урона. В рейде ваша цель — не выигрывать каждую секунду по метрам, а подготовить рейд так, чтобы опасная механика влетела в стену хоток.</p><h3>Подготовка к урону</h3><p>Начинайте раскидывать Омоложение примерно за 10 секунд до предсказуемого АоЕ. Дикий рост жмите прямо перед ударом, а Быстрое восстановление и Расцвет отдавайте уже в момент реального урона. Смысл в том, чтобы пик вашего хила совпал с таймером босса.</p><h3>Дисциплина маны</h3><p>Не заливайте рейд хотами под безобидный урон. Смотрите на две следующие механики и решайте, какая из них заслуживает кулдаунов. Если первый удар закрывает другой хил, сохраните крупные кнопки под второе пересечение.</p><h3>Позиционирование</h3><p>Стойте так, чтобы доставать и ренжей, и мили. Хороший Ресто Друид теряет меньше хила на движении, потому что строит маршрут во время инстант-кастов, а не останавливается в плохих зонах.</p><h3>Мини-чеклист</h3><ul><li>Знайте следующий рейдовый урон до того, как он случится.</li><li>Держите Жизнецвет ради маны и проков.</li><li>Железную кору лучше отдавать заранее на игроков с назначенными опасными моментами.</li></ul>"
                 }
             },
             {
                 id: 4, icon: "🐉", author: "Liquid Evoker", img: 'https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/bltb16c4912239fc415/6154e1fb2d03bd1a853dc47d/shadowlands-bg.jpg',
                 title: { en: "Evoker: Deep Breath Tech", ru: "Эвокер: Идеальный Вдох" },
                 fullContent: {
-                    en: "<p>Deep Breath gives immunity to CC. Use it defensively in keys!</p>",
-                    ru: "<p>Глубокий вдох дает иммунитет к контролю. Используйте для эвейда механик!</p>"
+                    en: "<p>Deep Breath is more than a flashy movement spell. Used correctly, it lets an Evoker ignore crowd-control effects, cross dangerous ground, and keep damage rolling while other players are forced to stop.</p><h3>Defensive Usage</h3><p>Hold Deep Breath for mechanics that would otherwise stun, knock, or trap you during a key damage window. If you only use it for damage on cooldown, you lose one of the strongest safety tools in the kit.</p><h3>Path Planning</h3><p>Pick the landing point before you press the button. The best Evokers aim through the pack, land near the healer or safe edge, and instantly continue their rotation without turning the camera for two seconds.</p><h3>Group Value</h3><p>Call when you are using it defensively. Your tank can keep the route stable, and your healer knows you are not randomly flying out of range.</p><ul><li>Use it to dodge predictable CC.</li><li>Do not land inside frontals or swirlies.</li><li>Combine it with rescue-style movement plans when the group is stacked.</li></ul>",
+                    ru: "<p>Глубокий вдох — это не просто красивая кнопка перемещения. При правильном использовании Эвокер может игнорировать контроль, перелетать опасные зоны и продолжать наносить урон там, где другие вынуждены останавливаться.</p><h3>Защитное использование</h3><p>Держите Глубокий вдох под механики, которые иначе оглушат, откинут или поймают вас во время важного бурст-окна. Если жать его только ради урона по кулдауну, вы теряете один из самых сильных инструментов безопасности.</p><h3>Планирование траектории</h3><p>Выбирайте точку приземления до нажатия кнопки. Лучшие Эвокеры пролетают через пак, садятся рядом с хилом или безопасным краем арены и сразу продолжают ротацию, не тратя две секунды на разворот камеры.</p><h3>Польза для группы</h3><p>Сообщайте, когда используете вдох защитно. Танку проще держать маршрут стабильным, а хил понимает, что вы не случайно улетели из радиуса.</p><ul><li>Используйте вдох для уклонения от предсказуемого контроля.</li><li>Не приземляйтесь во фронталки и войд-зоны.</li><li>Комбинируйте с планом перемещения группы, когда все стоят в стаке.</li></ul>"
                 }
             }
         ];
@@ -2026,22 +2128,42 @@
 
         /**
          * ====================================================================
-         * 3. EXACT PRICING (-20% MARKET DISCOUNT)
+         * 3. EXACT PRICING
          * ====================================================================
          */
         const pricingData = {
-            mythic: { "opt_key_10": { USD: 6.5, RUB: 480, EUR: 6 }, "opt_key_15": { USD: 12, RUB: 960, EUR: 11 }, "opt_key_20": { USD: 24, RUB: 2000, EUR: 22 } },
-            raids: { "opt_raid_norm": { USD: 36, RUB: 3200, EUR: 33 }, "opt_raid_hc": { USD: 68, RUB: 6000, EUR: 64 }, "opt_raid_mythic": { USD: 112, RUB: 9600, EUR: 104 } }
-        };
-
-        const levelingBrackets = {
-            USD: [ { max: 60, price: 0.15 }, { max: 70, price: 0.30 }, { max: 80, price: 0.80 }, { max: 90, price: 3.10 } ],
-            RUB: [ { max: 60, price: 12 }, { max: 70, price: 25 }, { max: 80, price: 65 }, { max: 90, price: 250 } ],
-            EUR: [ { max: 60, price: 0.14 }, { max: 70, price: 0.28 }, { max: 80, price: 0.75 }, { max: 90, price: 2.90 } ]
+            leveling: {
+                opt_level_1_80: { USD: 15, RUB: 1350, EUR: 14 },
+                opt_level_80_90: { USD: 42, RUB: 3780, EUR: 39 },
+                opt_level_1_90: { USD: 54, RUB: 4860, EUR: 50 },
+                opt_campaign_midnight: { USD: 32, RUB: 2880, EUR: 30 },
+                opt_campaign_light_shadow: { USD: 24, RUB: 2160, EUR: 22 }
+            },
+            packages: {
+                opt_pack_midnight_shadow: { USD: 52, RUB: 4680, EUR: 48 },
+                opt_pack_80_90_midnight: { USD: 70, RUB: 6300, EUR: 64 },
+                opt_pack_80_90_both: { USD: 89, RUB: 8010, EUR: 82 },
+                opt_pack_1_90_midnight: { USD: 80, RUB: 7200, EUR: 74 },
+                opt_pack_1_90_both: { USD: 100, RUB: 9000, EUR: 92 }
+            },
+            pvp: {
+                opt_honor_gear: { USD: 11, RUB: 990, EUR: 10 },
+                opt_conquest_gear: { USD: 87, RUB: 7830, EUR: 80 },
+                opt_honor_currency: { USD: 1.6, RUB: 144, EUR: 1.5 },
+                opt_conquest_currency: { USD: 7.2, RUB: 648, EUR: 6.6 }
+            }
         };
 
         let currentLang = 'en'; 
         let currentCurrency = 'USD'; 
+        const orderAddonRates = {
+            piloted: 0,
+            selfplay: 0,
+            remote: 0.20,
+            standard: 0,
+            express: 0.10,
+            super_express: 0.30
+        };
 
         // DOM Nodes
         const langSwitch = document.getElementById('lang-switch');
@@ -2057,6 +2179,10 @@
         const modalNews = document.getElementById('modal-news');
         const modalGuides = document.getElementById('modal-guides');
         const modalServices = document.getElementById('modal-services');
+
+        function t(key, fallback = '') {
+            return (translations[currentLang] && translations[currentLang][key]) || translations.en[key] || fallback || key;
+        }
 
         /**
          * ====================================================================
@@ -2077,12 +2203,13 @@
          * 5. CORE LOGIC (Language, Price)
          * ====================================================================
          */
+
         // Event listeners for switches
         langSwitch.addEventListener('change', (e) => setLanguage(e.target.value));
         currencySwitch.addEventListener('change', (e) => {
             currentCurrency = e.target.value;
             updateCurrencySymbol();
-            calculatePrice();
+            renderDynamicOptions();
         });
         boostTypeSelect.addEventListener('change', renderDynamicOptions);
 
@@ -2104,6 +2231,7 @@
         function setLanguage(lang) {
             currentLang = lang;
             
+            // Automatically switch default currency if language changes, but allow manual override later
             if (lang === 'ru') currentCurrency = 'RUB';
             else if (lang === 'en') currentCurrency = 'USD';
             else currentCurrency = 'EUR';
@@ -2121,70 +2249,129 @@
             currencySymbolEl.innerText = symbols[currentCurrency] || '$';
         }
 
-        function getLevelingPrice(start, end, currency) {
-            let total = 0;
-            const brackets = levelingBrackets[currency];
-            for (let lvl = start; lvl < end; lvl++) {
-                let priceForThisLevel = 0;
-                for (let b of brackets) {
-                    if (lvl < b.max) { priceForThisLevel = b.price; break; }
-                }
-                total += priceForThisLevel;
-            }
-            return total;
+        function getPriceDecimals(value) {
+            if (currentCurrency === 'RUB') return 0;
+            return Math.abs(value - Math.round(value)) > 0.001 ? 1 : 0;
+        }
+
+        function formatPrice(value) {
+            const decimals = getPriceDecimals(value);
+            return value.toLocaleString(currentLang === 'ru' ? 'ru-RU' : 'en-US', {
+                minimumFractionDigits: decimals,
+                maximumFractionDigits: decimals
+            });
         }
 
         function renderDynamicOptions() {
             const type = boostTypeSelect.value;
             dynamicOptionsContainer.innerHTML = ''; 
 
-            if (type === 'leveling') {
-                const currentText = translations[currentLang]['lvl_current'] || "Current Level:";
-                const desiredText = translations[currentLang]['lvl_desired'] || "Desired Level:";
-                
-                dynamicOptionsContainer.innerHTML = `
-                    <div class="range-container">
-                        <div class="range-header"><span>${currentText}</span><span class="val" id="curr-val">1</span></div>
-                        <input type="range" id="input-curr-lvl" min="1" max="89" value="1">
-                        <div class="range-header" style="margin-top: 10px;"><span>${desiredText}</span><span class="val" id="des-val">90</span></div>
-                        <input type="range" id="input-des-lvl" min="2" max="90" value="90">
-                    </div>`;
-
-                const currInput = document.getElementById('input-curr-lvl');
-                const desInput = document.getElementById('input-des-lvl');
-                const currVal = document.getElementById('curr-val');
-                const desVal = document.getElementById('des-val');
-
-                const handleSliders = () => {
-                    let cv = parseInt(currInput.value);
-                    let dv = parseInt(desInput.value);
-                    if (cv >= dv) { dv = Math.min(cv + 1, 90); desInput.value = dv; }
-                    currVal.innerText = cv; desVal.innerText = dv;
-                    calculatePrice();
-                };
-                currInput.addEventListener('input', handleSliders);
-                desInput.addEventListener('input', handleSliders);
-            } else {
-                const optionsObj = pricingData[type];
-                let optionsHTML = '';
-                for (const key in optionsObj) {
-                    const text = translations[currentLang][key] || key;
-                    optionsHTML += `<option value="${key}">${text}</option>`;
-                }
-                dynamicOptionsContainer.innerHTML = `<div class="calc-form-group" style="margin-top:20px;"><div class="calc-select-wrapper"><select id="specific-option" class="calc-select">${optionsHTML}</select></div></div>`;
-                
-                document.getElementById('specific-option').addEventListener('change', calculatePrice);
+            const optionsObj = pricingData[type] || {};
+            let optionsHTML = '';
+            for (const key in optionsObj) {
+                const price = formatPrice(optionsObj[key][currentCurrency]);
+                const text = t(key, key);
+                optionsHTML += `<option value="${key}">${text} - ${price} ${currencySymbolEl.innerText}</option>`;
             }
+            dynamicOptionsContainer.innerHTML = `<div class="calc-form-group" style="margin-top:20px;"><div class="calc-select-wrapper"><select id="specific-option" class="calc-select">${optionsHTML}</select></div></div>`;
+            
+            document.getElementById('specific-option')?.addEventListener('change', calculatePrice);
+            renderAddonOptions();
             calculatePrice();
         }
 
-        function animateValue(obj, start, end, duration) {
+        function renderAddonOptions() {
+            dynamicOptionsContainer.insertAdjacentHTML('beforeend', `
+                <div class="order-addons">
+                    <span class="order-addons-title">${t('addon_execution_title', 'Execution format')}</span>
+                    <label class="order-addon">
+                        <input type="radio" class="order-addon-input" name="execution_mode" value="piloted" checked>
+                        <div class="order-addon-copy">
+                            <strong>${t('addon_piloted_title', 'Piloted')}</strong>
+                            <span>${t('addon_piloted_desc', 'A booster plays on the customer account.')}</span>
+                        </div>
+                        <div class="order-addon-price">${t('addon_piloted_price', 'Free')}</div>
+                    </label>
+                    <label class="order-addon">
+                        <input type="radio" class="order-addon-input" name="execution_mode" value="selfplay">
+                        <div class="order-addon-copy">
+                            <strong>${t('addon_selfplay_title', 'Self-play')}</strong>
+                            <span>${t('addon_selfplay_desc', 'You join the party and play your own character with our booster.')}</span>
+                        </div>
+                        <div class="order-addon-price">${t('addon_selfplay_price', 'Free')}</div>
+                    </label>
+                    <label class="order-addon">
+                        <input type="radio" class="order-addon-input" name="execution_mode" value="remote">
+                        <div class="order-addon-copy">
+                            <strong>${t('addon_remote_title', 'Selfplay Remote')}</strong>
+                            <span>${t('addon_remote_desc', 'The booster connects to your desktop and performs the order through your session.')}</span>
+                        </div>
+                        <div class="order-addon-price">${t('addon_remote_price', '+20%')}</div>
+                    </label>
+                </div>
+                <div class="order-addons">
+                    <span class="order-addons-title">${t('addon_speed_title', 'Start speed')}</span>
+                    <label class="order-addon">
+                        <input type="radio" class="order-addon-input" name="speed_mode" value="standard" checked>
+                        <div class="order-addon-copy">
+                            <strong>${t('addon_standard_title', 'Standard queue')}</strong>
+                            <span>${t('addon_standard_desc', 'Normal start according to the current queue.')}</span>
+                        </div>
+                        <div class="order-addon-price">${t('addon_standard_price', 'Free')}</div>
+                    </label>
+                    <label class="order-addon">
+                        <input type="radio" class="order-addon-input" name="speed_mode" value="express">
+                        <div class="order-addon-copy">
+                            <strong>${t('addon_express_title', 'Express')}</strong>
+                            <span>${t('addon_express_desc', 'Faster start with higher priority.')}</span>
+                        </div>
+                        <div class="order-addon-price">${t('addon_express_price', '+10%')}</div>
+                    </label>
+                    <label class="order-addon">
+                        <input type="radio" class="order-addon-input" name="speed_mode" value="super_express">
+                        <div class="order-addon-copy">
+                            <strong>${t('addon_super_express_title', 'Super Express')}</strong>
+                            <span>${t('addon_super_express_desc', 'Top priority: we take the order first and move it ahead of the queue.')}</span>
+                        </div>
+                        <div class="order-addon-price">${t('addon_super_express_price', '+30%')}</div>
+                    </label>
+                </div>
+            `);
+
+            document.querySelectorAll('.order-addon-input').forEach(input => {
+                input.addEventListener('change', calculatePrice);
+            });
+        }
+
+        function getSelectedAddons() {
+            return Array.from(document.querySelectorAll('.order-addon-input:checked')).map(input => {
+                const key = input.value;
+                const titleKey = `addon_${key}_title`;
+                const priceKey = `addon_${key}_price`;
+                return {
+                    key,
+                    title: t(titleKey),
+                    price: t(priceKey),
+                    rate: orderAddonRates[key] || 0
+                };
+            });
+        }
+
+        function applyAddonRates(price) {
+            const totalRate = getSelectedAddons().reduce((sum, addon) => sum + addon.rate, 0);
+            return price * (1 + totalRate);
+        }
+
+        function animateValue(obj, start, end, duration, decimals = 0) {
             let startTimestamp = null;
             const step = (timestamp) => {
                 if (!startTimestamp) startTimestamp = timestamp;
                 const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const currentVal = Math.floor((1 - Math.pow(1 - progress, 3)) * (end - start) + start);
-                obj.innerText = currentVal.toLocaleString(currentLang === 'ru' ? 'ru-RU' : 'en-US');
+                const currentVal = ((1 - Math.pow(1 - progress, 3)) * (end - start) + start);
+                obj.innerText = currentVal.toLocaleString(currentLang === 'ru' ? 'ru-RU' : 'en-US', {
+                    minimumFractionDigits: decimals,
+                    maximumFractionDigits: decimals
+                });
                 if (progress < 1) window.requestAnimationFrame(step);
             };
             window.requestAnimationFrame(step);
@@ -2195,20 +2382,18 @@
             const type = boostTypeSelect.value;
             let finalPrice = 0;
 
-            if (type === 'leveling') {
-                const startLvl = parseInt(document.getElementById('input-curr-lvl')?.value || 1);
-                const endLvl = parseInt(document.getElementById('input-des-lvl')?.value || 90);
-                if (startLvl < endLvl) finalPrice = getLevelingPrice(startLvl, endLvl, currentCurrency);
-            } else {
-                const specificOpt = document.getElementById('specific-option')?.value;
-                if (specificOpt) finalPrice = pricingData[type][specificOpt][currentCurrency];
-            }
+            const specificOpt = document.getElementById('specific-option')?.value;
+            if (specificOpt && pricingData[type] && pricingData[type][specificOpt]) finalPrice = pricingData[type][specificOpt][currentCurrency];
+
+            finalPrice = applyAddonRates(finalPrice);
 
             if (currentCurrency === 'RUB') finalPrice = Math.round(finalPrice / 10) * 10;
-            else finalPrice = Math.round(finalPrice);
+            else finalPrice = Math.round(finalPrice * 10) / 10;
 
-            const startVal = parseInt(priceValueEl.innerText.replace(/\s|,/g, '')) || 0;
-            animateValue(priceValueEl, startVal, finalPrice, 500);
+            const decimals = getPriceDecimals(finalPrice);
+            const startVal = parseFloat(priceValueEl.dataset.rawPrice || priceValueEl.innerText.replace(/\s|,/g, '')) || 0;
+            priceValueEl.dataset.rawPrice = finalPrice;
+            animateValue(priceValueEl, startVal, finalPrice, 500, decimals);
         }
 
         /**
@@ -2223,19 +2408,25 @@
                 }
             });
         }, { threshold: 0.3 });
+
         document.querySelectorAll('.rm-node').forEach(item => observer.observe(item));
 
         const roadmapSection = document.getElementById('roadmap');
-        const maskPath = document.getElementById('rm-path-mask'); 
+        const maskPath = document.getElementById('rm-path-mask'); // Mask controls the reveal
         
         window.addEventListener('scroll', () => {
+            // Header Scroll
             if (window.scrollY > 50) document.getElementById('main-header').classList.add('scrolled');
             else document.getElementById('main-header').classList.remove('scrolled');
 
+            // SVG River Scroll Reveal
             if(maskPath && roadmapSection) {
                 const rect = roadmapSection.getBoundingClientRect();
+                // Calculate percentage of section scrolled
                 let scrollPercent = (window.innerHeight - rect.top) / (rect.height + window.innerHeight * 0.5);
                 scrollPercent = Math.max(0, Math.min(1, scrollPercent));
+                
+                // Dash array is 4000
                 const drawLength = 4000 * (1 - scrollPercent);
                 maskPath.style.strokeDashoffset = drawLength;
             }
@@ -2251,6 +2442,7 @@
             if(!track) return;
             track.innerHTML = '';
             
+            // Build HTML
             let html = '';
             reviewsData.forEach(item => {
                 const txt = item.txt[currentLang] || item.txt['en'];
@@ -2268,6 +2460,7 @@
                     </div>
                 `;
             });
+            // Double the content for seamless infinite scrolling
             track.innerHTML = html + html;
         }
 
@@ -2301,7 +2494,7 @@
             guidesData.forEach(item => {
                 const title = item.title[currentLang] || item.title['en'];
                 const card = document.createElement('div');
-                card.className = 'article-card'; 
+                card.className = 'article-card'; // Reuse article card styling for guides to look like news
                 card.innerHTML = `
                     <div class="article-meta">
                         <span class="article-tag" style="color:var(--color-accent); border:1px solid var(--color-accent)">PRO GUIDE</span>
@@ -2350,7 +2543,6 @@
             document.getElementById('full-article-view').style.display = 'none';
             document.getElementById('news-main-view').style.display = 'block';
         });
-
         document.getElementById('btn-back-guide')?.addEventListener('click', () => {
             document.getElementById('full-guide-view').style.display = 'none';
             document.getElementById('guides-main-view').style.display = 'block';
@@ -2391,35 +2583,31 @@
             }, 300);
         }
 
+        // Open Order Modal (With smart data transfer)
         document.getElementById('btn-open-order')?.addEventListener('click', () => {
-            const type = boostTypeSelect.value;
-            let sType = '';
-            
-            if(type === 'leveling') {
-                const sLvl = document.getElementById('input-curr-lvl').value;
-                const eLvl = document.getElementById('input-des-lvl').value;
-                const prefix = currentLang === 'ru' ? 'Прокачка Уровня' : 'Powerleveling';
-                sType = `${prefix}: ${sLvl} ➔ ${eLvl}`;
-            } else {
-                sType = boostTypeSelect.options[boostTypeSelect.selectedIndex].text + " / " + document.getElementById('specific-option').options[document.getElementById('specific-option').selectedIndex].text;
-            }
+            const specificSelect = document.getElementById('specific-option');
+            const category = boostTypeSelect.options[boostTypeSelect.selectedIndex]?.text || '';
+            const service = specificSelect?.options[specificSelect.selectedIndex]?.text || '';
+            const sType = `${category} / ${service}`;
             
             const price = priceValueEl.innerText;
             const sym = currencySymbolEl.innerText;
             const titleTxt = currentLang === 'ru' ? 'Услуга' : 'Target Service';
             const priceTxt = currentLang === 'ru' ? 'Примерная Стоимость' : 'Estimated Price';
+            const addons = getSelectedAddons();
+            const addonsTxt = addons.length ? addons.map(addon => `${addon.title} (${addon.price})`).join(', ') : t('addon_none', 'No extra options');
             
-            document.getElementById('order-notes').value = `${titleTxt}: ${sType}\n${priceTxt}: ${price} ${sym}\n\n`;
+            document.getElementById('order-notes').value = `${titleTxt}: ${sType}\n${t('addon_notes_title', 'Selected options')}: ${addonsTxt}\n${priceTxt}: ${price} ${sym}\n\n`;
             openModal(modalOrder);
         });
 
+        // Contact Method Toggle placeholder logic
         document.querySelectorAll('input[name="order_contact_type"]').forEach(radio => {
             radio.addEventListener('change', (e) => {
                 const input = document.getElementById('order-contact-value');
                 input.placeholder = e.target.value === 'Discord' ? 'Discord Tag (player#1234)' : 'Telegram Username (@player)';
             });
         });
-
         document.querySelectorAll('input[name="apply_contact_type"]').forEach(radio => {
             radio.addEventListener('change', (e) => {
                 const input = document.getElementById('apply-contact-value');
@@ -2434,6 +2622,7 @@
         document.getElementById('btn-open-guides')?.addEventListener('click', (e) => { e.preventDefault(); openModal(modalGuides); });
         document.getElementById('btn-open-services')?.addEventListener('click', (e) => { e.preventDefault(); openModal(modalServices); });
 
+        // Close Buttons
         document.querySelectorAll('.modal-close').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const targetId = e.target.getAttribute('data-target');
@@ -2493,6 +2682,7 @@
             });
         }
 
+        // Order Form
         document.getElementById('order-form')?.addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('order-char-name').value;
@@ -2506,6 +2696,7 @@
             sendToTelegram(msg, 'modal-order');
         });
 
+        // Apply Form
         document.getElementById('apply-form')?.addEventListener('submit', (e) => {
             e.preventDefault();
             const contactType = document.querySelector('input[name="apply_contact_type"]:checked').value;
@@ -2536,13 +2727,13 @@
 
         /**
          * ====================================================================
-         * 10. MAGICAL PARTICLE SYSTEM
+         * 10. MAGICAL PARTICLE SYSTEM (EXTREMELY OPTIMIZED OFFSCREEN CANVAS)
          * ====================================================================
          */
         class OptimizedParticleEngine {
             constructor() {
                 this.canvas = document.getElementById('particle-canvas');
-                this.ctx = this.canvas.getContext('2d', { alpha: false }); 
+                this.ctx = this.canvas.getContext('2d', { alpha: false }); // alpha false for perf if possible, but we need transparent bg. So keep true.
                 this.ctx = this.canvas.getContext('2d');
                 this.particles = [];
                 this.particleCount = 100; 
@@ -2550,6 +2741,7 @@
                 this.mouseX = -1000;
                 this.mouseY = -1000;
                 this.mouseRadius = 200; 
+
                 this.createOffscreenParticle();
                 this.resize();
                 window.addEventListener('resize', () => this.resize());
@@ -2609,14 +2801,16 @@
                     let dx = this.mouseX - p.x;
                     let dy = this.mouseY - p.y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
+
                     if (distance < this.mouseRadius) {
                         let force = (this.mouseRadius - distance) / this.mouseRadius;
                         p.x -= (dx / distance) * force * 5;
                         p.y -= (dy / distance) * force * 5;
                     }
-                    
+
                     p.y -= p.speedY; 
                     p.x += p.speedX;
+
                     this.ctx.globalAlpha = p.opacity;
                     this.ctx.drawImage(this.osCanvas, p.x - p.size/2, p.y - p.size/2, p.size, p.size);
                     
@@ -2629,42 +2823,12 @@
             }
         }
 
-        /**
-         * ====================================================================
-         * 11. WOW TOKEN PRICE FETCHER (CLIENT SIDE)
-         * ====================================================================
-         */
-        async function fetchWowTokenPrices() {
-            try {
-                // Используем открытый API для получения цен прямо в браузере
-                const response = await fetch('https://wowtoken.app/v2/current/retail.json');
-                if (!response.ok) throw new Error('Network response was not ok');
-                
-                const data = await response.json();
-                
-                // Форматируем цены
-                const euPrice = parseInt(data.eu[1]).toLocaleString('en-US');
-                const usPrice = parseInt(data.us[1]).toLocaleString('en-US');
-                
-                document.getElementById('token-price-eu').innerText = euPrice + " 🟡";
-                document.getElementById('token-price-us').innerText = usPrice + " 🟡";
-            } catch (error) {
-                console.error('Error fetching WoW Token prices:', error);
-                document.getElementById('token-price-eu').innerText = "N/A";
-                document.getElementById('token-price-us').innerText = "N/A";
-            }
-        }
-
         // Init Everything
         document.addEventListener('DOMContentLoaded', () => {
-            setLanguage('en'); 
+            setLanguage('en'); // This will setup base language and render options properly
             new OptimizedParticleEngine();
-            
-            // Запуск парсера цен
-            fetchWowTokenPrices();
-            // Авто-обновление каждые 15 минут
-            setInterval(fetchWowTokenPrices, 15 * 60 * 1000);
         });
     </script>
 </body>
 </html>
+
