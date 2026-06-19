@@ -1,0 +1,2670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="page_title">Azeroth's Guides | Premium WoW Boosting</title>
+    
+    <!-- ==========================================================================
+         FONTS
+         ========================================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. CSS VARIABLES (PREMIUM ARCANE & ICE THEME)
+           ========================================================================== */
+        :root {
+            /* Core Colors */
+            --color-primary: #00D1FF;           
+            --color-primary-dark: #008AA6;      
+            --color-primary-glow: #A8F3FF;      
+            --color-secondary: #0A1428;         
+            --color-secondary-light: #16294A;   
+            --color-accent: #FFB100;            
+            
+            /* Factions & Regions */
+            --color-horde: #8C1616;
+            --color-horde-glow: #ff2a2a;
+            --color-alliance: #004a93;
+            --color-alliance-glow: #0088ff;
+            --color-discord: #5865F2;
+            --color-telegram: #0088cc;
+
+            /* Backgrounds */
+            --color-bg-base: #010308;           
+            --color-bg-surface: rgba(10, 20, 40, 0.5); 
+            --color-bg-glass: rgba(6, 12, 25, 0.7);
+            
+            /* Text */
+            --color-text-main: #BFCFE2;         
+            --color-text-heading: #FFFFFF;      
+            --color-text-muted: #5D7394;        
+            
+            /* Borders & Shadows */
+            --border-color-default: rgba(0, 209, 255, 0.2);
+            --border-color-hover: rgba(0, 209, 255, 0.6);
+            --shadow-glow: 0 0 25px rgba(0, 209, 255, 0.3);
+            --shadow-glow-intense: 0 0 50px rgba(0, 209, 255, 0.6);
+            --shadow-drop: 0 20px 40px rgba(0, 0, 0, 0.9);
+            
+            /* Fonts */
+            --font-heading: 'Cinzel Decorative', cursive;
+            --font-body: 'Montserrat', sans-serif;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* ==========================================================================
+           2. RESET & SCROLLBAR
+           ========================================================================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        
+        ::-webkit-scrollbar { width: 10px; background: var(--color-bg-base); }
+        ::-webkit-scrollbar-thumb { background: var(--color-secondary-light); border: 1px solid var(--color-primary-dark); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg-base);
+            color: var(--color-text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ==========================================================================
+           3. ELEGANT ARCANE FLAME INTRO ANIMATION
+           ========================================================================== */
+        #elegant-intro {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #000205;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: opacity 1.5s ease-in-out, visibility 1.5s;
+        }
+        
+        #elegant-intro.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .intro-flames {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100vw; height: 100vh;
+            background: radial-gradient(circle at center, rgba(0, 209, 255, 0.9) 0%, rgba(0, 74, 147, 0.6) 30%, transparent 70%);
+            filter: blur(50px);
+            opacity: 0;
+            animation: arcaneBurn 3.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            mix-blend-mode: screen;
+        }
+
+        .intro-logo {
+            position: relative;
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            color: #fff;
+            text-align: center;
+            opacity: 0;
+            animation: logoFade 3s ease forwards;
+            z-index: 2;
+        }
+
+        .intro-logo span { color: var(--color-primary); text-shadow: 0 0 30px var(--color-primary); }
+
+        @keyframes arcaneBurn {
+            0% { transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
+            40% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+        }
+
+        @keyframes logoFade {
+            0% { opacity: 0; filter: blur(20px); transform: scale(0.8); }
+            30% { opacity: 1; filter: blur(0px); transform: scale(1); }
+            80% { opacity: 1; filter: blur(0px); transform: scale(1); }
+            100% { opacity: 0; filter: blur(30px); transform: scale(1.2); }
+        }
+
+        /* ==========================================================================
+           4. BACKGROUND & HIGH-PERFORMANCE PARTICLES
+           ========================================================================== */
+        .ambient-texture {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none; z-index: -2;
+            background-image: url('data:image/svg+xml,%3Csvg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2300D1FF" fill-opacity="0.03"%3E%3Cpath d="M40 38v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V8h4V6h-4zM8 38v-4H6v4H2v2h4v4h2v-4h4v-2H8zM8 6V2H6v4H2v2h4v4h2V8h4V6H8z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+        }
+        
+        #particle-canvas {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none; z-index: -1;
+            mix-blend-mode: screen;
+        }
+
+        /* ==========================================================================
+           5. GLOBAL LAYOUT & TYPOGRAPHY
+           ========================================================================== */
+        .container { max-width: 1440px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 10; }
+        section { padding: 140px 0; position: relative; }
+        .section-header { text-align: center; margin-bottom: 90px; position: relative; z-index: 2; }
+        
+        h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--color-text-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { font-size: clamp(3rem, 7vw, 7.5rem); font-weight: 900; line-height: 1.1; background: linear-gradient(to bottom, #FFFFFF 20%, var(--color-primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 30px rgba(0, 209, 255, 0.4)); margin-bottom: 30px;}
+        h2 { font-size: clamp(2.5rem, 4vw, 4.5rem); text-shadow: 0 5px 20px rgba(0,0,0,0.9); letter-spacing: 4px; }
+        h2::after { content: ''; display: block; width: 180px; height: 4px; background: linear-gradient(90deg, transparent, var(--color-primary), transparent); margin: 30px auto 0; box-shadow: var(--shadow-glow); border-radius: 50%; }
+        p { font-size: 1.15rem; margin-bottom: 15px; }
+
+        /* ==========================================================================
+           6. COMPONENTS: PREMIUM BUTTONS
+           ========================================================================== */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 20px 55px; font-family: var(--font-heading); font-size: 1.25rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-decoration: none;
+            color: #FFFFFF; background: linear-gradient(135deg, var(--color-secondary-light), var(--color-secondary));
+            border: 1px solid var(--color-primary-dark); border-radius: 6px; cursor: pointer;
+            position: relative; overflow: hidden; transition: var(--transition-normal);
+            box-shadow: var(--shadow-drop), inset 0 0 15px rgba(0, 209, 255, 0.15);
+        }
+        .btn::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: skewX(-25deg); transition: var(--transition-slow); z-index: 1;
+        }
+        .btn:hover::before { left: 200%; }
+        .btn:hover {
+            background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+            border-color: var(--color-primary-glow); color: var(--color-bg-base);
+            box-shadow: var(--shadow-glow-intense), var(--shadow-drop); transform: translateY(-4px);
+        }
+        .btn span { position: relative; z-index: 2; }
+
+        /* ==========================================================================
+           7. HEADER & PERFECT NAVIGATION
+           ========================================================================== */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 25px 0;
+            background: rgba(1, 3, 8, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 209, 255, 0.1); z-index: 1000;
+            transition: var(--transition-normal);
+        }
+        header.scrolled { padding: 12px 0; background: rgba(1, 3, 8, 0.95); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9); border-bottom-color: var(--color-primary-dark); }
+        
+        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        
+        .logo {
+            font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900;
+            color: #FFF; text-decoration: none; letter-spacing: 1px; display: flex; 
+            align-items: center; white-space: nowrap;
+        }
+        .logo span { color: var(--color-primary); text-shadow: var(--shadow-glow); margin-left: 8px; }
+
+        .nav-links { 
+            display: flex; gap: clamp(10px, 1.5vw, 30px); align-items: center; 
+            flex-wrap: wrap; justify-content: center; flex: 1;
+        }
+        .nav-links a {
+            color: var(--color-text-main); text-decoration: none; font-size: 0.95rem;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+            position: relative; transition: var(--transition-fast); white-space: nowrap; cursor: pointer;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; width: 0%; height: 2px; bottom: -5px; left: 50%; 
+            transform: translateX(-50%); background-color: var(--color-primary); 
+            transition: var(--transition-normal); box-shadow: var(--shadow-glow);
+        }
+        .nav-links a:hover { color: var(--color-primary-glow); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .header-controls { display: flex; gap: 15px; align-items: center; white-space: nowrap; }
+        
+        .custom-select-wrapper { position: relative; }
+        .custom-select {
+            appearance: none; -webkit-appearance: none; background: var(--color-secondary-light); 
+            border: 1px solid var(--border-color-default); color: var(--color-text-heading); 
+            padding: 8px 30px 8px 15px; border-radius: 6px; font-family: var(--font-body); 
+            font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: var(--transition-fast);
+        }
+        .custom-select:hover, .custom-select:focus { border-color: var(--color-primary); box-shadow: var(--shadow-glow); outline: none; }
+        .custom-select-wrapper::after {
+            content: '▼'; font-size: 0.7rem; color: var(--color-primary); position: absolute; 
+            right: 12px; top: 50%; transform: translateY(-50%); pointer-events: none;
+        }
+
+        /* ==========================================================================
+           8. HERO SECTION & WOW TOKEN WIDGET
+           ========================================================================== */
+        .hero {
+            height: 100vh; min-height: 900px; display: flex; align-items: center; justify-content: center;
+            text-align: center; position: relative;
+            background: url('https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/bltf4d2d4c0629ecbf2/6154e1fb80f2791e2b58efec/df-bg.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(1,3,8,0.5) 0%, rgba(1,3,8,0.98) 100%);
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 300px;
+            background: linear-gradient(to top, var(--color-bg-base), transparent);
+        }
+        .hero-content {
+            position: relative; z-index: 10; max-width: 1100px;
+            opacity: 0; /* Handled by JS after Flame Intro */
+            transition: opacity 1.5s ease;
+        }
+        .hero-subtitle { font-size: 1.6rem; color: var(--color-text-main); margin: 0 auto 50px; font-weight: 400; text-shadow: 0 4px 15px rgba(0,0,0,1); max-width: 900px; line-height: 1.8;}
+
+        /* WOW TOKEN WIDGET STYLES */
+        .token-widget {
+            margin: 40px auto 0;
+            display: inline-block;
+            background: rgba(10, 20, 40, 0.6);
+            border: 1px solid var(--color-primary-dark);
+            border-radius: 8px;
+            padding: 15px 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-glow);
+            animation: pulseGlow 4s infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(0, 209, 255, 0.2); }
+            100% { box-shadow: 0 0 30px rgba(0, 209, 255, 0.6); }
+        }
+        .token-header {
+            font-family: var(--font-heading);
+            color: var(--color-primary-glow);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .token-prices {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+        .token-region {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .region-name {
+            color: var(--color-text-muted);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .region-price {
+            color: #FFB100; /* Gold color */
+            font-weight: 900;
+            font-size: 1.4rem;
+            font-family: var(--font-heading);
+            text-shadow: 0 0 15px rgba(255, 177, 0, 0.6);
+        }
+
+        /* ==========================================================================
+           9. CALCULATOR SECTION
+           ========================================================================== */
+        #calculator { background-color: var(--color-bg-base); position: relative; z-index: 5; }
+        .calc-wrapper {
+            display: grid; grid-template-columns: 1fr 450px; gap: 50px;
+            background: var(--color-bg-glass); border: 1px solid var(--border-color-default);
+            border-radius: 12px; padding: 60px; box-shadow: var(--shadow-drop), inset 0 0 40px rgba(0,0,0,0.6);
+            backdrop-filter: blur(15px); position: relative;
+        }
+        .calc-wrapper::before, .calc-wrapper::after {
+            content: ''; position: absolute; width: 40px; height: 40px; border: 2px solid var(--color-primary); opacity: 0.6;
+        }
+        .calc-wrapper::before { top: -1px; left: -1px; border-right: none; border-bottom: none; border-top-left-radius: 12px;}
+        .calc-wrapper::after { bottom: -1px; right: -1px; border-left: none; border-top: none; border-bottom-right-radius: 12px;}
+        
+        .calc-form-group { margin-bottom: 40px; }
+        .calc-form-group label.group-title {
+            display: block; font-family: var(--font-heading); font-size: 1.3rem;
+            color: var(--color-primary-glow); margin-bottom: 20px; border-bottom: 1px solid var(--border-color-default); padding-bottom: 10px;
+        }
+        .calc-select {
+            width: 100%; padding: 22px; background: rgba(1, 3, 8, 0.9);
+            border: 1px solid var(--border-color-default); color: var(--color-text-heading);
+            font-family: var(--font-body); font-size: 1.15rem; border-radius: 6px; appearance: none; cursor: pointer; transition: var(--transition-fast);
+        }
+        .calc-select:hover, .calc-select:focus { border-color: var(--color-primary); box-shadow: 0 0 20px rgba(0, 209, 255, 0.2), inset 0 0 20px rgba(0,0,0,0.8); outline: none; }
+        .calc-select-wrapper { position: relative; }
+        .calc-select-wrapper::after { content: '▼'; position: absolute; right: 25px; top: 50%; transform: translateY(-50%); color: var(--color-primary); pointer-events: none; }
+        
+        .range-container { background: rgba(1, 3, 8, 0.7); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color-default); }
+        .range-header { display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--color-text-heading); font-weight: 600; font-size: 1.1rem;}
+        .range-header span.val { color: var(--color-primary); font-size: 1.6rem; font-family: var(--font-heading); }
+        
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; margin: 15px 0 25px; }
+        input[type=range]:focus { outline: none; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 10px; cursor: pointer; background: var(--color-secondary-light); border-radius: 5px; border: 1px solid var(--border-color-default); }
+        input[type=range]::-webkit-slider-thumb { height: 32px; width: 32px; border-radius: 50%; background: var(--color-primary); cursor: pointer; -webkit-appearance: none; margin-top: -12px; box-shadow: var(--shadow-glow); border: 4px solid #fff; transition: transform 0.1s; }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+        
+        .price-panel {
+            background: linear-gradient(180deg, var(--color-secondary-light), var(--color-secondary));
+            border: 1px solid var(--border-color-hover); border-radius: 12px; padding: 50px 40px;
+            text-align: center; display: flex; flex-direction: column; justify-content: center;
+            box-shadow: inset 0 0 40px rgba(0,0,0,0.9), 0 15px 40px rgba(0,0,0,0.6); position: sticky; top: 140px;
+        }
+        .price-panel h4 { font-size: 1.6rem; margin-bottom: 25px; color: var(--color-text-main); font-family: var(--font-heading);}
+        .price-amount { font-family: var(--font-heading); font-size: 5.5rem; font-weight: 900; color: var(--color-primary); text-shadow: var(--shadow-glow); line-height: 1; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 15px; }
+        .price-amount .currency { font-size: 3.5rem; color: var(--color-primary-dark); }
+        .price-panel p.guarantee { font-size: 1rem; color: var(--color-primary-dark); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; font-weight: 700;}
+        .price-panel .btn { width: 100%; }
+
+        /* ==========================================================================
+           10. ROADMAP (THE STORY BEHIND AZEROTH'S GUIDES) - ANIMATED RIVER
+           ========================================================================== */
+        #roadmap {
+            background: url('https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/blt088895029b4334cf/623253518e955d49673a88f6/classic-bg.jpg') no-repeat center center/cover;
+            background-attachment: fixed; position: relative; padding: 180px 0; overflow: hidden;
+        }
+        #roadmap::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(1, 3, 8, 0.92); backdrop-filter: blur(8px); }
+        
+        .roadmap-intro {
+            max-width: 900px;
+            margin: -30px auto 60px;
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--color-text-main);
+            line-height: 1.8;
+            padding: 30px;
+            background: rgba(0, 209, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid var(--border-color-default);
+            box-shadow: var(--shadow-drop);
+        }
+        
+        .roadmap-wrapper {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+        
+        /* SVG Curved River */
+        .roadmap-svg {
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .roadmap-path {
+            fill: none;
+            stroke: var(--color-secondary-light);
+            stroke-width: 10;
+            stroke-linecap: round;
+        }
+        .roadmap-path-glow {
+            fill: none;
+            stroke: var(--color-primary);
+            stroke-width: 10;
+            stroke-dasharray: 30 50; /* Dotted energy effect */
+            stroke-linecap: round;
+            filter: drop-shadow(0 0 20px var(--color-primary));
+            animation: flowingRiver 2s linear infinite;
+        }
+        .roadmap-path-mask {
+            fill: none;
+            stroke: #fff;
+            stroke-width: 15;
+            stroke-dasharray: 4000; 
+            stroke-dashoffset: 4000; /* JS scroll controls this */
+            transition: stroke-dashoffset 0.5s ease-out;
+        }
+        @keyframes flowingRiver {
+            to { stroke-dashoffset: -80; }
+        }
+        
+        .roadmap-nodes {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 150px; 
+        }
+        .rm-node {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .rm-node.in-view { opacity: 1; transform: translateY(0); }
+        .rm-node:nth-child(even) { flex-direction: row-reverse; }
+        
+        .rm-content {
+            width: 42%;
+            background: rgba(10, 20, 40, 0.85);
+            border: 2px solid var(--color-secondary-light);
+            border-radius: 16px; padding: 40px;
+            box-shadow: var(--shadow-drop);
+            backdrop-filter: blur(12px);
+            transition: var(--transition-normal);
+        }
+        .rm-node.in-view .rm-content { border-color: var(--color-primary-dark); }
+        .rm-content:hover { transform: scale(1.05); border-color: var(--color-primary); box-shadow: var(--shadow-glow-intense); }
+        
+        .rm-point {
+            width: 70px; height: 70px;
+            background: var(--color-bg-base);
+            border: 5px solid var(--color-secondary-light);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; z-index: 3;
+            transition: var(--transition-normal);
+            box-shadow: 0 0 25px #000;
+        }
+        .rm-node.in-view .rm-point {
+            border-color: #fff; background: var(--color-primary);
+            box-shadow: 0 0 40px #fff, inset 0 0 15px #fff; color: #000;
+        }
+        
+        .rm-content h3 { font-size: 2.2rem; margin-bottom: 20px; color: var(--color-primary-glow); line-height: 1.2; }
+        .rm-content p { color: var(--color-text-main); font-size: 1.15rem; line-height: 1.7; }
+        
+        .rm-step {
+            display: inline-block; padding: 10px 25px; background: var(--color-secondary-light);
+            color: #fff; border-radius: 25px; font-weight: bold; font-size: 1rem; margin-bottom: 25px;
+            border: 1px solid var(--color-primary-dark); box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .rm-spacer { width: 42%; }
+
+        /* ==========================================================================
+           11. FEATURES / WHY US
+           ========================================================================== */
+        #features { background-color: #010308; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        
+        .features-intro {
+            max-width: 800px; margin: -40px auto 60px; text-align: center;
+            font-size: 1.25rem; color: var(--color-text-main);
+        }
+        
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .feature-card {
+            flex: 1 1 350px;
+            max-width: 450px;
+            background: rgba(10, 20, 40, 0.3); border: 1px solid var(--border-color-default);
+            padding: 50px 30px; border-radius: 12px; text-align: center; transition: var(--transition-normal); position: relative; overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        .feature-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, transparent, var(--color-primary), transparent); transform: scaleX(0); transition: var(--transition-normal);
+        }
+        .feature-card:hover { transform: translateY(-12px); background: rgba(10, 20, 40, 0.7); border-color: var(--border-color-hover); box-shadow: var(--shadow-glow), var(--shadow-drop); }
+        .feature-card:hover::before { transform: scaleX(1); }
+        .feature-icon { font-size: 4.5rem; margin-bottom: 25px; display: inline-block; filter: drop-shadow(0 0 20px rgba(0, 209, 255, 0.6)); color: var(--color-primary); }
+        .feature-card h3 { font-size: 1.6rem; color: #fff; margin-bottom: 20px; line-height: 1.3;}
+        .feature-card p { font-size: 1.1rem; line-height: 1.6;}
+
+        /* ==========================================================================
+           12. INFINITE SCROLLING REVIEWS (MARQUEE)
+           ========================================================================== */
+        #reviews { background-color: var(--color-bg-base); overflow: hidden; padding-bottom: 80px;}
+        
+        .reviews-marquee-wrapper {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        .reviews-marquee-wrapper::before, .reviews-marquee-wrapper::after {
+            content: ''; position: absolute; top: 0; width: 15vw; height: 100%; z-index: 2; pointer-events: none;
+        }
+        .reviews-marquee-wrapper::before { left: 0; background: linear-gradient(to right, var(--color-bg-base), transparent); }
+        .reviews-marquee-wrapper::after { right: 0; background: linear-gradient(to left, var(--color-bg-base), transparent); }
+        
+        .reviews-track {
+            display: flex;
+            width: max-content;
+            animation: scrollMarquee 40s linear infinite;
+        }
+        .reviews-track:hover {
+            animation-play-state: paused; 
+        }
+        @keyframes scrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+        
+        .review-card {
+            width: 450px;
+            margin: 0 20px;
+            background: linear-gradient(145deg, rgba(10,20,40,0.5), rgba(1,3,8,0.9));
+            border: 1px solid var(--border-color-default); border-top: 4px solid var(--color-primary);
+            padding: 40px; border-radius: 12px; position: relative; transition: var(--transition-normal); box-shadow: var(--shadow-drop);
+            white-space: normal; 
+        }
+        .review-card:hover { border-color: var(--color-primary-dark); box-shadow: var(--shadow-glow), var(--shadow-drop); transform: translateY(-5px);}
+        .review-card::before { content: '"'; position: absolute; top: 15px; right: 25px; font-family: var(--font-heading); font-size: 6rem; color: rgba(0, 209, 255, 0.08); line-height: 1; }
+        .stars { color: var(--color-accent); font-size: 1.4rem; margin-bottom: 15px; letter-spacing: 3px;}
+        .review-text { font-size: 1.15rem; font-style: italic; margin-bottom: 30px; position: relative; z-index: 1; line-height: 1.8; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;}
+        .reviewer { display: flex; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+        .reviewer-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--color-secondary-light); display: flex; justify-content: center; align-items: center; font-weight: 900; color: #fff; margin-right: 15px; border: 2px solid var(--color-primary); font-size: 1.2rem; }
+        .reviewer-info h4 { margin-bottom: 5px; font-size: 1.1rem; color: #fff; letter-spacing: 0; text-transform: none; font-family: var(--font-body); font-weight: 700;}
+        .reviewer-info span { color: var(--color-primary-dark); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+
+        /* ==========================================================================
+           13. FAQ SECTION
+           ========================================================================== */
+        #faq { background-color: var(--color-bg-base); }
+        .faq-container { max-width: 1000px; margin: 0 auto; }
+        .faq-item { background: rgba(10, 20, 40, 0.3); border: 1px solid var(--border-color-default); margin-bottom: 20px; border-radius: 8px; transition: var(--transition-normal); backdrop-filter: blur(5px);}
+        .faq-item:hover { border-color: var(--color-primary-dark); background: rgba(10, 20, 40, 0.6);}
+        .faq-question { padding: 30px 40px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.3rem; color: var(--color-text-header); transition: var(--transition-fast); }
+        .faq-item.active .faq-question { color: var(--color-primary); background: rgba(10, 20, 40, 0.9); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .faq-icon { font-size: 2rem; color: var(--color-primary); transition: transform 0.4s ease; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); color: var(--color-primary-glow); }
+        
+        .faq-answer-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease;
+        }
+        .faq-item.active .faq-answer-wrapper {
+            grid-template-rows: 1fr;
+        }
+        .faq-answer { overflow: hidden; }
+        .faq-answer-inner { padding: 30px 40px; font-size: 1.15rem; line-height: 1.8; color: var(--color-text-main); background: rgba(1, 3, 8, 0.6); }
+
+        /* ==========================================================================
+           14. FOOTER & SOCIAL ICONS
+           ========================================================================== */
+        footer { background: #000103; padding: 80px 0 40px; border-top: 1px solid rgba(0, 209, 255, 0.15); text-align: center; position: relative; z-index: 10;}
+        .footer-logo { font-family: var(--font-heading); font-size: 3rem; color: #fff; margin-bottom: 20px; display: inline-block; text-decoration: none; }
+        .footer-logo span { color: var(--color-primary); }
+        
+        .social-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; }
+        .social-links a {
+            display: flex; align-items: center; justify-content: center;
+            width: 60px; height: 60px; border-radius: 50%; background: var(--color-secondary-light);
+            border: 1px solid var(--border-color-default); color: #fff; transition: var(--transition-normal);
+        }
+        .social-links a svg { width: 28px; height: 28px; fill: currentColor; }
+        .social-links a:hover { transform: translateY(-8px); }
+        .social-links a.discord:hover { background: var(--color-discord); border-color: #fff; box-shadow: 0 0 20px var(--color-discord);}
+        .social-links a.telegram:hover { background: var(--color-telegram); border-color: #fff; box-shadow: 0 0 20px var(--color-telegram);}
+        
+        .footer-links { margin-bottom: 40px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;}
+        .footer-links a { color: var(--color-text-muted); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: var(--transition-fast); cursor: pointer; font-size: 1rem;}
+        .footer-links a:hover { color: var(--color-primary); }
+        .footer-disclaimer { font-size: 0.85rem; color: rgba(255,255,255,0.25); max-width: 900px; margin: 0 auto; line-height: 1.8; }
+
+        /* ==========================================================================
+           15. UNIVERSAL MODALS
+           ========================================================================== */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(1, 3, 8, 0.95); backdrop-filter: blur(15px);
+            z-index: 9999; display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: var(--transition-normal);
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        
+        .modal-content {
+            background: var(--color-secondary); border: 2px solid; border-image-slice: 1;
+            border-image-source: linear-gradient(to bottom, var(--color-primary), var(--border-color-default));
+            width: 90%; max-width: 900px; max-height: 90vh; overflow-y: auto; padding: 60px;
+            position: relative; transform: translateY(50px); transition: var(--transition-normal);
+            box-shadow: var(--shadow-drop), 0 0 80px rgba(0, 209, 255, 0.2); border-radius: 4px;
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        
+        .modal-close {
+            position: absolute; top: 25px; right: 35px; font-size: 3.5rem;
+            color: var(--color-text-muted); cursor: pointer; line-height: 1;
+            transition: var(--transition-fast); z-index: 20;
+        }
+        .modal-close:hover { color: var(--color-primary-glow); transform: scale(1.1); }
+        
+        .modal-body h2 { font-size: 2.8rem; margin-bottom: 30px; border-bottom: 1px solid var(--border-color-default); padding-bottom: 20px; text-align: center;}
+        .modal-body h3 { font-size: 1.6rem; color: #fff; margin: 40px 0 20px; color: var(--color-primary-glow);}
+        .modal-body p { margin-bottom: 20px; color: var(--color-text-main); font-size: 1.15rem; line-height: 1.8;}
+        .modal-body ul { margin-left: 25px; margin-bottom: 20px; color: var(--color-text-main); font-size: 1.15rem; line-height: 1.8;}
+        .modal-body li { margin-bottom: 10px; }
+
+        /* Custom Social Contact Toggle */
+        .contact-toggle { display: flex; gap: 15px; margin-bottom: 15px; }
+        .contact-toggle label { flex: 1; position: relative; cursor: pointer; margin: 0 !important; }
+        .contact-toggle input { position: absolute; opacity: 0; cursor: pointer; }
+        .contact-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 15px; border: 2px solid var(--border-color-default); border-radius: 6px;
+            background: rgba(10,20,40,0.5); color: var(--color-text-muted); font-weight: 700; transition: var(--transition-normal);
+        }
+        .contact-btn svg { width: 20px; height: 20px; fill: currentColor; }
+        
+        .contact-toggle input[value="Discord"]:checked ~ .contact-btn { border-color: var(--color-discord); color: #fff; background: rgba(88, 101, 242, 0.2); box-shadow: 0 0 15px rgba(88, 101, 242, 0.4); }
+        .contact-toggle input[value="Telegram"]:checked ~ .contact-btn { border-color: var(--color-telegram); color: #fff; background: rgba(0, 136, 204, 0.2); box-shadow: 0 0 15px rgba(0, 136, 204, 0.4); }
+
+        /* Forms */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full-width { grid-column: span 2; }
+        .form-group label.field-title { font-weight: 700; color: var(--color-text-header); margin-bottom: 12px; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px; }
+        .form-control { padding: 18px 25px; background: rgba(1, 3, 8, 0.9); border: 1px solid var(--border-color-default); color: #fff; border-radius: 6px; font-family: var(--font-body); font-size: 1.1rem; transition: var(--transition-fast); }
+        .form-control:focus { outline: none; border-color: var(--color-primary); box-shadow: var(--shadow-glow); }
+        
+        /* Faction & Region Selector */
+        .faction-selector { display: flex; gap: 25px; }
+        .faction-option { flex: 1; position: relative; cursor: pointer; }
+        .faction-option input { position: absolute; opacity: 0; cursor: pointer; }
+        .faction-card { padding: 20px; text-align: center; border: 2px solid var(--border-color-default); border-radius: 8px; background: rgba(10, 20, 40, 0.5); transition: var(--transition-normal); color: var(--color-text-main); font-weight: 900; font-size: 1.2rem; font-family: var(--font-heading); letter-spacing: 2px; }
+        
+        .faction-option.horde input:checked ~ .faction-card { border-color: var(--color-horde); background: rgba(140, 22, 22, 0.25); color: var(--color-horde-glow); box-shadow: 0 0 30px rgba(140, 22, 22, 0.7); }
+        .faction-option.alliance input:checked ~ .faction-card { border-color: var(--color-alliance); background: rgba(0, 74, 147, 0.25); color: var(--color-alliance-glow); box-shadow: 0 0 30px rgba(0, 74, 147, 0.7); }
+        .faction-option.region input:checked ~ .faction-card { border-color: var(--color-region); background: rgba(93, 115, 148, 0.25); color: var(--color-region-glow); box-shadow: 0 0 30px rgba(93, 115, 148, 0.5); }
+        .submit-btn { width: 100%; margin-top: 30px; font-size: 1.4rem; padding: 22px;}
+        
+        /* Form Success / Loading */
+        .form-success { display: none; text-align: center; padding: 60px 0; }
+        .form-success h3 { color: var(--color-primary); font-size: 2.5rem; margin-bottom: 20px; border: none;}
+        .form-success p { font-size: 1.3rem;}
+        .success-icon { font-size: 5rem; color: var(--color-primary-glow); margin-bottom: 30px; filter: drop-shadow(0 0 20px var(--color-primary));}
+        
+        .spinner-container { display: none; text-align: center; padding: 60px 0; }
+        .spinner { width: 60px; height: 60px; margin: 0 auto 30px; border: 5px solid rgba(0, 209, 255, 0.2); border-top: 5px solid var(--color-primary); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .spinner-container p { font-size: 1.3rem; color: var(--color-primary-glow); font-weight: bold; letter-spacing: 2px; text-transform: uppercase;}
+
+        /* ==========================================================================
+           16. SERVICES INFO MODAL
+           ========================================================================== */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;}
+        .service-info-card {
+            background: linear-gradient(to bottom right, rgba(10,20,40,0.6), rgba(1,3,8,0.9));
+            border: 1px solid var(--border-color-default); border-radius: 12px;
+            padding: 40px; transition: var(--transition-normal); position: relative; overflow: hidden;
+        }
+        .service-info-card::before {
+            content: ''; position: absolute; top:0; left:0; width: 100%; height: 100%;
+            background: radial-gradient(circle at top right, rgba(0,209,255,0.1), transparent); pointer-events: none;
+        }
+        .service-info-card:hover { border-color: var(--color-primary); box-shadow: var(--shadow-glow); transform: translateY(-5px);}
+        .service-info-card h3 { font-size: 2rem; color: #fff; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px;}
+        .service-info-card p { font-size: 1.15rem; color: var(--color-text-main); margin-bottom: 25px; line-height: 1.8;}
+        .service-info-card ul { margin-bottom: 30px; }
+        .btn-go-calc { display: inline-block; }
+
+        /* ==========================================================================
+           17. NEWS & GUIDES MODALS
+           ========================================================================== */
+        .modal-tabs { display: flex; gap: 20px; margin-bottom: 40px; border-bottom: 1px solid var(--border-color-default); padding-bottom: 20px; justify-content: center; flex-wrap: wrap;}
+        .modal-tab { background: none; border: none; color: var(--color-text-main); font-size: 1.2rem; font-family: var(--font-heading); font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: var(--transition-fast); padding: 10px 20px; border-radius: 4px;}
+        .modal-tab:hover { color: var(--color-primary); background: rgba(0, 209, 255, 0.05);}
+        .modal-tab.active { color: var(--color-bg-base); background: var(--color-primary); box-shadow: var(--shadow-glow); text-shadow: none;}
+        .news-list, .guides-grid { display: flex; flex-direction: column; gap: 30px; }
+        .guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+        
+        .article-card {
+            background: rgba(10, 20, 40, 0.5); border: 1px solid var(--border-color-default);
+            padding: 35px; border-radius: 12px; transition: var(--transition-normal); cursor: pointer;
+            position: relative; overflow: hidden;
+        }
+        .article-card:hover { border-color: var(--color-primary); background: rgba(10, 20, 40, 0.9); transform: translateY(-8px); box-shadow: var(--shadow-glow-intense); }
+        
+        .article-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 0.95rem; color: var(--color-text-muted); font-weight: bold;}
+        .article-tag { background: var(--color-secondary-light); padding: 5px 12px; border-radius: 4px; color: var(--color-primary-dark); border: 1px solid; }
+        .article-card h3 { margin-bottom: 15px; font-size: 1.6rem; color: #fff; text-transform: none; font-family: var(--font-body);}
+        .article-card p { font-size: 1.1rem; margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;}
+        
+        /* Full Article View */
+        #full-article-view, #full-guide-view { display: none; }
+        .btn-back { background: transparent; border: 1px solid var(--color-primary); color: var(--color-primary); font-size: 1.1rem; cursor: pointer; margin-bottom: 30px; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; padding: 10px 25px; border-radius: 4px; transition: var(--transition-fast); text-transform: uppercase; letter-spacing: 1px;}
+        .btn-back:hover { background: var(--color-primary); color: var(--color-bg-base); box-shadow: var(--shadow-glow); }
+        
+        .article-hero-image { width: 100%; height: 400px; background: var(--color-secondary-light); border-radius: 12px; margin-bottom: 40px; object-fit: cover; border: 1px solid var(--border-color-default); box-shadow: var(--shadow-drop);}
+        .article-content { font-size: 1.2rem; line-height: 1.9; color: var(--color-text-main); }
+        .article-content h3 { color: var(--color-primary-glow); margin: 40px 0 20px; font-size: 1.8rem;}
+        .article-content p { margin-bottom: 25px; }
+        .article-content ul { margin-left: 30px; margin-bottom: 25px; }
+        .article-content li { margin-bottom: 12px; }
+        .guides-intro { font-size: 1.3rem; color: var(--color-text-header); margin-bottom: 40px; padding: 30px; background: rgba(0, 209, 255, 0.05); border-left: 6px solid var(--color-primary); border-radius: 6px; line-height: 1.8;}
+        
+        .guide-icon { font-size: 4rem; margin-bottom: 25px; text-align: center; filter: drop-shadow(0 0 15px rgba(0,209,255,0.4));}
+        .guide-author { font-size: 1rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase; text-align: center; margin-top: 15px; letter-spacing: 1px;}
+
+        /* ==========================================================================
+           18. RESPONSIVE MEDIA QUERIES
+           ========================================================================== */
+        @media (max-width: 1300px) {
+            .roadmap-svg { display: none; }
+            .rm-node { width: 100%; padding-left: 90px; padding-right: 20px; flex-direction: row !important; margin-bottom: 50px; transform: translateX(-50px); gap: 0;}
+            .rm-node.in-view { transform: translateX(0); }
+            .rm-content { width: 100%; }
+            .rm-point { position: absolute; left: 40px; top: 40px; transform: translateX(-50%); width: 50px; height: 50px; font-size: 1.4rem; }
+            .rm-spacer { display: none; }
+        }
+        @media (max-width: 1024px) {
+            .calc-wrapper { grid-template-columns: 1fr; }
+            .price-panel { position: static; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { gap: 15px; }
+            .header-controls { width: 100%; justify-content: center; margin-top: 15px;}
+            .hero-subtitle { font-size: 1.2rem; }
+            section { padding: 90px 0; }
+            h2 { font-size: 2.2rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+            .modal-content { padding: 30px 20px; }
+            .modal-tabs { flex-wrap: wrap; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+         ELEGANT ARCANE FLAME INTRO ANIMATION
+         ========================================================================== -->
+    <div id="elegant-intro">
+        <div class="intro-logo">Azeroth's<span>guides</span></div>
+        <div class="intro-flames"></div>
+    </div>
+
+    <!-- Background Arcane Texture & Optimized Interactive Canvas -->
+    <div class="ambient-texture"></div>
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- ==========================================================================
+         HEADER & NAVIGATION
+         ========================================================================== -->
+    <header id="main-header">
+        <div class="container header-inner">
+            <a href="#" class="logo" data-lang-key="site_name">Azeroth's<span>guides</span></a>
+            
+            <nav class="nav-links">
+                <a id="btn-open-services" data-lang-key="nav_services">Services Info</a>
+                <a id="btn-open-news" data-lang-key="nav_news">News</a>
+                <a id="btn-open-guides" data-lang-key="nav_guides">Guides</a>
+                <a href="#roadmap" data-lang-key="nav_roadmap">Roadmap</a>
+                <a href="#features" data-lang-key="nav_why_us">Why Us</a>
+                <a id="btn-open-apply-nav" data-lang-key="nav_for_boosters" style="color: var(--color-accent);">For Boosters</a>
+            </nav>
+
+            <div class="header-controls">
+                <div class="custom-select-wrapper">
+                    <select id="lang-switch" class="custom-select">
+                        <option value="en" selected>EN</option>
+                        <option value="ru">RU</option>
+                        <option value="fr">FR</option>
+                        <option value="es">ES</option>
+                    </select>
+                </div>
+                <div class="custom-select-wrapper">
+                    <select id="currency-switch" class="custom-select">
+                        <option value="USD" selected>USD ($)</option>
+                        <option value="RUB">RUB (₽)</option>
+                        <option value="EUR">EUR (€)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==========================================================================
+             HERO SECTION & WOW TOKEN WIDGET
+             ========================================================================== -->
+        <section class="hero">
+            <div class="hero-content container" id="hero-content" style="opacity:0; transition: opacity 1s;">
+                <h1 data-lang-key="hero_title">CONQUER AZEROTH</h1>
+                <p class="hero-subtitle" data-lang-key="hero_subtitle">Premium boosting service and professional strategies. Learn from the best, achieve your goals fast, safe, and at a fair price.</p>
+                <a href="#calculator" class="btn"><span data-lang-key="hero_cta">Calculate Price</span></a>
+                
+                <!-- WOW TOKEN WIDGET -->
+                <div style="width: 100%;">
+                    <div class="token-widget" id="token-widget">
+                        <div class="token-header">🪙 WoW Token Price</div>
+                        <div class="token-prices">
+                            <div class="token-region">
+                                <span class="region-name">EU:</span>
+                                <span class="region-price" id="token-price-eu">Loading...</span>
+                            </div>
+                            <div class="token-region">
+                                <span class="region-name">US:</span>
+                                <span class="region-price" id="token-price-us">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             CALCULATOR SECTION
+             ========================================================================== -->
+        <section id="calculator">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="calc_section_title">Service Calculator</h2>
+                </div>
+                
+                <div class="calc-wrapper">
+                    <div class="calc-form">
+                        <div class="calc-form-group">
+                            <label class="group-title" data-lang-key="calc_label_type">Service Type</label>
+                            <div class="calc-select-wrapper">
+                                <select id="boost-type" class="calc-select">
+                                    <option value="leveling" data-lang-key="calc_opt_leveling">Powerleveling (1-90)</option>
+                                    <option value="mythic" data-lang-key="calc_opt_mythic">Mythic+ Dungeons</option>
+                                    <option value="raids" data-lang-key="calc_opt_raids">Raid Carries</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="dynamic-options-container"></div>
+                    </div>
+                    
+                    <div class="price-panel">
+                        <h4 data-lang-key="price_panel_title">Total Price</h4>
+                        <div class="price-amount">
+                            <span id="price-value">0</span>
+                            <span class="currency" id="currency-symbol">$</span>
+                        </div>
+                        <p class="guarantee" data-lang-key="price_panel_guarantee">Service fee included</p>
+                        <button id="btn-open-order" class="btn"><span data-lang-key="price_panel_btn">Place Order</span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             ROADMAP SECTION 
+             ========================================================================== -->
+        <section id="roadmap">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="rm_title">The Story Behind Us</h2>
+                </div>
+                
+                <div class="roadmap-intro" data-lang-key="rm_intro">
+                    Azeroth's Guides wasn't born in a corporate office. It was created by a small group of friends who spent over a decade raiding, fighting in arenas, and exploring every corner of Azeroth. We grew tired of seeing massive boosting platforms treat players like numbers and boosters like machines.
+                </div>
+                
+                <div class="roadmap-wrapper">
+                    <svg class="roadmap-svg" viewBox="0 0 800 800" preserveAspectRatio="none">
+                        <clipPath id="reveal-mask">
+                            <path class="roadmap-path-mask" id="rm-path-mask" d="M400,0 C400,100 700,150 700,250 C700,350 100,400 100,500 C100,600 400,650 400,800" />
+                        </clipPath>
+                        <path class="roadmap-path" d="M400,0 C400,100 700,150 700,250 C700,350 100,400 100,500 C100,600 400,650 400,800" />
+                        <path class="roadmap-path-glow" d="M400,0 C400,100 700,150 700,250 C700,350 100,400 100,500 C100,600 400,650 400,800" clip-path="url(#reveal-mask)" />
+                    </svg>
+
+                    <div class="roadmap-nodes">
+                        <!-- Nodes -->
+                        <div class="rm-node">
+                            <div class="rm-content">
+                                <span class="rm-step" data-lang-key="rm_1_date">Phase 1</span>
+                                <h3 data-lang-key="rm_1_title">The Idea</h3>
+                                <p data-lang-key="rm_1_desc">A group of top-100 guild veterans was scammed by a massive boosting agency that refused to pay. Realizing companies take everything while players get pennies, the spark of rebellion ignited. The concept of an honest tavern for boosters was born.</p>
+                            </div>
+                            <div class="rm-point">💡</div>
+                            <div class="rm-spacer"></div>
+                        </div>
+
+                        <div class="rm-node">
+                            <div class="rm-content">
+                                <span class="rm-step" data-lang-key="rm_2_date">Phase 2</span>
+                                <h3 data-lang-key="rm_2_title">Development</h3>
+                                <p data-lang-key="rm_2_desc">Our Mission: To provide elite gaming services while maintaining a 1:1 human connection. We built a secure platform focusing on extreme account safety via VPN routing and transparent math for fair pricing.</p>
+                            </div>
+                            <div class="rm-point">⚒️</div>
+                            <div class="rm-spacer"></div>
+                        </div>
+
+                        <div class="rm-node">
+                            <div class="rm-content">
+                                <span class="rm-step" data-lang-key="rm_3_date">Phase 3</span>
+                                <h3 data-lang-key="rm_3_title">The Nexus</h3>
+                                <p data-lang-key="rm_3_desc">Deployment of the official website and creation of our private Discord channel. We gathered the first roster of elite, trusted players ready to change the market rules.</p>
+                            </div>
+                            <div class="rm-point">🌐</div>
+                            <div class="rm-spacer"></div>
+                        </div>
+
+                        <div class="rm-node">
+                            <div class="rm-content">
+                                <span class="rm-step" data-lang-key="rm_4_date">Phase 4</span>
+                                <h3 data-lang-key="rm_4_title">First Blood</h3>
+                                <p data-lang-key="rm_4_desc">The first client order completed flawlessly. A +20 key timed perfectly, and the booster received their 50% share instantly. The revolution has begun.</p>
+                            </div>
+                            <div class="rm-point">👑</div>
+                            <div class="rm-spacer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             FEATURES / WHY US SECTION
+             ========================================================================== -->
+        <section id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="features_title">Why Azeroth's Guides?</h2>
+                </div>
+                
+                <div class="features-intro" data-lang-key="features_intro">
+                    In a market full of bots and greedy corporations, we stand for quality and transparency. Here is what makes us different:
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🖐️</div>
+                        <h3 data-lang-key="feat_1_title">100% Manual Work</h3>
+                        <p data-lang-key="feat_1_desc">We never use bots, scripts, or rotation software. Every level and achievement is earned by the hands of our professionals.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3 data-lang-key="feat_2_title">Security First</h3>
+                        <p data-lang-key="feat_2_desc">We use high-end private VPNs to match your location, ensuring your account stays safe from detection.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎥</div>
+                        <h3 data-lang-key="feat_3_title">Video Proof</h3>
+                        <p data-lang-key="feat_3_desc">Transparency is our core value. Our boosters provide video recordings of the starting and ending points (inventory/gold check).</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3 data-lang-key="feat_4_title">Fair Pricing</h3>
+                        <p data-lang-key="feat_4_desc">By keeping our commissions fair, we attract the best players. You get elite-tier service without paying corporate premiums.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🎖️</div>
+                        <h3 data-lang-key="feat_5_title">Highest Payouts</h3>
+                        <p data-lang-key="feat_5_desc">We pay our boosters 50%, the highest on the market. This guarantees that only elite, motivated players touch your order.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             REVIEWS SECTION 
+             ========================================================================== -->
+        <section id="reviews">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="rev_title">Customer Reviews</h2>
+                </div>
+            </div>
+            
+            <div class="reviews-marquee-wrapper">
+                <div class="reviews-track" id="reviews-track">
+                    <!-- Reviews injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             FAQ SECTION
+             ========================================================================== -->
+        <section id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="faq_title">Frequently Asked Questions</h2>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span data-lang-key="faq_1_q">Is it safe for my account?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner" data-lang-key="faq_1_a">
+                                    We use city-matched VPNs and invisible mode. However, account sharing carries inherent risks described in our Terms of Service. For 100% safety, choose Self-play.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span data-lang-key="faq_2_q">What payment methods do you accept?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner" data-lang-key="faq_2_a">
+                                    Currently, we accept Cryptocurrencies (USDT, BTC, ETH) and DonationAlerts. PayPal support is coming soon. Remember, we work on a 50% upfront payment basis.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span data-lang-key="faq_3_q">How fast will my order start?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner" data-lang-key="faq_3_a">
+                                    We strive to start your order as soon as possible. Exact time depends on current queue and booster availability. Usually it's very fast.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span data-lang-key="faq_4_q">How can I communicate with my booster?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner" data-lang-key="faq_4_a">
+                                    You will be in direct, constant contact with your personal booster via Discord or Telegram. You can ask questions at any time.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer>
+        <div class="container">
+            <a href="#" class="footer-logo" data-lang-key="site_name">Azeroth's<span>guides</span></a>
+            
+            <div class="social-links">
+                <a href="#" class="discord" aria-label="Discord">
+                    <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                </a>
+                <a href="#" class="telegram" aria-label="Telegram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.21-1.12-.33-1.08-.7.02-.19.27-.39.75-.6 2.95-1.29 4.93-2.14 5.92-2.55 2.82-1.15 3.4-1.36 3.79-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .31z"/></svg>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a id="btn-open-tos" data-lang-key="footer_link_tos">Terms of Service (Public Offer)</a>
+            </div>
+            
+            <p class="footer-disclaimer" data-lang-key="footer_disclaimer">
+                World of Warcraft™ and Blizzard Entertainment™ are trademarks of Blizzard Entertainment. This site is not affiliated with Blizzard.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         ALL MODALS
+         ========================================================================== -->
+    <!-- 0. SERVICES INFO Modal -->
+    <div id="modal-services" class="modal-overlay">
+        <div class="modal-content" style="max-width: 1200px;">
+            <span class="modal-close" data-target="modal-services">&times;</span>
+            <div class="modal-body">
+                <h2 style="text-align:center; border:none; margin-bottom: 40px;" data-lang-key="srv_modal_title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-info-card">
+                        <div class="guide-icon">📈</div>
+                        <h3 data-lang-key="srv_lvl_title">Powerleveling</h3>
+                        <div class="article-content" data-lang-key="srv_lvl_desc">
+                            <p>Skip the grind. We will level your character blazingly fast using optimal questing and dungeon routes. 100% done by hand.</p>
+                            <ul>
+                                <li>Levels 1-60: Standard scaling content.</li>
+                                <li>Levels 60-70: Older expansion content.</li>
+                                <li>Levels 70-80: The latest expansion leveling.</li>
+                                <li>Levels 80-90: Max level endgame push. Guaranteed safety.</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-go-calc"><span data-lang-key="hero_cta">Calculate Price</span></button>
+                    </div>
+                    
+                    <div class="service-info-card">
+                        <div class="guide-icon">⚔️</div>
+                        <h3 data-lang-key="srv_mythic_title">Mythic+ Dungeons</h3>
+                        <div class="article-content" data-lang-key="srv_mythic_desc">
+                            <p>Secure your weekly Great Vault loot, high-ilvl gear, and Mythic+ Rating. Our elite groups will time any key up to +20 effortlessly.</p>
+                            <ul>
+                                <li>+10 Keys: Perfect for farming crests.</li>
+                                <li>+15 Keys: The sweet spot for Hero track gear.</li>
+                                <li>+20 Keys: Mythic track gear and teleports.</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-go-calc"><span data-lang-key="hero_cta">Calculate Price</span></button>
+                    </div>
+
+                    <div class="service-info-card">
+                        <div class="guide-icon">🐉</div>
+                        <h3 data-lang-key="srv_raid_title">Raid Carries</h3>
+                        <div class="article-content" data-lang-key="srv_raid_desc">
+                            <p>Full clears of the latest raids on Normal, Heroic, or Mythic difficulties. Get your Ahead of the Curve achievements, mounts, and Best-in-Slot gear.</p>
+                            <ul>
+                                <li>Normal Clear: Experience the story.</li>
+                                <li>Heroic Clear: Earn AOTC and powerful upgrades.</li>
+                                <li>Mythic Clear: The ultimate challenge. Exclusive titles.</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-go-calc"><span data-lang-key="hero_cta">Calculate Price</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. ORDER Modal -->
+    <div id="modal-order" class="modal-overlay">
+        <div class="modal-content" style="max-width: 800px;">
+            <span class="modal-close" data-target="modal-order">&times;</span>
+            <div class="modal-body" id="order-content-area">
+                <h2 style="text-align:center; border:none;" data-lang-key="form_title_order">Order Service</h2>
+                <p style="text-align:center; color: var(--color-text-muted); margin-bottom: 40px; font-size: 1.2rem;" data-lang-key="form_subtitle">Fill out the details below to request your boost.</p>
+                <form id="order-form">
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label class="field-title" data-lang-key="form_lbl_name">Character Name</label>
+                            <input type="text" id="order-char-name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label class="field-title" data-lang-key="form_lbl_contact">Contact Method</label>
+                            <div class="contact-toggle">
+                                <label>
+                                    <input type="radio" name="order_contact_type" value="Discord" required checked>
+                                    <div class="contact-btn">
+                                        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                                        Discord
+                                    </div>
+                                </label>
+                                <label>
+                                    <input type="radio" name="order_contact_type" value="Telegram">
+                                    <div class="contact-btn">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.21-1.12-.33-1.08-.7.02-.19.27-.39.75-.6 2.95-1.29 4.93-2.14 5.92-2.55 2.82-1.15 3.4-1.36 3.79-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .31z"/></svg>
+                                        Telegram
+                                    </div>
+                                </label>
+                            </div>
+                            <input type="text" id="order-contact-value" class="form-control" placeholder="Discord Tag (e.g. player#1234)" required>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label class="field-title" data-lang-key="form_lbl_region">Region</label>
+                            <div class="faction-selector">
+                                <label class="faction-option region">
+                                    <input type="radio" name="order_region" value="EU" required checked>
+                                    <div class="faction-card">EU</div>
+                                </label>
+                                <label class="faction-option region">
+                                    <input type="radio" name="order_region" value="US">
+                                    <div class="faction-card">US</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="field-title" data-lang-key="form_lbl_faction">Faction</label>
+                            <div class="faction-selector">
+                                <label class="faction-option horde">
+                                    <input type="radio" name="order_faction" value="Horde" required>
+                                    <div class="faction-card" data-lang-key="form_fac_horde">HORDE</div>
+                                </label>
+                                <label class="faction-option alliance">
+                                    <input type="radio" name="order_faction" value="Alliance">
+                                    <div class="faction-card" data-lang-key="form_fac_alliance">ALLIANCE</div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="field-title" data-lang-key="form_lbl_notes">Additional Details / Target Service</label>
+                            <textarea id="order-notes" class="form-control" rows="3" readonly></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn submit-btn"><span data-lang-key="form_btn_submit">Submit Request</span></button>
+                </form>
+            </div>
+            
+            <div class="spinner-container" id="order-spinner">
+                <div class="spinner"></div>
+                <p data-lang-key="form_loading">Sending request...</p>
+            </div>
+            <div class="form-success" id="order-success">
+                <div class="success-icon">✓</div>
+                <h3 data-lang-key="form_success_title">Request Sent Successfully!</h3>
+                <p data-lang-key="form_success_desc">Our manager will contact you via Discord/Telegram shortly.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. APPLY AS BOOSTER Modal -->
+    <div id="modal-apply" class="modal-overlay">
+        <div class="modal-content" style="max-width: 800px;">
+            <span class="modal-close" data-target="modal-apply">&times;</span>
+            <div class="modal-body" id="apply-content-area">
+                <h2 style="text-align:center; border:none;" data-lang-key="form_title_apply">Join Our Team</h2>
+                <p style="text-align:center; color: var(--color-text-muted); margin-bottom: 30px; font-size: 1.2rem;" data-lang-key="form_apply_sub">Leave your details to become a booster.</p>
+                <div class="guides-intro" style="margin-bottom: 40px;">
+                    <ul style="margin: 0;">
+                        <li data-lang-key="booster_li_1">Fixed and transparent payout: exactly 50% of the order value.</li>
+                        <li data-lang-key="booster_li_2">Total freedom: only take the orders you want to do.</li>
+                        <li data-lang-key="booster_li_4">Payouts by mutual agreement.</li>
+                    </ul>
+                </div>
+                <form id="apply-form">
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label class="field-title" data-lang-key="form_lbl_contact">Contact Method</label>
+                            <div class="contact-toggle">
+                                <label>
+                                    <input type="radio" name="apply_contact_type" value="Discord" required checked>
+                                    <div class="contact-btn">
+                                        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                                        Discord
+                                    </div>
+                                </label>
+                                <label>
+                                    <input type="radio" name="apply_contact_type" value="Telegram">
+                                    <div class="contact-btn">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.21-1.12-.33-1.08-.7.02-.19.27-.39.75-.6 2.95-1.29 4.93-2.14 5.92-2.55 2.82-1.15 3.4-1.36 3.79-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .31z"/></svg>
+                                        Telegram
+                                    </div>
+                                </label>
+                            </div>
+                            <input type="text" id="apply-contact-value" class="form-control" placeholder="Discord Tag (e.g. player#1234)" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="field-title" data-lang-key="form_lbl_armory">Armory / Raider.io Link</label>
+                            <input type="url" id="apply-armory" class="form-control" required placeholder="https://raider.io/characters/...">
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="field-title" data-lang-key="form_lbl_exp">Describe your Boosting Experience</label>
+                            <textarea id="apply-exp" class="form-control" rows="5" required placeholder="I have been boosting M+ for 3 years..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn submit-btn"><span data-lang-key="form_btn_submit">Submit Request</span></button>
+                </form>
+            </div>
+            
+            <div class="spinner-container" id="apply-spinner">
+                <div class="spinner"></div>
+                <p data-lang-key="form_loading">Sending request...</p>
+            </div>
+            <div class="form-success" id="apply-success">
+                <div class="success-icon">✓</div>
+                <h3 data-lang-key="form_success_title">Request Sent Successfully!</h3>
+                <p data-lang-key="form_success_desc">Our manager will contact you shortly.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. NEWS Modal -->
+    <div id="modal-news" class="modal-overlay">
+        <div class="modal-content" style="max-width: 1200px;">
+            <span class="modal-close" data-target="modal-news">&times;</span>
+            <div class="modal-body" id="news-main-view">
+                <h2 style="text-align:center; border:none;" data-lang-key="news_modal_title">News & Updates</h2>
+                <div class="modal-tabs">
+                    <button class="modal-tab active" data-filter="all" data-lang-key="news_tab_all">All</button>
+                    <button class="modal-tab" data-filter="game" data-lang-key="news_tab_game">Game News</button>
+                    <button class="modal-tab" data-filter="site" data-lang-key="news_tab_site">Site News</button>
+                </div>
+                <div class="news-list" id="news-container"></div>
+            </div>
+            <div class="modal-body" id="full-article-view">
+                <button class="btn-back" id="btn-back-article">← <span data-lang-key="btn_back">Back</span></button>
+                <img src="" alt="Article Image" class="article-hero-image" id="article-img">
+                <h2 id="article-title" style="border:none; margin-bottom:15px; font-size: 2.5rem; text-transform:none;">Title</h2>
+                <div class="article-meta" style="margin-bottom:40px; border-bottom: 1px solid var(--border-color-default); padding-bottom: 20px;">
+                    <span class="article-tag" id="article-tag">TAG</span> 
+                    <span id="article-date" style="font-size:1.1rem;">Date</span>
+                </div>
+                <div class="article-content" id="article-content">Content</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. GUIDES Modal -->
+    <div id="modal-guides" class="modal-overlay">
+        <div class="modal-content" style="max-width: 1200px;">
+            <span class="modal-close" data-target="modal-guides">&times;</span>
+            <div class="modal-body" id="guides-main-view">
+                <h2 style="text-align:center; border:none;" data-lang-key="guides_modal_title">Pro Strategies & Guides</h2>
+                <p class="guides-intro" data-lang-key="guides_intro">
+                    Our performers are not just mercenaries, they are professionals from the top 100 guilds in the world. They are the ones who, based on their colossal experience, compile these guides. Learn from the absolute best.
+                </p>
+                <div class="guides-grid" id="guides-container"></div>
+            </div>
+            <div class="modal-body" id="full-guide-view">
+                <button class="btn-back" id="btn-back-guide">← <span data-lang-key="btn_back">Back</span></button>
+                <img src="" alt="Guide Image" class="article-hero-image" id="guide-img">
+                <h2 id="guide-title" style="border:none; margin-bottom:15px; font-size: 2.5rem; text-transform:none;">Title</h2>
+                <div class="article-meta" style="margin-bottom:40px; border-bottom: 1px solid var(--border-color-default); padding-bottom: 20px; justify-content:flex-start;">
+                    <span class="article-tag" id="guide-author" style="font-size:1.1rem; padding: 8px 15px;">Author</span>
+                </div>
+                <div class="article-content" id="guide-content">Content</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Terms of Service Modal -->
+    <div id="modal-tos" class="modal-overlay">
+        <div class="modal-content" style="max-width: 1000px;">
+            <span class="modal-close" data-target="modal-tos">&times;</span>
+            <div class="modal-body">
+                <h2 data-lang-key="tos_title">Terms of Service (Public Offer)</h2>
+                <p data-lang-key="tos_intro" style="font-size:1.3rem; margin-bottom: 40px; border-left: 4px solid var(--color-primary); padding-left: 20px; background: rgba(0,209,255,0.05);">This document is a legally binding agreement between the Service and the User.</p>
+                
+                <h3 data-lang-key="tos_h1">1. Assumption of Risks & Blizzard ToS</h3>
+                <p data-lang-key="tos_p1_1">1.1. The User fully understands and voluntarily accepts that any services involving the transfer of account data to third parties (Account Sharing), as well as the payment for in-game services with real money (RMT), directly violate the End User License Agreement (EULA) and Terms of Service (ToS) of Blizzard Entertainment, Inc.</p>
+                <p data-lang-key="tos_p1_2">1.2. The User agrees that punitive measures may be applied to their account for violating these rules, up to and including permanent account suspension (ban).</p>
+                
+                <h3 data-lang-key="tos_h2">2. Limitation of Liability</h3>
+                <p data-lang-key="tos_p2_1">2.1. The Service undertakes to apply maximum technical precautions (premium VPN routing, hiding online status), however, the Service \*\*does not provide any absolute guarantees\*\* of protection against detection.</p>
+                <p data-lang-key="tos_p2_2">2.2. In the event of account suspension, rollback of achievements, or confiscation of in-game valuables, the Service bears no financial, moral, or legal responsibility.</p>
+                
+                <h3 data-lang-key="tos_h5">3. Payment Terms</h3>
+                <p data-lang-key="tos_p5_1">3.1. Work on the order begins exclusively after a <strong>50% upfront payment</strong> (prepayment). The remaining 50% is paid upon order completion.</p>
+                <p data-lang-key="tos_p5_2">3.2. We accept multiple payment methods for your convenience: Cryptocurrency (USDT, BTC, ETH), and DonationAlerts (PayPal coming soon). The choice of payment method is fully up to the User.</p>
+
+                <h3 data-lang-key="tos_h3">4. Refund Policy</h3>
+                <p data-lang-key="tos_p3_1">4.1. Refunds are not provided if the service has been fully rendered or if the account was penalized during or after the service.</p>
+                <p data-lang-key="tos_p3_2">4.2. A partial or full refund can only be initiated if the Service fails to start or complete the order due to internal faults.</p>
+
+                <h3 data-lang-key="tos_h4">5. Intellectual Property</h3>
+                <p data-lang-key="tos_p4_1">5.1. "World of Warcraft" and "Blizzard Entertainment" are trademarks of Blizzard Entertainment, Inc. This website is not endorsed by Blizzard Entertainment.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         JAVASCRIPT ENGINE
+         ========================================================================== -->
+    <script>
+        /**
+         * ====================================================================
+         * 1. TRANSLATION DICTIONARY
+         * ====================================================================
+         */
+        const translations = {
+            en: {
+                page_title: "Azeroth's Guides | Premium Boosting",
+                site_name: "Azeroth's<span>guides</span>",
+                nav_services: "Services Info",
+                nav_news: "News",
+                nav_guides: "Guides",
+                nav_roadmap: "Roadmap",
+                nav_why_us: "Why Us",
+                nav_reviews: "Reviews",
+                nav_for_boosters: "For Boosters",
+                nav_faq: "FAQ",
+                hero_title: "CONQUER AZEROTH",
+                hero_subtitle: "Premium boosting service and professional strategies. Learn from the best, achieve your goals fast, safe, and at a fair price.",
+                hero_cta: "Calculate Price",
+                btn_back: "Back",
+                calc_section_title: "Service Calculator",
+                calc_label_type: "Service Type",
+                calc_opt_leveling: "Powerleveling (1-90)",
+                calc_opt_mythic: "Mythic+ Dungeons",
+                calc_opt_raids: "Raid Carries",
+                price_panel_title: "Total Price",
+                price_panel_guarantee: "Service fee included",
+                price_panel_btn: "Place Order",
+                lvl_current: "Current Level:",
+                lvl_desired: "Desired Level:",
+                opt_key_10: "+10 Key (In Time)",
+                opt_key_15: "+15 Key (In Time)",
+                opt_key_20: "+20 Key (In Time)",
+                opt_raid_norm: "Normal Raid (Full Loot)",
+                opt_raid_hc: "Heroic Raid (Full Loot)",
+                opt_raid_mythic: "Mythic Raid (First 3 Bosses)",
+                
+                rm_title: "The Story Behind Azeroth's Guides",
+                rm_intro: "Azeroth's Guides wasn't born in a corporate office. It was created by a small group of friends who spent over a decade raiding, fighting in arenas, and exploring every corner of Azeroth. We grew tired of seeing massive boosting platforms treat players like numbers and boosters like machines. We decided to build a place where honesty, skill, and safety come first.",
+                rm_1_date: "Phase 1",
+                rm_1_title: "The Idea",
+                rm_1_desc: "A group of top-100 guild veterans was scammed by a massive boosting agency that refused to pay. Realizing companies take everything while players get pennies, the spark of rebellion ignited.",
+                rm_2_date: "Phase 2",
+                rm_2_title: "The Development",
+                rm_2_desc: "Our Mission: To provide elite gaming services while maintaining a 1:1 human connection. We built a secure platform focusing on extreme account safety via VPN routing.",
+                rm_3_date: "Phase 3",
+                rm_3_title: "The Nexus",
+                rm_3_desc: "Deployment of the official website and creation of our private Discord channel. We gathered the first roster of elite, trusted players ready to change the market rules.",
+                rm_4_date: "Phase 4",
+                rm_4_title: "First Blood",
+                rm_4_desc: "The first client order completed flawlessly. A +20 key timed perfectly, and the booster received their 50% share instantly. The revolution has begun.",
+                
+                features_title: "Why Azeroth's Guides?",
+                features_intro: "In a market full of bots and greedy corporations, we stand for quality and transparency. Here is what makes us different:",
+                feat_1_title: "100% Manual Work",
+                feat_1_desc: "We never use bots, scripts, or rotation software. Every level and achievement is earned by the hands of our professionals.",
+                feat_2_title: "Security First",
+                feat_2_desc: "We use high-end private VPNs to match your location, ensuring your account stays safe from detection.",
+                feat_3_title: "Video Proof",
+                feat_3_desc: "Transparency is our core value. Our boosters provide video recordings of the starting and ending points (inventory/gold check).",
+                feat_4_title: "Fair Pricing",
+                feat_4_desc: "By keeping our commissions fair, we attract the best players. You get elite-tier service without paying corporate premiums.",
+                feat_5_title: "Veteran Support",
+                feat_5_desc: "Our managers are long-time WoW players who understand your needs and are available to help you in private tickets 24/7.",
+                
+                rev_title: "Customer Reviews",
+                
+                booster_title: "Become a Booster",
+                booster_subtitle: "Monetize your WoW skills",
+                booster_desc: "Created by players, for players. We offer the best and most transparent working conditions on the market.",
+                booster_li_1: "Fixed and transparent payout: exactly 50% of the order value.",
+                booster_li_2: "Total freedom: only take the orders you want to do.",
+                booster_li_4: "Payouts by mutual agreement (Crypto, Cards, etc.).",
+                booster_btn: "Apply to Join",
+                booster_circle_desc: "Booster's fair share from every order",
+                
+                faq_title: "Frequently Asked Questions",
+                faq_1_q: "Is it safe for my account?",
+                faq_1_a: "We use city-matched VPNs and invisible mode. However, account sharing carries inherent risks described in our Terms of Service. For 100% safety, choose Self-play.",
+                faq_2_q: "What payment methods do you accept?",
+                faq_2_a: "Currently, we accept Cryptocurrencies (USDT, BTC, ETH) and DonationAlerts. PayPal support is coming soon. We work on a 50% upfront payment basis.",
+                faq_3_q: "How fast will my order start?",
+                faq_3_a: "We strive to start your order as soon as possible. Exact time depends on current queue and booster availability. Usually it's very fast.",
+                faq_4_q: "How can I communicate with my booster?",
+                faq_4_a: "You will be in direct, constant contact with your personal booster via Discord or Telegram.",
+                
+                form_title_order: "Order Service",
+                form_subtitle: "Fill out the details below to request your boost.",
+                form_title_apply: "Join Our Team",
+                form_apply_sub: "Leave your details to become a booster.",
+                form_lbl_name: "Character Name",
+                form_lbl_contact: "Contact Method",
+                form_lbl_region: "Region",
+                form_lbl_faction: "Faction",
+                form_fac_horde: "HORDE",
+                form_fac_alliance: "ALLIANCE",
+                form_lbl_notes: "Additional Details / Target Service",
+                form_lbl_armory: "Armory / Raider.io Link",
+                form_lbl_exp: "Describe your Boosting Experience",
+                form_btn_submit: "Submit Request",
+                form_loading: "Processing Request...",
+                form_success_title: "Request Sent Successfully!",
+                form_success_desc: "The request has been securely delivered to our managers.",
+                
+                footer_link_tos: "Terms of Service",
+                footer_disclaimer: "World of Warcraft™ and Blizzard Entertainment™ are trademarks of Blizzard Entertainment. This site is not affiliated with Blizzard.",
+                
+                tos_title: "Terms of Service (Public Offer)",
+                tos_intro: "This document is a legally binding agreement between the Service and the User.",
+                tos_h1: "1. Assumption of Risks",
+                tos_p1_1: "1.1. Account Sharing and RMT directly violate Blizzard's ToS.",
+                tos_p1_2: "1.2. The User agrees that punitive measures, up to a permanent ban, may be applied.",
+                tos_h2: "2. Limitation of Liability",
+                tos_p2_1: "2.1. We apply maximum precautions (VPN) but do not guarantee protection.",
+                tos_p2_2: "2.2. In case of a ban, the Service bears no financial liability.",
+                tos_h5: "3. Payment Terms",
+                tos_p5_1: "3.1. Work begins exclusively after a 50% upfront payment. The rest is paid upon completion.",
+                tos_p5_2: "3.2. We accept Crypto and DonationAlerts.",
+                tos_h3: "4. Refund Policy",
+                tos_p3_1: "4.1. Refunds are not provided if the service was rendered or if a ban occurs.",
+                tos_p3_2: "4.2. Refunds only apply if we fail to start/complete the order.",
+                tos_h4: "5. Intellectual Property",
+                tos_p4_1: "5.1. Not affiliated with Blizzard. Trademarks belong to their respective owners.",
+                
+                news_modal_title: "News & Updates",
+                news_tab_all: "All",
+                news_tab_game: "Game News",
+                news_tab_site: "Site News",
+                guides_modal_title: "Pro Strategies & Guides",
+                guides_intro: "Our performers are not just mercenaries, they are professionals from the top 100 guilds in the world. They are the ones who, based on their colossal experience, compile these guides. Learn from the absolute best.",
+                
+                srv_modal_title: "Our Services",
+                srv_lvl_title: "Powerleveling",
+                srv_lvl_desc: "<p>Skip the grind. We will level your character blazingly fast using optimal questing and dungeon routes. 100% done by hand.</p><ul><li>Levels 1-60: Standard scaling content.</li><li>Levels 60-70: Older expansion content.</li><li>Levels 70-80: The latest expansion leveling.</li><li>Levels 80-90: Max level endgame push. Guaranteed safety.</li></ul>",
+                srv_mythic_title: "Mythic+ Dungeons",
+                srv_mythic_desc: "<p>Secure your weekly Great Vault loot, high-ilvl gear, and Mythic+ Rating. Our elite groups will time any key effortlessly.</p><ul><li>+10 Keys: Perfect for farming crests.</li><li>+15 Keys: The sweet spot for Hero track gear.</li><li>+20 Keys: Mythic track gear and teleports.</li></ul>",
+                srv_raid_title: "Raid Carries",
+                srv_raid_desc: "<p>Full clears of the latest raids. Get your Ahead of the Curve achievements, mounts, and Best-in-Slot gear.</p><ul><li>Normal Clear: Experience the story.</li><li>Heroic Clear: Earn AOTC and powerful upgrades.</li><li>Mythic Clear: The ultimate challenge. Exclusive titles.</li></ul>"
+            },
+            ru: {
+                page_title: "Azeroth's Guides | Премиальный Бустинг",
+                site_name: "Azeroth's<span>guides</span>",
+                nav_services: "Об Услугах",
+                nav_news: "Новости",
+                nav_guides: "Гайды",
+                nav_roadmap: "Путь проекта",
+                nav_why_us: "О нас",
+                nav_reviews: "Отзывы",
+                nav_for_boosters: "Бустерам",
+                nav_faq: "FAQ",
+                hero_title: "ПОКОРИТЕ АЗЕРОТ",
+                hero_subtitle: "Премиальный сервис бустинга и профессиональные стратегии. Учитесь у лучших, достигайте целей быстро, безопасно и по честной цене.",
+                hero_cta: "Рассчитать стоимость",
+                btn_back: "Назад",
+                calc_section_title: "Калькулятор Услуг",
+                calc_label_type: "Тип услуги",
+                calc_opt_leveling: "Прокачка уровня (1-90)",
+                calc_opt_mythic: "Эпохальные+ Ключи",
+                calc_opt_raids: "Прохождение Рейдов",
+                price_panel_title: "Итоговая стоимость",
+                price_panel_guarantee: "Комиссия включена",
+                price_panel_btn: "Оформить Заказ",
+                lvl_current: "Текущий уровень:",
+                lvl_desired: "Желаемый уровень:",
+                opt_key_10: "+10 Ключ (В таймер)",
+                opt_key_15: "+15 Ключ (В таймер)",
+                opt_key_20: "+20 Ключ (В таймер)",
+                opt_raid_norm: "Рейд: Нормал (Фулл лут)",
+                opt_raid_hc: "Рейд: Героик (Фулл лут)",
+                opt_raid_mythic: "Рейд: Эпохальный (Первые 3 босса)",
+                
+                rm_title: "История создания Azeroth's Guides",
+                rm_intro: "Azeroth's Guides не был создан в корпоративном офисе. Он был создан небольшой группой друзей, которые потратили больше десятилетия на рейды, арены и исследование каждого уголка Азерота. Мы устали смотреть, как крупные платформы относятся к игрокам как к числам. Мы решили создать место, где честность и безопасность стоят на первом месте.",
+                rm_1_date: "Этап 1",
+                rm_1_title: "Обман и Идея",
+                rm_1_desc: "Группу ветеранов из топ-100 гильдий обманула крупная бустинг-компания. Поняв, что исполнители получают копейки, мы решили создать свою честную таверну.",
+                rm_2_date: "Этап 2",
+                rm_2_title: "Разработка",
+                rm_2_desc: "Наша Миссия: Предоставлять элитные услуги, сохраняя человеческое отношение 1:1. Мы создали безопасную платформу с жестким VPN-роутингом.",
+                rm_3_date: "Этап 3",
+                rm_3_title: "Инфраструктура",
+                rm_3_desc: "Запуск официального Discord-канала, релиз сайта и формирование статика из элитных, проверенных игроков.",
+                rm_4_date: "Этап 4",
+                rm_4_title: "Первый триумф",
+                rm_4_desc: "Успешное выполнение первого заказа. Клиент доволен, а бустер мгновенно получил свои 50%. Механизм запущен.",
+                
+                features_title: "Почему Azeroth's Guides?",
+                features_intro: "На рынке, полном ботов и жадных корпораций, мы выступаем за качество и прозрачность:",
+                feat_1_title: "100% Ручная работа",
+                feat_1_desc: "Мы не используем скрипты или ботов. Каждое достижение зарабатывается руками профессионалов.",
+                feat_2_title: "Безопасность",
+                feat_2_desc: "Мы используем приватные VPN под ваш город, защищая аккаунт от детекта Blizzard.",
+                feat_3_title: "Видео-доказательства",
+                feat_3_desc: "Полная прозрачность. Наши бустеры предоставляют видео старта и конца сессии (проверка сумок и золота).",
+                feat_4_title: "Честные цены",
+                feat_4_desc: "Мы держим комиссии на адекватном уровне, привлекая лучших игроков. Элитный сервис без корпоративных наценок.",
+                feat_5_title: "Поддержка ветеранов",
+                feat_5_desc: "Наши менеджеры — давние игроки WoW. Они понимают ваши потребности и готовы помочь 24/7.",
+                
+                rev_title: "Отзывы Клиентов",
+                
+                booster_title: "Станьте Бустером",
+                booster_subtitle: "Монетизируй свой скилл в WoW",
+                booster_desc: "Наш сервис создан игроками для игроков. Лучшие и прозрачные условия на рынке.",
+                booster_li_1: "Фиксированная выплата: ровно 50% от суммы заказа.",
+                booster_li_2: "Свобода: берите только те заказы, которые вам нравятся.",
+                booster_li_4: "Выплаты по договоренности (Крипта / Карты и т.д.).",
+                booster_btn: "Подать заявку",
+                booster_circle_desc: "Честная доля исполнителя",
+                
+                faq_title: "Частые Вопросы",
+                faq_1_q: "Это безопасно для моего аккаунта?",
+                faq_1_a: "Мы применяем приватные VPN. Но передача аккаунта несет риски (см. оферту). Для 100% безопасности выбирайте режим Self-play.",
+                faq_2_q: "Какие способы оплаты вы принимаете?",
+                faq_2_a: "На данный момент мы принимаем Криптовалюту и DonationAlerts. Поддержка PayPal скоро появится. Мы работаем по 50% предоплате.",
+                faq_3_q: "Как быстро начнется выполнение?",
+                faq_3_a: "Мы стараемся начать заказ как можно быстрее. Точное время зависит от текущей очереди и наличия свободных бустеров.",
+                faq_4_q: "Как я буду общаться с бустером?",
+                faq_4_a: "Вы будете на постоянной, прямой связи с вашим личным бустером в Discord или Telegram.",
+                
+                form_title_order: "Оформление заказа",
+                form_subtitle: "Заполните данные ниже для старта.",
+                form_title_apply: "Заявка в команду",
+                form_apply_sub: "Оставьте данные, чтобы стать бустером.",
+                form_lbl_name: "Имя персонажа",
+                form_lbl_contact: "Способ связи",
+                form_lbl_region: "Регион",
+                form_lbl_faction: "Фракция",
+                form_fac_horde: "ОРДА",
+                form_fac_alliance: "АЛЬЯНС",
+                form_lbl_notes: "Детали / Услуга",
+                form_lbl_armory: "Ссылка на Armory / Raider.io",
+                form_lbl_exp: "Опишите ваш опыт бустинга",
+                form_btn_submit: "Отправить заявку",
+                form_loading: "Отправка на сервер...",
+                form_success_title: "Успешно отправлено!",
+                form_success_desc: "Заявка получена, наш менеджер скоро с вами свяжется.",
+                
+                footer_link_tos: "Публичная Оферта",
+                footer_disclaimer: "World of Warcraft™ является торговой маркой Blizzard. Сайт не связан с Blizzard.",
+                
+                tos_title: "Публичная Оферта",
+                tos_intro: "Настоящий документ является юридически значимым соглашением.",
+                tos_h1: "1. Риски и Правила",
+                tos_p1_1: "1.1. Передача аккаунта (Account Sharing) нарушает ToS Blizzard.",
+                tos_p1_2: "1.2. Пользователь принимает риск получения блокировки.",
+                tos_h2: "2. Ограничение ответственности",
+                tos_p2_1: "2.1. Мы используем VPN, но не даем абсолютных гарантий защиты.",
+                tos_p2_2: "2.2. При блокировке Сервис не несет финансовой ответственности.",
+                tos_h5: "3. Условия оплаты",
+                tos_p5_1: "3.1. Работа начинается ИСКЛЮЧИТЕЛЬНО по 50% предоплате. Оставшиеся 50% - по завершению.",
+                tos_p5_2: "3.2. Принимаем Криптовалюту и DonationAlerts.",
+                tos_h3: "4. Возврат средств",
+                tos_p3_1: "4.1. Возврат не производится, если услуга оказана или получен бан.",
+                tos_p3_2: "4.2. Возврат возможен только при нашей невозможности выполнить заказ.",
+                tos_h4: "5. Интеллектуальная собственность",
+                tos_p4_1: "5.1. Все права на марки принадлежат их владельцам.",
+                
+                news_modal_title: "Новости и Обновления",
+                news_tab_all: "Все",
+                news_tab_game: "По Игре",
+                news_tab_site: "По Сайту",
+                guides_modal_title: "Профессиональные Гайды",
+                guides_intro: "Наши исполнители — не просто наемники, это профессионалы из топ-100 гильдий мира. Именно они, опираясь на свой колоссальный опыт, составляют эти гайды. Учитесь у лучших.",
+                
+                srv_modal_title: "Об Услугах",
+                srv_lvl_title: "Прокачка Уровня",
+                srv_lvl_desc: "<p>Забудьте о рутине. Мы быстро прокачаем вашего персонажа по оптимальным маршрутам. 100% руками.</p><ul><li>Уровни 1-60: Стандартный контент.</li><li>Уровни 60-70: Контент старых дополнений.</li><li>Уровни 70-80: Актуальный контент прокачки.</li><li>Уровни 80-90: Эндгейм пуш. Максимальная безопасность.</li></ul>",
+                srv_mythic_title: "Эпохальные+ Ключи",
+                srv_mythic_desc: "<p>Гарантированный лут в хранилище и топ шмот. Наши элитные группы закроют любой ключ до +20 без проблем.</p><ul><li>+10 Ключи: Фарм гребней.</li><li>+15 Ключи: Идеально для Героик-экипировки.</li><li>+20 Ключи: Мифический шмот и порталы.</li></ul>",
+                srv_raid_title: "Рейды",
+                srv_raid_desc: "<p>Полное прохождение актуальных рейдов. Получите достижения и BiS экипировку.</p><ul><li>Нормал: Узнайте сюжет и оденьте твинка.</li><li>Героик: Достижение AOTC и мощные апгрейды.</li><li>Мифик: Ультимативный вызов. Эксклюзивные звания.</li></ul>"
+            },
+            fr: {
+                page_title: "Azeroth's Guides | Premium",
+                site_name: "Azeroth's<span>guides</span>",
+                nav_services: "Services",
+                nav_news: "Actualités",
+                nav_guides: "Guides",
+                nav_roadmap: "Parcours",
+                nav_why_us: "Pourquoi nous",
+                nav_reviews: "Avis",
+                nav_for_boosters: "Boosters",
+                nav_faq: "FAQ",
+                hero_title: "CONQUÉREZ AZEROTH",
+                hero_subtitle: "Service premium et stratégies pro. Rapide, sûr et juste.",
+                hero_cta: "Calculer",
+                btn_back: "Retour",
+                calc_section_title: "Calculateur",
+                calc_label_type: "Type",
+                calc_opt_leveling: "Niveaux (1-90)",
+                calc_opt_mythic: "Mythique+",
+                calc_opt_raids: "Raids",
+                price_panel_title: "Total",
+                price_panel_guarantee: "Frais inclus",
+                price_panel_btn: "Commander",
+                lvl_current: "Niveau Actuel:",
+                lvl_desired: "Niveau Désiré:",
+                opt_key_10: "Clé +10",
+                opt_key_15: "Clé +15",
+                opt_key_20: "Clé +20",
+                opt_raid_norm: "Raid Normal",
+                opt_raid_hc: "Raid Héroïque",
+                opt_raid_mythic: "Raid Mythique",
+                rm_title: "Notre Histoire",
+                rm_intro: "Créé par des joueurs passionnés, nous offrons une alternative honnête aux grandes corporations.",
+                rm_1_date: "Phase 1",
+                rm_1_title: "La Trahison",
+                rm_1_desc: "Trompés par une grande agence, nous avons créé notre plateforme.",
+                rm_2_date: "Phase 2",
+                rm_2_title: "Développement",
+                rm_2_desc: "Plateforme sécurisée (VPN) et transparente.",
+                rm_3_date: "Phase 3",
+                rm_3_title: "Lancement",
+                rm_3_desc: "Discord créé. Premiers joueurs d'élite recrutés.",
+                rm_4_date: "Phase 4",
+                rm_4_title: "Premier Sang",
+                rm_4_desc: "Première commande réussie, paiement de 50% immédiat.",
+                features_title: "Pourquoi Nous?",
+                features_intro: "100% Manuel, Sécurité, Preuves vidéo.",
+                feat_1_title: "100% Manuel",
+                feat_1_desc: "Aucun bot, jamais.",
+                feat_2_title: "Sécurité",
+                feat_2_desc: "VPN dédiés et confidentialité.",
+                feat_3_title: "Preuve Vidéo",
+                feat_3_desc: "Transparence totale de l'inventaire.",
+                feat_4_title: "Prix Équitables",
+                feat_4_desc: "Prix inférieurs au marché.",
+                feat_5_title: "Support",
+                feat_5_desc: "Support vétéran 24/7.",
+                rev_title: "Avis Clients",
+                booster_title: "Devenez Booster",
+                booster_subtitle: "Gagnez grâce à WoW",
+                booster_desc: "Créé par des joueurs. Les meilleures conditions.",
+                booster_li_1: "Paiement fixe: exactement 50%.",
+                booster_li_2: "Liberté totale.",
+                booster_li_4: "Paiements par accord mutuel.",
+                booster_btn: "Postuler",
+                booster_circle_desc: "Part équitable",
+                faq_title: "FAQ",
+                faq_1_q: "Est-ce sûr?",
+                faq_1_a: "Nous utilisons un VPN.",
+                faq_2_q: "Paiement?",
+                faq_2_a: "Crypto et DonationAlerts. 50% avance.",
+                faq_3_q: "Délai?",
+                faq_3_a: "Le plus vite possible.",
+                faq_4_q: "Communication?",
+                faq_4_a: "Contact direct sur Discord.",
+                form_title_order: "Passer Commande",
+                form_subtitle: "Remplissez les détails.",
+                form_title_apply: "Rejoindre l'équipe",
+                form_apply_sub: "Laissez vos détails.",
+                form_lbl_name: "Personnage",
+                form_lbl_contact: "Contact",
+                form_lbl_region: "Région",
+                form_lbl_faction: "Faction",
+                form_fac_horde: "HORDE",
+                form_fac_alliance: "ALLIANCE",
+                form_lbl_notes: "Détails",
+                form_lbl_armory: "Lien Armory",
+                form_lbl_exp: "Votre expérience",
+                form_btn_submit: "Envoyer",
+                form_loading: "Traitement...",
+                form_success_title: "Succès!",
+                form_success_desc: "Demande envoyée avec succès.",
+                footer_link_tos: "Conditions d'utilisation",
+                footer_disclaimer: "Non affilié à Blizzard.",
+                tos_title: "Conditions d'utilisation",
+                tos_intro: "Ceci est un accord légal.",
+                tos_h1: "1. Risques",
+                tos_p1_1: "1.1. Le partage viole les règles.",
+                tos_p1_2: "1.2. Bannissement possible.",
+                tos_h2: "2. Responsabilité",
+                tos_p2_1: "2.1. Le VPN ne garantit pas une protection absolue.",
+                tos_p2_2: "2.2. Pas de remboursement si ban.",
+                tos_h5: "3. Paiement",
+                tos_p5_1: "3.1. 50% d'acompte requis.",
+                tos_p5_2: "3.2. Crypto acceptées.",
+                tos_h3: "4. Remboursements",
+                tos_p3_1: "4.1. Pas de remboursement post-service.",
+                tos_p3_2: "4.2. Uniquement pour faille interne.",
+                tos_h4: "5. Propriété",
+                tos_p4_1: "5.1. Marques de leurs propriétaires.",
+                news_modal_title: "Actualités",
+                news_tab_all: "Tout",
+                news_tab_game: "Jeu",
+                news_tab_site: "Site",
+                guides_modal_title: "Guides Pro",
+                guides_intro: "Rédigés par l'élite.",
+                srv_modal_title: "Nos Services",
+                srv_lvl_title: "Montée de niveau",
+                srv_lvl_desc: "<p>Rapide et 100% fait à la main.</p>",
+                srv_mythic_title: "Mythique+",
+                srv_mythic_desc: "<p>Loot de la grande chambre forte garanti.</p>",
+                srv_raid_title: "Raids",
+                srv_raid_desc: "<p>Nettoyage complet pour le meilleur équipement.</p>"
+            },
+            es: {
+                page_title: "Azeroth's Guides | Premium",
+                site_name: "Azeroth's<span>guides</span>",
+                nav_services: "Servicios",
+                nav_news: "Noticias",
+                nav_guides: "Guías",
+                nav_roadmap: "Camino",
+                nav_why_us: "Por qué",
+                nav_reviews: "Reseñas",
+                nav_for_boosters: "Para Boosters",
+                nav_faq: "FAQ",
+                hero_title: "CONQUISTA AZEROTH",
+                hero_subtitle: "Servicio premium y estrategias top. Rápido, seguro y precio justo.",
+                hero_cta: "Calcular Precio",
+                btn_back: "Atrás",
+                calc_section_title: "Calculadora",
+                calc_label_type: "Servicio",
+                calc_opt_leveling: "Subida (1-90)",
+                calc_opt_mythic: "Míticas+",
+                calc_opt_raids: "Raids",
+                price_panel_title: "Total",
+                price_panel_guarantee: "Tarifa incluida",
+                price_panel_btn: "Pedir",
+                lvl_current: "Nivel Actual:",
+                lvl_desired: "Nivel Deseado:",
+                opt_key_10: "Llave +10",
+                opt_key_15: "Llave +15",
+                opt_key_20: "Llave +20",
+                opt_raid_norm: "Raid Normal",
+                opt_raid_hc: "Raid Heroica",
+                opt_raid_mythic: "Raid Mítica",
+                rm_title: "La Historia",
+                rm_intro: "Creado por veteranos, una taberna honesta para todos.",
+                rm_1_date: "Fase 1",
+                rm_1_title: "La Idea",
+                rm_1_desc: "Estafados por agencias, creamos una taberna honesta.",
+                rm_2_date: "Fase 2",
+                rm_2_title: "Desarrollo",
+                rm_2_desc: "Plataforma segura con VPN y matemáticas transparentes.",
+                rm_3_date: "Fase 3",
+                rm_3_title: "Lanzamiento",
+                rm_3_desc: "Discord creado. Mejores jugadores reclutados.",
+                rm_4_date: "Fase 4",
+                rm_4_title: "Primer Sangre",
+                rm_4_desc: "Primer pedido completado, pago de 50% al instante.",
+                features_title: "¿Por Qué Nosotros?",
+                features_intro: "Calidad y transparencia:",
+                feat_1_title: "100% Manual",
+                feat_1_desc: "Sin bots.",
+                feat_2_title: "Seguridad",
+                feat_2_desc: "VPN dedicada.",
+                feat_3_title: "Video Prueba",
+                feat_3_desc: "Transparencia total.",
+                feat_4_title: "Precios Justos",
+                feat_4_desc: "Sin tarifas corporativas.",
+                feat_5_title: "Soporte",
+                feat_5_desc: "Veteranos 24/7.",
+                rev_title: "Reseñas",
+                booster_title: "Únete como Booster",
+                booster_subtitle: "Gana con WoW",
+                booster_desc: "Las mejores condiciones.",
+                booster_li_1: "Pago fijo: exactamente 50%.",
+                booster_li_2: "Libertad total.",
+                booster_li_4: "Pagos por mutuo acuerdo.",
+                booster_btn: "Aplicar",
+                booster_circle_desc: "Parte justa",
+                faq_title: "FAQ",
+                faq_1_q: "¿Es seguro?",
+                faq_1_a: "Usamos VPN.",
+                faq_2_q: "¿Pago?",
+                faq_2_a: "Crypto y DonationAlerts. 50% inicial.",
+                faq_3_q: "¿Tiempo de inicio?",
+                faq_3_a: "Lo más rápido posible.",
+                faq_4_q: "¿Comunicación?",
+                faq_4_a: "Discord directo.",
+                form_title_order: "Hacer Pedido",
+                form_subtitle: "Rellena los detalles.",
+                form_title_apply: "Únete al equipo",
+                form_apply_sub: "Deja tus datos.",
+                form_lbl_name: "Personaje",
+                form_lbl_contact: "Contacto",
+                form_lbl_region: "Región",
+                form_lbl_faction: "Facción",
+                form_fac_horde: "HORDA",
+                form_fac_alliance: "ALIANZA",
+                form_lbl_notes: "Detalles",
+                form_lbl_armory: "Enlace Armory",
+                form_lbl_exp: "Experiencia",
+                form_btn_submit: "Enviar",
+                form_loading: "Procesando...",
+                form_success_title: "¡Enviado!",
+                form_success_desc: "Te contactaremos pronto.",
+                footer_link_tos: "Términos de Servicio",
+                footer_disclaimer: "No afiliado a Blizzard.",
+                tos_title: "Términos (Oferta)",
+                tos_intro: "Acuerdo legal.",
+                tos_h1: "1. Riesgos",
+                tos_p1_1: "1.1. Compartir cuenta viola los ToS.",
+                tos_p1_2: "1.2. Baneo posible.",
+                tos_h2: "2. Responsabilidad",
+                tos_p2_1: "2.1. El VPN no garantiza todo.",
+                tos_p2_2: "2.2. No hay reembolso por ban.",
+                tos_h5: "3. Pagos",
+                tos_p5_1: "3.1. 50% prepago.",
+                tos_p5_2: "3.2. Crypto aceptadas.",
+                tos_h3: "4. Reembolsos",
+                tos_p3_1: "4.1. Sin reembolsos post-servicio.",
+                tos_p3_2: "4.2. Solo si hay fallas internas.",
+                tos_h4: "5. Propiedad",
+                tos_p4_1: "5.1. Marcas de sus dueños.",
+                news_modal_title: "Noticias",
+                news_tab_all: "Todo",
+                news_tab_game: "Juego",
+                news_tab_site: "Sitio",
+                guides_modal_title: "Guías Pro",
+                guides_intro: "Aprende de la élite.",
+                srv_modal_title: "Nuestros Servicios",
+                srv_lvl_title: "Subida de Nivel",
+                srv_lvl_desc: "<p>Rápido y 100% a mano.</p>",
+                srv_mythic_title: "Míticas+",
+                srv_mythic_desc: "<p>Loot garantizado.</p>",
+                srv_raid_title: "Raids",
+                srv_raid_desc: "<p>Limpieza completa para el mejor equipo.</p>"
+            }
+        };
+
+        /**
+         * ====================================================================
+         * 2. RICH DATA (NEWS, GUIDES, REVIEWS ARRAY FOR MARQUEE)
+         * ====================================================================
+         */
+        const newsData = [
+            {
+                id: 1, category: 'game', date: '2026-05-10', img: 'https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/blt7ef9b1a0e980dddf/62b4859a0fbf61113b2ce213/DF_Features_Tile_bg_2.jpg',
+                title: { en: "Patch 11.2 Release Date", ru: "Дата выхода патча 11.2" },
+                desc: { en: "Blizzard has officially announced the launch date...", ru: "Официально объявлена дата нового контента..." },
+                fullContent: {
+                    en: "<p>The wait is almost over. Patch 11.2 brings a massive new raid tier, a complete overhaul of the Mythic+ affix system, and huge class balance changes.</p><h3>What to expect?</h3><ul><li>New 11-boss Raid: The Void Core</li><li>Seasonal Affix Removed: Say goodbye to annoying weekly mods.</li><li>Mage and Warlock Reworks</li></ul><p>Our boosters are already testing the PTR to provide you with the best strategies and carry services on day 1!</p>",
+                    ru: "<p>Ожидание почти окончено. Патч 11.2 приносит новый огромный рейд, полную переработку аффиксов в М+ и гигантский баланс классов.</p><h3>Чего ожидать?</h3><ul><li>Новый рейд на 11 боссов: Ядро Бездны</li><li>Удаление сезонного аффикса</li><li>Полный реворк Магов и Локов</li></ul><p>Наши профи уже тестят PTR, чтобы выдавать лучший буст в первый же день!</p>"
+                }
+            },
+            {
+                id: 2, category: 'site', date: '2026-05-05', img: 'https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/bltb16c4912239fc415/6154e1fb2d03bd1a853dc47d/shadowlands-bg.jpg',
+                title: { en: "Crypto & DonationAlerts Payments", ru: "Крипта и DonationAlerts" },
+                desc: { en: "Pay anonymously and securely.", ru: "Платите безопасно." },
+                fullContent: {
+                    en: "<p>To ensure 100% privacy and security for our clients, we have integrated a fully automated cryptocurrency payment gateway alongside DonationAlerts.</p><h3>Supported Methods:</h3><ul><li>USDT (TRC20 / ERC20)</li><li>Bitcoin (BTC) & Ethereum (ETH)</li><li>DonationAlerts</li></ul><p>You only need to pay 50% upfront. PayPal support is currently in development!</p>",
+                    ru: "<p>Для обеспечения 100% безопасности мы принимаем платежи через Крипту и DonationAlerts. PayPal в разработке.</p><h3>Доступные методы:</h3><ul><li>USDT (TRC20 / ERC20)</li><li>Bitcoin & Ethereum</li><li>DonationAlerts</li></ul><p>Напоминаем, что мы работаем по 50% предоплате!</p>"
+                }
+            },
+            {
+                id: 3, category: 'site', date: '2026-04-20', img: 'https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/blt088895029b4334cf/623253518e955d49673a88f6/classic-bg.jpg',
+                title: { en: "We Reached 1000 Active Boosters!", ru: "Нас уже 1000 активных бустеров!" },
+                desc: { en: "Our tavern continues to grow thanks to our 50% payout policy.", ru: "Благодаря честным выплатам мы собрали лучших игроков." },
+                fullContent: {
+                    en: "<p>We are thrilled to announce that our active roster has surpassed 1,000 professional players! Because we offer a strict 50% payout, elite players from top guilds prefer to work with us.</p>",
+                    ru: "<p>Мы рады сообщить, что наш активный ростер превысил 1000 профессионалов! Поскольку мы предлагаем честные 50% выплат, элитные игроки выбирают нас.</p>"
+                }
+            },
+            {
+                id: 4, category: 'game', date: '2026-04-15', img: 'https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/blt7ef9b1a0e980dddf/62b4859a0fbf61113b2ce213/DF_Features_Tile_bg_2.jpg',
+                title: { en: "Paladin Retribution Buffs", ru: "Баффы Прото Паладинов" },
+                desc: { en: "Huge survivability buffs incoming.", ru: "Глобальное повышение выживаемости." },
+                fullContent: {
+                    en: "<p>Paladins are receiving a 15% armor buff across the board. Time to push those +25 keys!</p>",
+                    ru: "<p>Паладины получают 15% бафф к броне. Самое время пушить +25 ключи!</p>"
+                }
+            }
+        ];
+
+        const guidesData = [
+            {
+                id: 1, icon: "🔥", author: "R1 Gladiator / Limit", img: 'https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/bltf4d2d4c0629ecbf2/6154e1fb80f2791e2b58efec/df-bg.jpg',
+                title: { en: "Fire Mage: Mythic+ Positioning", ru: "Фаер Маг: Позиционирование в ключах" },
+                fullContent: {
+                    en: "<p>Welcome to the ultimate Fire Mage guide for pushing high keys. Written by our Top-100 world raider.</p><h3>Combustion Windows</h3><p>The key to Fire is knowing exactly when your tank will pull big. Never hold Combustion for more than 15 seconds if a large pack is coming.</p><h3>Positioning</h3><p>Always stay at max range to bait mechanics away from melee.</p>",
+                    ru: "<p>Добро пожаловать в ультимативный гайд на Фаер Мага для высоких ключей от игрока топ-100 мира.</p><h3>Бурст-окна</h3><p>Секрет фаера — знать, когда танк собирает большой пак. Никогда не держите Комбуст дольше 15 секунд.</p><h3>Позиция</h3><p>Держитесь на макс рендже, чтобы байтить механики.</p>"
+                }
+            },
+            {
+                id: 2, icon: "🛡️", author: "MDI Champion", img: 'https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/blt088895029b4334cf/623253518e955d49673a88f6/classic-bg.jpg',
+                title: { en: "Prot Warrior: Threat Management", ru: "Прото Вар: Управление агро" },
+                fullContent: {
+                    en: "<p>A quick guide from our MDI champion booster.</p><h3>Opener</h3><p>Charge -> Avatar -> Thunder Clap -> Shield Block. This simple sequence ensures nothing hits your healer.</p><h3>Kiting</h3><p>When Leap is on CD, use Piercing Howl to slow mobs.</p>",
+                    ru: "<p>Быстрый гайд от нашего бустера - чемпиона MDI.</p><h3>Опенер</h3><p>Рывок -> Аватара -> Удар Грома -> Блок Щитом. Гарантирует жизнь хилу.</p><h3>Кайтинг</h3><p>Используйте Пронзительный Вой, чтобы замедлить мобов и отойти.</p>"
+                }
+            },
+            {
+                id: 3, icon: "🌿", author: "Echo Healer", img: 'https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/blt7ef9b1a0e980dddf/62b4859a0fbf61113b2ce213/DF_Features_Tile_bg_2.jpg',
+                title: { en: "Resto Druid: Raid Healing Secrets", ru: "Ресто Друид: Секреты Рейд-Хила" },
+                fullContent: {
+                    en: "<p>Learn to pre-hot like a World First raider.</p><h3>Ramp Setup</h3><p>Start applying Rejuvenation 10 seconds before the boss does an AoE mechanic. Wild Growth right before impact.</p>",
+                    ru: "<p>Учитесь пре-хотать как игрок World First.</p><h3>Подготовка к урону</h3><p>Начинайте раскидывать Омоложение за 10 секунд до АоЕ механики. Дикий рост жмется прямо перед ударом.</p>"
+                }
+            },
+            {
+                id: 4, icon: "🐉", author: "Liquid Evoker", img: 'https://images.blz-contentstack.com/v3/assets/blt3452e3b114f09210/bltb16c4912239fc415/6154e1fb2d03bd1a853dc47d/shadowlands-bg.jpg',
+                title: { en: "Evoker: Deep Breath Tech", ru: "Эвокер: Идеальный Вдох" },
+                fullContent: {
+                    en: "<p>Deep Breath gives immunity to CC. Use it defensively in keys!</p>",
+                    ru: "<p>Глубокий вдох дает иммунитет к контролю. Используйте для эвейда механик!</p>"
+                }
+            }
+        ];
+
+        // 10 Realistic Reviews for Marquee
+        const reviewsData = [
+            { s: 5, txt: { en: `"Honestly didn't expect it to be this fast. The guys were super chill, helped me out with some tips too. Def coming back for the next tier."`, ru: `"Честно, не ожидал, что закроют так быстро. Ребята адекватные, даже пару фишек по классу подсказали. На следующий сезон я с вами."`}, name: "ThrallSlayer99", srv: "Mythic+", av: "T" },
+            { s: 5, txt: { en: `"Bought 20-70 for my alt. Was a bit worried about my account, but they used a VPN from my city and sent me screenshots of my bags before and after. Very professional."`, ru: `"Брал кач 20-70 для твинка. Немного переживал за акк, но они юзали VPN моего города и скинули скрины сумок до и после. Очень профессионально."`}, name: "ElvenMage", srv: "Powerleveling", av: "E" },
+            { s: 5, txt: { en: `"First time buying a boost. The guild was super coordinated, got my AOTC and some nice loot. Cheaper than other sites I checked."`, ru: `"Первый раз брал буст. Статик работает как часы, лутанул ачиву и пару шмоток. И по деньгам вышло реально дешевле, чем на других сайтах."`}, name: "DarkKnight", srv: "Heroic Raid", av: "D" },
+            { s: 5, txt: { en: `"Needed a specific trinket from a mythic boss. They pinged me on discord when they were at the boss, summoned me, killed it in 1 pull and traded the item. 10/10."`, ru: `"Нужна была тринька с мифика. Написали в дискорде, когда дошли до босса, суммонули, убили с первого пула и отдали шмотку. Просто 10 из 10."`}, name: "Heals4Real", srv: "Mythic Raid", av: "H" },
+            { s: 5, txt: { en: `"Very polite customer support. Answered all my questions in Discord at 3 AM. The boost itself was flawless."`, ru: `"Поддержка моё почтение. Спокойно ответили на все мои глупые вопросы в 3 часа ночи. Сам буст прошел идеально."`}, name: "NightStalker", srv: "Support", av: "N" },
+            { s: 5, txt: { en: `"My go-to place for AOTC every patch. Never disappointed, always fast and good vibes."`, ru: `"Каждый патч беру здесь героя своего времени. Ни разу не подвели, всегда быстро и с хорошим настроением в рейде."`}, name: "ZugZug", srv: "Heroic Raid", av: "Z" },
+            { s: 5, txt: { en: `"Played my own character (self-play) for a few +15s. The tank's routing was insane, we literally flew through the dungeons."`, ru: `"Решил пойти сам (селф-плей) на пару 15-х ключей. Роуты у танка просто бешеные, мы буквально пролетели данжи на одном дыхании."`}, name: "CasualDad", srv: "Mythic+", av: "C" },
+            { s: 5, txt: { en: `"Was worried about ban, but their VPN tech seems solid. No issues after 2 weeks. Everything is intact."`, ru: `"Сильно параноил насчет бана, но их VPN тема реально работает. Прошло уже пару недель, полет нормальный."`}, name: "SneakyRogue", srv: "Powerleveling", av: "S" },
+            { s: 5, txt: { en: `"They even streamed the whole raid for me privately on Discord. Was pretty fun to watch them just destroy the bosses."`, ru: `"Парни стримили мне весь рейд в приватном звонке Дискорда. Было прикольно смотреть, как они разносят боссов под пивко."`}, name: "LockAndLoad", srv: "Mythic Raid", av: "L" },
+            { s: 5, txt: { en: `"Top tier players. They explained mechanics while carrying me so I actually learned something."`, ru: `"Игроки высшего уровня. По ходу дела еще и механики мне объясняли, так что я даже чему-то научился."`}, name: "PaladinBro", srv: "Mythic+", av: "P" }
+        ];
+
+        /**
+         * ====================================================================
+         * 3. EXACT PRICING (-20% MARKET DISCOUNT)
+         * ====================================================================
+         */
+        const pricingData = {
+            mythic: { "opt_key_10": { USD: 6.5, RUB: 480, EUR: 6 }, "opt_key_15": { USD: 12, RUB: 960, EUR: 11 }, "opt_key_20": { USD: 24, RUB: 2000, EUR: 22 } },
+            raids: { "opt_raid_norm": { USD: 36, RUB: 3200, EUR: 33 }, "opt_raid_hc": { USD: 68, RUB: 6000, EUR: 64 }, "opt_raid_mythic": { USD: 112, RUB: 9600, EUR: 104 } }
+        };
+
+        const levelingBrackets = {
+            USD: [ { max: 60, price: 0.15 }, { max: 70, price: 0.30 }, { max: 80, price: 0.80 }, { max: 90, price: 3.10 } ],
+            RUB: [ { max: 60, price: 12 }, { max: 70, price: 25 }, { max: 80, price: 65 }, { max: 90, price: 250 } ],
+            EUR: [ { max: 60, price: 0.14 }, { max: 70, price: 0.28 }, { max: 80, price: 0.75 }, { max: 90, price: 2.90 } ]
+        };
+
+        let currentLang = 'en'; 
+        let currentCurrency = 'USD'; 
+
+        // DOM Nodes
+        const langSwitch = document.getElementById('lang-switch');
+        const currencySwitch = document.getElementById('currency-switch');
+        const boostTypeSelect = document.getElementById('boost-type');
+        const dynamicOptionsContainer = document.getElementById('dynamic-options-container');
+        const priceValueEl = document.getElementById('price-value');
+        const currencySymbolEl = document.getElementById('currency-symbol');
+        
+        const modalOrder = document.getElementById('modal-order');
+        const modalApply = document.getElementById('modal-apply');
+        const modalTos = document.getElementById('modal-tos');
+        const modalNews = document.getElementById('modal-news');
+        const modalGuides = document.getElementById('modal-guides');
+        const modalServices = document.getElementById('modal-services');
+
+        /**
+         * ====================================================================
+         * 4. ELEGANT ARCANE FLAME INTRO LOGIC
+         * ====================================================================
+         */
+        const flameIntro = document.getElementById('elegant-intro');
+        const heroContent = document.getElementById('hero-content');
+        
+        setTimeout(() => {
+            flameIntro.classList.add('hidden');
+            heroContent.style.opacity = 1;
+            setTimeout(() => { if(flameIntro) flameIntro.remove(); }, 1500);
+        }, 3500);
+
+        /**
+         * ====================================================================
+         * 5. CORE LOGIC (Language, Price)
+         * ====================================================================
+         */
+        // Event listeners for switches
+        langSwitch.addEventListener('change', (e) => setLanguage(e.target.value));
+        currencySwitch.addEventListener('change', (e) => {
+            currentCurrency = e.target.value;
+            updateCurrencySymbol();
+            calculatePrice();
+        });
+        boostTypeSelect.addEventListener('change', renderDynamicOptions);
+
+        function updateTranslations() {
+            document.documentElement.lang = currentLang;
+            document.querySelectorAll('[data-lang-key]').forEach(el => {
+                const key = el.getAttribute('data-lang-key');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+            // Re-render Dynamic Content
+            renderNews('all');
+            renderGuides();
+            renderReviews();
+            renderDynamicOptions();
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            if (lang === 'ru') currentCurrency = 'RUB';
+            else if (lang === 'en') currentCurrency = 'USD';
+            else currentCurrency = 'EUR';
+            
+            currencySwitch.value = currentCurrency;
+            langSwitch.value = currentLang;
+            
+            updateCurrencySymbol();
+            updateTranslations();
+            calculatePrice();
+        }
+
+        function updateCurrencySymbol() {
+            const symbols = { RUB: '₽', USD: '$', EUR: '€' };
+            currencySymbolEl.innerText = symbols[currentCurrency] || '$';
+        }
+
+        function getLevelingPrice(start, end, currency) {
+            let total = 0;
+            const brackets = levelingBrackets[currency];
+            for (let lvl = start; lvl < end; lvl++) {
+                let priceForThisLevel = 0;
+                for (let b of brackets) {
+                    if (lvl < b.max) { priceForThisLevel = b.price; break; }
+                }
+                total += priceForThisLevel;
+            }
+            return total;
+        }
+
+        function renderDynamicOptions() {
+            const type = boostTypeSelect.value;
+            dynamicOptionsContainer.innerHTML = ''; 
+
+            if (type === 'leveling') {
+                const currentText = translations[currentLang]['lvl_current'] || "Current Level:";
+                const desiredText = translations[currentLang]['lvl_desired'] || "Desired Level:";
+                
+                dynamicOptionsContainer.innerHTML = `
+                    <div class="range-container">
+                        <div class="range-header"><span>${currentText}</span><span class="val" id="curr-val">1</span></div>
+                        <input type="range" id="input-curr-lvl" min="1" max="89" value="1">
+                        <div class="range-header" style="margin-top: 10px;"><span>${desiredText}</span><span class="val" id="des-val">90</span></div>
+                        <input type="range" id="input-des-lvl" min="2" max="90" value="90">
+                    </div>`;
+
+                const currInput = document.getElementById('input-curr-lvl');
+                const desInput = document.getElementById('input-des-lvl');
+                const currVal = document.getElementById('curr-val');
+                const desVal = document.getElementById('des-val');
+
+                const handleSliders = () => {
+                    let cv = parseInt(currInput.value);
+                    let dv = parseInt(desInput.value);
+                    if (cv >= dv) { dv = Math.min(cv + 1, 90); desInput.value = dv; }
+                    currVal.innerText = cv; desVal.innerText = dv;
+                    calculatePrice();
+                };
+                currInput.addEventListener('input', handleSliders);
+                desInput.addEventListener('input', handleSliders);
+            } else {
+                const optionsObj = pricingData[type];
+                let optionsHTML = '';
+                for (const key in optionsObj) {
+                    const text = translations[currentLang][key] || key;
+                    optionsHTML += `<option value="${key}">${text}</option>`;
+                }
+                dynamicOptionsContainer.innerHTML = `<div class="calc-form-group" style="margin-top:20px;"><div class="calc-select-wrapper"><select id="specific-option" class="calc-select">${optionsHTML}</select></div></div>`;
+                
+                document.getElementById('specific-option').addEventListener('change', calculatePrice);
+            }
+            calculatePrice();
+        }
+
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const currentVal = Math.floor((1 - Math.pow(1 - progress, 3)) * (end - start) + start);
+                obj.innerText = currentVal.toLocaleString(currentLang === 'ru' ? 'ru-RU' : 'en-US');
+                if (progress < 1) window.requestAnimationFrame(step);
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        function calculatePrice() {
+            if (!priceValueEl) return;
+            const type = boostTypeSelect.value;
+            let finalPrice = 0;
+
+            if (type === 'leveling') {
+                const startLvl = parseInt(document.getElementById('input-curr-lvl')?.value || 1);
+                const endLvl = parseInt(document.getElementById('input-des-lvl')?.value || 90);
+                if (startLvl < endLvl) finalPrice = getLevelingPrice(startLvl, endLvl, currentCurrency);
+            } else {
+                const specificOpt = document.getElementById('specific-option')?.value;
+                if (specificOpt) finalPrice = pricingData[type][specificOpt][currentCurrency];
+            }
+
+            if (currentCurrency === 'RUB') finalPrice = Math.round(finalPrice / 10) * 10;
+            else finalPrice = Math.round(finalPrice);
+
+            const startVal = parseInt(priceValueEl.innerText.replace(/\s|,/g, '')) || 0;
+            animateValue(priceValueEl, startVal, finalPrice, 500);
+        }
+
+        /**
+         * ====================================================================
+         * 6. SCROLL ANIMATIONS & SVG RIVER
+         * ====================================================================
+         */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.rm-node').forEach(item => observer.observe(item));
+
+        const roadmapSection = document.getElementById('roadmap');
+        const maskPath = document.getElementById('rm-path-mask'); 
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) document.getElementById('main-header').classList.add('scrolled');
+            else document.getElementById('main-header').classList.remove('scrolled');
+
+            if(maskPath && roadmapSection) {
+                const rect = roadmapSection.getBoundingClientRect();
+                let scrollPercent = (window.innerHeight - rect.top) / (rect.height + window.innerHeight * 0.5);
+                scrollPercent = Math.max(0, Math.min(1, scrollPercent));
+                const drawLength = 4000 * (1 - scrollPercent);
+                maskPath.style.strokeDashoffset = drawLength;
+            }
+        });
+
+        /**
+         * ====================================================================
+         * 7. MARQUEE (REVIEWS), NEWS & GUIDES RENDER ENGINE
+         * ====================================================================
+         */
+        function renderReviews() {
+            const track = document.getElementById('reviews-track');
+            if(!track) return;
+            track.innerHTML = '';
+            
+            let html = '';
+            reviewsData.forEach(item => {
+                const txt = item.txt[currentLang] || item.txt['en'];
+                html += `
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">${txt}</p>
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">${item.av}</div>
+                            <div class="reviewer-info">
+                                <h4>${item.name}</h4>
+                                <span>${item.srv}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            track.innerHTML = html + html;
+        }
+
+        function renderNews(filter = 'all') {
+            const container = document.getElementById('news-container');
+            if(!container) return;
+            container.innerHTML = '';
+            const filtered = newsData.filter(i => filter === 'all' || i.category === filter);
+            
+            filtered.forEach(item => {
+                const title = item.title[currentLang] || item.title['en'];
+                const desc = item.desc[currentLang] || item.desc['en'];
+                const color = item.category === 'game' ? 'var(--color-alliance-glow)' : 'var(--color-primary)';
+                const tagStr = item.category === 'game' ? (currentLang === 'ru' ? 'ИГРА' : 'GAME') : (currentLang === 'ru' ? 'САЙТ' : 'SITE');
+                
+                const card = document.createElement('div');
+                card.className = 'article-card';
+                card.innerHTML = `
+                    <div class="article-meta"><span class="article-tag" style="color:${color}; border:1px solid ${color}">${tagStr}</span><span>${item.date}</span></div>
+                    <h3>${title}</h3><p>${desc}</p>
+                `;
+                card.addEventListener('click', () => openArticle('news', item));
+                container.appendChild(card);
+            });
+        }
+
+        function renderGuides() {
+            const container = document.getElementById('guides-container');
+            if(!container) return;
+            container.innerHTML = '';
+            guidesData.forEach(item => {
+                const title = item.title[currentLang] || item.title['en'];
+                const card = document.createElement('div');
+                card.className = 'article-card'; 
+                card.innerHTML = `
+                    <div class="article-meta">
+                        <span class="article-tag" style="color:var(--color-accent); border:1px solid var(--color-accent)">PRO GUIDE</span>
+                    </div>
+                    <h3>${item.icon} ${title}</h3>
+                    <p style="color: var(--color-accent); font-weight: bold; font-size: 0.9rem; margin-top: 15px; text-transform: uppercase;">By ${item.author}</p>
+                `;
+                card.addEventListener('click', () => openArticle('guide', item));
+                container.appendChild(card);
+            });
+        }
+
+        document.querySelectorAll('.modal-tab').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+                renderNews(e.target.getAttribute('data-filter'));
+            });
+        });
+
+        function openArticle(type, data) {
+            const isNews = type === 'news';
+            const title = data.title[currentLang] || data.title['en'];
+            const content = data.fullContent[currentLang] || data.fullContent['en']; 
+            
+            if(isNews) {
+                document.getElementById('news-main-view').style.display = 'none';
+                document.getElementById('full-article-view').style.display = 'block';
+                document.getElementById('article-img').src = data.img;
+                document.getElementById('article-title').innerText = title;
+                const tagStr = data.category === 'game' ? (currentLang === 'ru' ? 'ИГРА' : 'GAME') : (currentLang === 'ru' ? 'САЙТ' : 'SITE');
+                document.getElementById('article-tag').innerText = tagStr;
+                document.getElementById('article-date').innerText = data.date;
+                document.getElementById('article-content').innerHTML = content;
+            } else {
+                document.getElementById('guides-main-view').style.display = 'none';
+                document.getElementById('full-guide-view').style.display = 'block';
+                document.getElementById('guide-img').src = data.img;
+                document.getElementById('guide-title').innerText = title;
+                document.getElementById('guide-author').innerText = `AUTHOR: ${data.author}`;
+                document.getElementById('guide-content').innerHTML = content;
+            }
+        }
+
+        document.getElementById('btn-back-article')?.addEventListener('click', () => {
+            document.getElementById('full-article-view').style.display = 'none';
+            document.getElementById('news-main-view').style.display = 'block';
+        });
+
+        document.getElementById('btn-back-guide')?.addEventListener('click', () => {
+            document.getElementById('full-guide-view').style.display = 'none';
+            document.getElementById('guides-main-view').style.display = 'block';
+        });
+
+        /**
+         * ====================================================================
+         * 8. MODAL LOGIC & SMART FORM POPULATION
+         * ====================================================================
+         */
+        function openModal(modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            if(modal === modalNews) {
+                document.getElementById('news-main-view').style.display = 'block';
+                document.getElementById('full-article-view').style.display = 'none';
+                renderNews('all');
+            }
+            if(modal === modalGuides) {
+                document.getElementById('guides-main-view').style.display = 'block';
+                document.getElementById('full-guide-view').style.display = 'none';
+                renderGuides();
+            }
+        }
+        
+        function closeModal(modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            setTimeout(() => {
+                const formArea = modal.querySelector('div[id$="-content-area"]');
+                const spinner = modal.querySelector('.spinner-container');
+                const success = modal.querySelector('.form-success');
+                const form = modal.querySelector('form');
+                if(formArea) formArea.style.display = 'block';
+                if(success) success.style.display = 'none';
+                if(spinner) spinner.style.display = 'none';
+                if(form) form.reset();
+            }, 300);
+        }
+
+        document.getElementById('btn-open-order')?.addEventListener('click', () => {
+            const type = boostTypeSelect.value;
+            let sType = '';
+            
+            if(type === 'leveling') {
+                const sLvl = document.getElementById('input-curr-lvl').value;
+                const eLvl = document.getElementById('input-des-lvl').value;
+                const prefix = currentLang === 'ru' ? 'Прокачка Уровня' : 'Powerleveling';
+                sType = `${prefix}: ${sLvl} ➔ ${eLvl}`;
+            } else {
+                sType = boostTypeSelect.options[boostTypeSelect.selectedIndex].text + " / " + document.getElementById('specific-option').options[document.getElementById('specific-option').selectedIndex].text;
+            }
+            
+            const price = priceValueEl.innerText;
+            const sym = currencySymbolEl.innerText;
+            const titleTxt = currentLang === 'ru' ? 'Услуга' : 'Target Service';
+            const priceTxt = currentLang === 'ru' ? 'Примерная Стоимость' : 'Estimated Price';
+            
+            document.getElementById('order-notes').value = `${titleTxt}: ${sType}\n${priceTxt}: ${price} ${sym}\n\n`;
+            openModal(modalOrder);
+        });
+
+        document.querySelectorAll('input[name="order_contact_type"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                const input = document.getElementById('order-contact-value');
+                input.placeholder = e.target.value === 'Discord' ? 'Discord Tag (player#1234)' : 'Telegram Username (@player)';
+            });
+        });
+
+        document.querySelectorAll('input[name="apply_contact_type"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                const input = document.getElementById('apply-contact-value');
+                input.placeholder = e.target.value === 'Discord' ? 'Discord Tag (player#1234)' : 'Telegram Username (@player)';
+            });
+        });
+
+        document.getElementById('btn-open-apply-nav')?.addEventListener('click', () => openModal(modalApply));
+        document.getElementById('btn-open-apply')?.addEventListener('click', () => openModal(modalApply));
+        document.getElementById('btn-open-tos')?.addEventListener('click', (e) => { e.preventDefault(); openModal(modalTos); });
+        document.getElementById('btn-open-news')?.addEventListener('click', (e) => { e.preventDefault(); openModal(modalNews); });
+        document.getElementById('btn-open-guides')?.addEventListener('click', (e) => { e.preventDefault(); openModal(modalGuides); });
+        document.getElementById('btn-open-services')?.addEventListener('click', (e) => { e.preventDefault(); openModal(modalServices); });
+
+        document.querySelectorAll('.modal-close').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const targetId = e.target.getAttribute('data-target');
+                if(targetId) closeModal(document.getElementById(targetId));
+            });
+        });
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-overlay')) closeModal(e.target);
+        });
+
+        document.querySelectorAll('.btn-go-calc').forEach(btn => {
+            btn.addEventListener('click', () => {
+                closeModal(modalServices);
+                document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        /* 
+         * ==============================================================
+         * ОТПРАВКА ЗАЯВОК В ТЕЛЕГРАМ
+         * ==============================================================
+         */
+        const TELEGRAM_BOT_TOKEN = '8797331201:AAFb-2cL82tXFsDBwdktCFXUud8D-37QDHU'; 
+        const TELEGRAM_CHAT_ID = '-1003554253344';
+
+        function sendToTelegram(message, modalId) {
+            const modal = document.getElementById(modalId);
+            const contentArea = modal.querySelector('div[id$="-content-area"]');
+            const spinner = modal.querySelector('.spinner-container');
+            const success = modal.querySelector('.form-success');
+
+            contentArea.style.display = 'none';
+            spinner.style.display = 'block';
+
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    message_thread_id: 24,
+                    text: message,
+                    parse_mode: 'HTML'
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    spinner.style.display = 'none';
+                    success.style.display = 'block';
+                } else {
+                    alert("Submission Error. Please check Token/ID.");
+                    closeModal(modal);
+                }
+            })
+            .catch(error => {
+                alert("Network Error.");
+                closeModal(modal);
+            });
+        }
+
+        document.getElementById('order-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('order-char-name').value;
+            const contactType = document.querySelector('input[name="order_contact_type"]:checked').value;
+            const contactVal = document.getElementById('order-contact-value').value;
+            const faction = document.querySelector('input[name="order_faction"]:checked').value;
+            const region = document.querySelector('input[name="order_region"]:checked').value;
+            const notes = document.getElementById('order-notes').value;
+            
+            const msg = `<b>🔥 НОВЫЙ ЗАКАЗ 🔥</b>\n\n<b>Имя:</b> ${name}\n<b>Связь (${contactType}):</b> ${contactVal}\n<b>Регион:</b> ${region}\n<b>Фракция:</b> ${faction}\n\n<b>Детали:</b>\n${notes}`;
+            sendToTelegram(msg, 'modal-order');
+        });
+
+        document.getElementById('apply-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const contactType = document.querySelector('input[name="apply_contact_type"]:checked').value;
+            const contactVal = document.getElementById('apply-contact-value').value;
+            const armory = document.getElementById('apply-armory').value;
+            const exp = document.getElementById('apply-exp').value;
+            
+            const msg = `<b>⚔️ ЗАЯВКА НА БУСТЕРА ⚔️</b>\n\n<b>Связь (${contactType}):</b> ${contactVal}\n<b>Armory:</b> ${armory}\n\n<b>Опыт:</b>\n${exp}`;
+            sendToTelegram(msg, 'modal-apply');
+        });
+
+        /**
+         * ====================================================================
+         * 9. FAQ ACCORDION LOGIC
+         * ====================================================================
+         */
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            if (question) {
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) item.classList.add('active');
+                });
+            }
+        });
+
+        /**
+         * ====================================================================
+         * 10. MAGICAL PARTICLE SYSTEM
+         * ====================================================================
+         */
+        class OptimizedParticleEngine {
+            constructor() {
+                this.canvas = document.getElementById('particle-canvas');
+                this.ctx = this.canvas.getContext('2d', { alpha: false }); 
+                this.ctx = this.canvas.getContext('2d');
+                this.particles = [];
+                this.particleCount = 100; 
+                
+                this.mouseX = -1000;
+                this.mouseY = -1000;
+                this.mouseRadius = 200; 
+                this.createOffscreenParticle();
+                this.resize();
+                window.addEventListener('resize', () => this.resize());
+                window.addEventListener('mousemove', (e) => { this.mouseX = e.x; this.mouseY = e.y; });
+                window.addEventListener('mouseout', () => { this.mouseX = -1000; this.mouseY = -1000; });
+                
+                this.initParticles();
+                this.animate();
+            }
+
+            createOffscreenParticle() {
+                this.osCanvas = document.createElement('canvas');
+                this.osCanvas.width = 60;
+                this.osCanvas.height = 60;
+                const osCtx = this.osCanvas.getContext('2d');
+                
+                const grad = osCtx.createRadialGradient(30, 30, 0, 30, 30, 30);
+                grad.addColorStop(0, 'rgba(168, 243, 255, 1)');
+                grad.addColorStop(0.2, 'rgba(0, 209, 255, 0.8)');
+                grad.addColorStop(1, 'rgba(0, 209, 255, 0)');
+                
+                osCtx.fillStyle = grad;
+                osCtx.beginPath();
+                osCtx.arc(30, 30, 30, 0, Math.PI * 2);
+                osCtx.fill();
+            }
+
+            resize() {
+                this.width = window.innerWidth; this.height = window.innerHeight;
+                this.canvas.width = this.width; this.canvas.height = this.height;
+            }
+
+            initParticles() {
+                this.particles = [];
+                for (let i = 0; i < this.particleCount; i++) this.particles.push(this.createParticle(true));
+            }
+
+            createParticle(randomY = false) {
+                const scale = Math.random() * 0.8 + 0.2;
+                return {
+                    x: Math.random() * this.width,
+                    y: randomY ? Math.random() * this.height : this.height + 20,
+                    size: 60 * scale, 
+                    speedY: Math.random() * 1.5 + 0.5,
+                    speedX: (Math.random() - 0.5) * 1,
+                    opacity: Math.random() * 0.7 + 0.1
+                };
+            }
+
+            animate() {
+                this.ctx.clearRect(0, 0, this.width, this.height);
+                this.ctx.globalCompositeOperation = 'screen';
+                
+                for (let i = 0; i < this.particles.length; i++) {
+                    let p = this.particles[i];
+                    
+                    let dx = this.mouseX - p.x;
+                    let dy = this.mouseY - p.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < this.mouseRadius) {
+                        let force = (this.mouseRadius - distance) / this.mouseRadius;
+                        p.x -= (dx / distance) * force * 5;
+                        p.y -= (dy / distance) * force * 5;
+                    }
+                    
+                    p.y -= p.speedY; 
+                    p.x += p.speedX;
+                    this.ctx.globalAlpha = p.opacity;
+                    this.ctx.drawImage(this.osCanvas, p.x - p.size/2, p.y - p.size/2, p.size, p.size);
+                    
+                    if (p.y < -50 || p.x < -50 || p.x > this.width + 50) {
+                        this.particles[i] = this.createParticle();
+                    }
+                }
+                this.ctx.globalAlpha = 1; 
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        /**
+         * ====================================================================
+         * 11. WOW TOKEN PRICE FETCHER (CLIENT SIDE)
+         * ====================================================================
+         */
+        async function fetchWowTokenPrices() {
+            try {
+                // Используем открытый API для получения цен прямо в браузере
+                const response = await fetch('https://wowtoken.app/v2/current/retail.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                const data = await response.json();
+                
+                // Форматируем цены
+                const euPrice = parseInt(data.eu[1]).toLocaleString('en-US');
+                const usPrice = parseInt(data.us[1]).toLocaleString('en-US');
+                
+                document.getElementById('token-price-eu').innerText = euPrice + " 🟡";
+                document.getElementById('token-price-us').innerText = usPrice + " 🟡";
+            } catch (error) {
+                console.error('Error fetching WoW Token prices:', error);
+                document.getElementById('token-price-eu').innerText = "N/A";
+                document.getElementById('token-price-us').innerText = "N/A";
+            }
+        }
+
+        // Init Everything
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('en'); 
+            new OptimizedParticleEngine();
+            
+            // Запуск парсера цен
+            fetchWowTokenPrices();
+            // Авто-обновление каждые 15 минут
+            setInterval(fetchWowTokenPrices, 15 * 60 * 1000);
+        });
+    </script>
+</body>
+</html>
